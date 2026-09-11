@@ -1,0 +1,45 @@
+{
+  "name": "poi-plugin-compass",
+  "version": "0.1.0",
+  "description": "通常海域舰队罗盘",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "logic.js",
+    "data",
+    "assets",
+    "README.md",
+    "docs"
+  ],
+  "scripts": {
+    "check:syntax": "node --check index.js && node --check logic.js && node --check test.js",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "poi-plugin",
+    "kancolle",
+    "compass",
+    "routing"
+  ],
+  "author": {
+    "name": "Rika",
+    "url": "https://github.com/RikaKagurasaka"
+  },
+  "license": "MIT",
+  "poiPlugin": {
+    "id": "compass",
+    "title": "舰队罗盘",
+    "description": "通常海域地图、带路条件和路线概率",
+    "icon": "fa/compass",
+    "priority": 20,
+    "apiVer": {
+      "11.99.99": "0.1.0"
+    }
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

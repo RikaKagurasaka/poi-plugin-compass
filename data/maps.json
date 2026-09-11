@@ -1,0 +1,511 @@
+{
+  "schemaVersion": 1,
+  "dataVersion": "2026-09-11.1",
+  "maps": {
+    "1-1": {
+      "name": "镇守府正面海域",
+      "start": "1",
+      "boss": "C",
+      "sourceRefs": [
+        {
+          "kind": "kcwiki",
+          "url": "https://zh.kcwiki.cn/wiki/1-1",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "kind": "nga",
+          "url": "https://bbs.nga.cn/read.php?pid=330613251",
+          "checkedAt": "2026-09-11"
+        }
+      ],
+      "rules": [
+        {
+          "id": "1-1-start",
+          "node": "1",
+          "priority": 1,
+          "predicate": { "kind": "always", "label": "起点固定前往 A" },
+          "outcomes": [{ "to": "A", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "1-1-A-1",
+          "node": "A",
+          "priority": 10,
+          "predicate": { "kind": "count", "field": "ships", "op": "==", "value": 1, "label": "舰队 1 舰" },
+          "outcomes": [
+            { "to": "B", "probability": 0.2 },
+            { "to": "C", "probability": 0.8 }
+          ],
+          "confidence": "verified"
+        },
+        {
+          "id": "1-1-A-2",
+          "node": "A",
+          "priority": 20,
+          "predicate": { "kind": "count", "field": "ships", "op": "==", "value": 2, "label": "舰队 2 舰" },
+          "outcomes": [
+            { "to": "B", "probability": 0.25 },
+            { "to": "C", "probability": 0.75 }
+          ],
+          "confidence": "verified"
+        },
+        {
+          "id": "1-1-A-3",
+          "node": "A",
+          "priority": 30,
+          "predicate": { "kind": "count", "field": "ships", "op": "==", "value": 3, "label": "舰队 3 舰" },
+          "outcomes": [
+            { "to": "B", "probability": 0.3 },
+            { "to": "C", "probability": 0.7 }
+          ],
+          "confidence": "verified"
+        },
+        {
+          "id": "1-1-A-4",
+          "node": "A",
+          "priority": 40,
+          "predicate": { "kind": "count", "field": "ships", "op": "==", "value": 4, "label": "舰队 4 舰" },
+          "outcomes": [
+            { "to": "B", "probability": 0.35 },
+            { "to": "C", "probability": 0.65 }
+          ],
+          "confidence": "verified"
+        },
+        {
+          "id": "1-1-A-5",
+          "node": "A",
+          "priority": 50,
+          "predicate": { "kind": "count", "field": "ships", "op": "==", "value": 5, "label": "舰队 5 舰" },
+          "outcomes": [
+            { "to": "B", "probability": 0.4 },
+            { "to": "C", "probability": 0.6 }
+          ],
+          "confidence": "verified"
+        },
+        {
+          "id": "1-1-A-6",
+          "node": "A",
+          "priority": 60,
+          "predicate": { "kind": "count", "field": "ships", "op": "==", "value": 6, "label": "舰队 6 舰" },
+          "outcomes": [
+            { "to": "B", "probability": 0.45 },
+            { "to": "C", "probability": 0.55 }
+          ],
+          "confidence": "verified"
+        }
+      ]
+    },
+    "2-5": {
+      "name": "冲之岛海",
+      "start": "1",
+      "boss": "O",
+      "sourceRefs": [
+        {
+          "kind": "kcwiki",
+          "url": "https://zh.kcwiki.cn/wiki/%E5%8D%97%E8%A5%BF%E7%BE%A4%E5%B3%B6%E6%B5%B7%E5%9F%9F/2-5",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "kind": "wikiwiki",
+          "url": "https://wikiwiki.jp/kancolle/%E3%83%AB%E3%83%BC%E3%83%88%E5%88%86%E5%B2%90",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "kind": "nga",
+          "url": "https://bbs.nga.cn/read.php?pid=330615601",
+          "checkedAt": "2026-09-11"
+        }
+      ],
+      "rules": [
+        {
+          "id": "2-5-1-ss4",
+          "node": "1",
+          "priority": 10,
+          "predicate": { "kind": "count", "category": "SS", "op": ">=", "value": 4, "label": "潜水系 ≥ 4" },
+          "outcomes": [{ "to": "B", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-1-cv",
+          "node": "1",
+          "priority": 20,
+          "predicate": { "kind": "count", "category": "CV", "op": ">=", "value": 1, "label": "空母系 ≥ 1" },
+          "outcomes": [{ "to": "C", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-1-av2",
+          "node": "1",
+          "priority": 30,
+          "predicate": { "kind": "count", "category": "AV", "op": ">=", "value": 2, "label": "水上机母舰 ≥ 2" },
+          "outcomes": [{ "to": "C", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-1-drum2",
+          "node": "1",
+          "priority": 40,
+          "predicate": { "kind": "equipmentShips", "equipment": "drum", "op": ">=", "value": 2, "label": "携带运输桶的舰 ≥ 2" },
+          "outcomes": [{ "to": "B", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-1-dde4",
+          "node": "1",
+          "priority": 50,
+          "predicate": { "kind": "count", "category": ["DD", "DE"], "op": ">=", "value": 4, "label": "驱逐/海防 ≥ 4" },
+          "outcomes": [{ "to": "B", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-1-cl-dde3",
+          "node": "1",
+          "priority": 60,
+          "predicate": {
+            "kind": "all",
+            "label": "轻巡 ≥ 1 且 驱逐/海防 ≥ 3",
+            "predicates": [
+              { "kind": "count", "category": "CL", "op": ">=", "value": 1 },
+              { "kind": "count", "category": ["DD", "DE"], "op": ">=", "value": 3 }
+            ]
+          },
+          "outcomes": [{ "to": "B", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-1-bb",
+          "node": "1",
+          "priority": 70,
+          "predicate": { "kind": "count", "category": "BB", "op": ">=", "value": 1, "label": "战舰系 ≥ 1" },
+          "outcomes": [{ "to": "C", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-1-dde3-random",
+          "node": "1",
+          "priority": 80,
+          "predicate": { "kind": "count", "category": ["DD", "DE"], "op": ">=", "value": 3, "label": "驱逐/海防 ≥ 3（约 80%）" },
+          "outcomes": [
+            { "to": "B", "probability": 0.8 },
+            { "to": "C", "probability": 0.2 }
+          ],
+          "confidence": "approximate"
+        },
+        {
+          "id": "2-5-1-fallback",
+          "node": "1",
+          "priority": 999,
+          "predicate": { "kind": "always", "label": "其他编成：规则未收录" },
+          "outcomes": [],
+          "confidence": "unknown"
+        },
+        {
+          "id": "2-5-B-ss3",
+          "node": "B",
+          "priority": 10,
+          "predicate": { "kind": "count", "category": "SS", "op": ">=", "value": 3, "label": "潜水系 ≥ 3" },
+          "outcomes": [{ "to": "A", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-B-fallback",
+          "node": "B",
+          "priority": 999,
+          "predicate": { "kind": "always", "label": "其余编成" },
+          "outcomes": [{ "to": "F", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-C-heavy",
+          "node": "C",
+          "priority": 10,
+          "predicate": {
+            "kind": "any",
+            "label": "战舰系 ≥ 3 或 空母系 ≥ 3",
+            "predicates": [
+              { "kind": "count", "category": "BB", "op": ">=", "value": 3 },
+              { "kind": "count", "category": "CV", "op": ">=", "value": 3 }
+            ]
+          },
+          "outcomes": [{ "to": "D", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-C-dd-e",
+          "node": "C",
+          "priority": 20,
+          "predicate": {
+            "kind": "all",
+            "label": "驱逐 ≥ 2 且 轻巡/航巡 ≥ 1",
+            "predicates": [
+              { "kind": "count", "category": "DD", "op": ">=", "value": 2 },
+              { "kind": "count", "category": ["CL", "CAV"], "op": ">=", "value": 1 }
+            ]
+          },
+          "outcomes": [{ "to": "E", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-C-random",
+          "node": "C",
+          "priority": 999,
+          "predicate": { "kind": "always", "label": "其余编成" },
+          "outcomes": [
+            { "to": "D", "probability": 0.3 },
+            { "to": "E", "probability": 0.7 }
+          ],
+          "confidence": "approximate"
+        },
+        {
+          "id": "2-5-E-bb",
+          "node": "E",
+          "priority": 10,
+          "predicate": { "kind": "count", "category": "BB", "op": ">=", "value": 1, "label": "战舰系 ≥ 1" },
+          "outcomes": [{ "to": "G", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-E-cl-dd4",
+          "node": "E",
+          "priority": 20,
+          "predicate": {
+            "kind": "all",
+            "label": "轻巡 ≥ 1 且 驱逐 ≥ 4",
+            "predicates": [
+              { "kind": "count", "category": "CL", "op": ">=", "value": 1 },
+              { "kind": "count", "category": "DD", "op": ">=", "value": 4 }
+            ]
+          },
+          "outcomes": [{ "to": "I", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-E-cv-ca",
+          "node": "E",
+          "priority": 30,
+          "predicate": { "kind": "count", "category": ["CV", "CA", "CAV"], "op": ">=", "value": 2, "label": "空母/重巡系 ≥ 2" },
+          "outcomes": [{ "to": "G", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-E-cl-dd3-high",
+          "node": "E",
+          "priority": 40,
+          "predicate": {
+            "kind": "all",
+            "label": "轻巡 ≥ 1、驱逐 ≥ 3、全高速",
+            "predicates": [
+              { "kind": "count", "category": "CL", "op": ">=", "value": 1 },
+              { "kind": "count", "category": "DD", "op": ">=", "value": 3 },
+              { "kind": "speed", "mode": "allHigh" }
+            ]
+          },
+          "outcomes": [{ "to": "I", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-E-fallback",
+          "node": "E",
+          "priority": 999,
+          "predicate": { "kind": "always", "label": "其余编成" },
+          "outcomes": [{ "to": "G", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-F-low",
+          "node": "F",
+          "priority": 10,
+          "predicate": { "kind": "speed", "mode": "hasLow", "label": "含低速舰" },
+          "outcomes": [{ "to": "J", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-F-dd3",
+          "node": "F",
+          "priority": 20,
+          "predicate": { "kind": "count", "category": "DD", "op": ">=", "value": 3, "label": "驱逐 ≥ 3" },
+          "outcomes": [{ "to": "E", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-F-cl-dd2",
+          "node": "F",
+          "priority": 30,
+          "predicate": {
+            "kind": "all",
+            "label": "轻巡 ≥ 1 且 驱逐 ≥ 2",
+            "predicates": [
+              { "kind": "count", "category": "CL", "op": ">=", "value": 1 },
+              { "kind": "count", "category": "DD", "op": ">=", "value": 2 }
+            ]
+          },
+          "outcomes": [{ "to": "E", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-F-bb3",
+          "node": "F",
+          "priority": 40,
+          "predicate": { "kind": "count", "category": "BB", "op": ">=", "value": 3, "label": "战舰系 ≥ 3" },
+          "outcomes": [{ "to": "J", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-F-dd2-random",
+          "node": "F",
+          "priority": 50,
+          "predicate": { "kind": "count", "category": "DD", "op": "==", "value": 2, "label": "驱逐 = 2（约 50%）" },
+          "outcomes": [
+            { "to": "E", "probability": 0.5 },
+            { "to": "J", "probability": 0.5 }
+          ],
+          "confidence": "approximate"
+        },
+        {
+          "id": "2-5-F-random",
+          "node": "F",
+          "priority": 999,
+          "predicate": { "kind": "always", "label": "其余编成（约 35%/65%）" },
+          "outcomes": [
+            { "to": "E", "probability": 0.35 },
+            { "to": "J", "probability": 0.65 }
+          ],
+          "confidence": "approximate"
+        },
+        {
+          "id": "2-5-G-dd4",
+          "node": "G",
+          "priority": 10,
+          "predicate": {
+            "kind": "all",
+            "label": "驱逐 ≥ 4 且 战舰/空母 ≤ 1",
+            "predicates": [
+              { "kind": "count", "category": "DD", "op": ">=", "value": 4 },
+              { "kind": "count", "category": ["BB", "CV"], "op": "<=", "value": 1 }
+            ]
+          },
+          "outcomes": [{ "to": "I", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-G-dd3-cl",
+          "node": "G",
+          "priority": 20,
+          "predicate": {
+            "kind": "all",
+            "label": "驱逐 = 3、轻巡 ≥ 1、无战舰/空母",
+            "predicates": [
+              { "kind": "count", "category": "DD", "op": "==", "value": 3 },
+              { "kind": "count", "category": "CL", "op": ">=", "value": 1 },
+              { "kind": "count", "category": ["BB", "CV"], "op": "==", "value": 0 }
+            ]
+          },
+          "outcomes": [{ "to": "I", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-G-los41",
+          "node": "G",
+          "priority": 30,
+          "predicate": { "kind": "los", "op": ">=", "value": 41, "label": "33 式索敌 ≥ 41" },
+          "outcomes": [{ "to": "L", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-G-los35",
+          "node": "G",
+          "priority": 40,
+          "predicate": { "kind": "los", "op": "<", "value": 35, "label": "33 式索敌 < 35" },
+          "outcomes": [{ "to": "K", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-G-los-random",
+          "node": "G",
+          "priority": 50,
+          "predicate": { "kind": "losRange", "min": 35, "max": 41, "label": "33 式索敌 35～41（随机）" },
+          "outcomes": [
+            { "to": "K", "probability": 0.5 },
+            { "to": "L", "probability": 0.5 }
+          ],
+          "confidence": "approximate"
+        },
+        {
+          "id": "2-5-I-los34",
+          "node": "I",
+          "priority": 10,
+          "predicate": { "kind": "los", "op": ">=", "value": 34, "label": "33 式索敌 ≥ 34" },
+          "outcomes": [{ "to": "O", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-I-los33",
+          "node": "I",
+          "priority": 20,
+          "predicate": { "kind": "losRange", "min": 33, "max": 34, "label": "33 式索敌 33～34（约 65%）" },
+          "outcomes": [
+            { "to": "O", "probability": 0.65 },
+            { "to": "H", "probability": 0.35 }
+          ],
+          "confidence": "approximate"
+        },
+        {
+          "id": "2-5-I-los31",
+          "node": "I",
+          "priority": 30,
+          "predicate": { "kind": "losRange", "min": 31, "max": 33, "label": "33 式索敌 31～33（约 35%）" },
+          "outcomes": [
+            { "to": "O", "probability": 0.35 },
+            { "to": "H", "probability": 0.65 }
+          ],
+          "confidence": "approximate"
+        },
+        {
+          "id": "2-5-I-los-low",
+          "node": "I",
+          "priority": 40,
+          "predicate": { "kind": "los", "op": "<", "value": 31, "label": "33 式索敌 < 31" },
+          "outcomes": [{ "to": "H", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-L-cl-dd",
+          "node": "L",
+          "priority": 10,
+          "predicate": {
+            "kind": "all",
+            "label": "轻巡 ≥ 1 且 驱逐 ≥ 2",
+            "predicates": [
+              { "kind": "count", "category": "CL", "op": ">=", "value": 1 },
+              { "kind": "count", "category": "DD", "op": ">=", "value": 2 }
+            ]
+          },
+          "outcomes": [{ "to": "O", "probability": 1 }],
+          "confidence": "verified"
+        },
+        {
+          "id": "2-5-L-no-heavy",
+          "node": "L",
+          "priority": 20,
+          "predicate": { "kind": "count", "category": ["BB", "CV"], "op": "==", "value": 0, "label": "无战舰/空母" },
+          "outcomes": [
+            { "to": "N", "probability": 0.4 },
+            { "to": "O", "probability": 0.6 }
+          ],
+          "confidence": "approximate"
+        },
+        {
+          "id": "2-5-L-heavy",
+          "node": "L",
+          "priority": 999,
+          "predicate": { "kind": "always", "label": "含战舰/空母（约 60%/40%）" },
+          "outcomes": [
+            { "to": "N", "probability": 0.6 },
+            { "to": "O", "probability": 0.4 }
+          ],
+          "confidence": "approximate"
+        }
+      ]
+    }
+  }
+}
