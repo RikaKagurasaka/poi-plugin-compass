@@ -16,6 +16,8 @@ const SHIP_CATEGORIES = {
   LHA: new Set([17]),
   AR: new Set([19]),
   AS: new Set([20]),
+  BBV: new Set([10]),
+  CV_MAIN: new Set([11, 12, 18]),
 }
 
 const CATEGORY_LABELS = {
@@ -34,6 +36,8 @@ const CATEGORY_LABELS = {
   LHA: '扬陆',
   AR: '工作舰',
   AS: '潜母',
+  BBV: '航战',
+  CV_MAIN: '正规/装甲空母',
 }
 
 const EQUIPMENT_CATEGORY_LABELS = {
@@ -105,6 +109,9 @@ function predicateLabel(predicate) {
   if (predicate.kind === 'los') return `索敌 ${predicate.op || '=='} ${predicate.value}`
   if (predicate.kind === 'losRange') return `索敌 ${predicate.min}～${predicate.max}`
   if (predicate.kind === 'speed') return predicate.mode === 'hasLow' ? '含低速舰' : '全高速'
+  if (predicate.kind === 'onlyCategories') {
+    return `仅含 ${(predicate.categories || []).map((category) => CATEGORY_LABELS[category] || category).join('、')}`
+  }
   if (predicate.kind === 'all') return (predicate.predicates || []).map(predicateLabel).join(' 且 ')
   if (predicate.kind === 'any') return (predicate.predicates || []).map(predicateLabel).join(' 或 ')
   return predicate.kind || '未知条件'
@@ -156,6 +163,16 @@ function evaluatePredicate(predicate, context = {}) {
       if (!context.flagship || context.flagship.categoryIds == null) return statusResult('unknown', predicate)
       const matches = (Array.isArray(predicate.categories) ? predicate.categories : [predicate.category])
         .some((category) => context.flagship.categoryIds.includes(category))
+      return statusResult(matches ? 'true' : 'false', predicate)
+    }
+    case 'onlyCategories': {
+      const categories = Array.isArray(predicate.categories) ? predicate.categories : []
+      if (context.complete === false || !context.ships?.length || !categories.length) {
+        return statusResult('unknown', predicate)
+      }
+      const matches = context.ships.every((ship) =>
+        categories.some((category) => ship.categoryIds?.includes(category)),
+      )
       return statusResult(matches ? 'true' : 'false', predicate)
     }
     case 'all': {
@@ -325,7 +342,7 @@ function calculateLosScore(ships, commanderLevel) {
   return Math.floor(shipLos + equipmentLos - commanderPenalty + fleetSizeCorrection)
 }
 
-function fleetContextFromState(state, deckId = 1) {
+function fleetContextFromState(state, deckId = 1, options = {}) {
   const fleet = getFleet(state, deckId)
   const instanceShips = state?.info?.ships || {}
   const masterShips = state?.const?.$ships || {}
@@ -369,6 +386,11 @@ function fleetContextFromState(state, deckId = 1) {
   const equipmentShips = {
     drum: ships.filter((ship) => ship.equipmentKinds.includes('drum')).length,
   }
+  const poiLos = typeof options.losCalculator === 'function'
+    ? options.losCalculator(state, deckId)
+    : null
+  const poiLosScore = poiLos && typeof poiLos === 'object' ? poiLos.total : poiLos
+  const hasPoiLos = Number.isFinite(Number(poiLosScore))
   return {
     complete,
     shipCount: ships.length,
@@ -377,8 +399,10 @@ function fleetContextFromState(state, deckId = 1) {
     counts,
     equipmentShips,
     speedClass,
-    losScore: calculateLosScore(ships, state?.info?.basic?.api_level),
-    losApproximate: true,
+    losScore: hasPoiLos ? Number(poiLosScore) : calculateLosScore(ships, state?.info?.basic?.api_level),
+    losApproximate: !hasPoiLos,
+    losSource: hasPoiLos ? 'poi-33' : 'fallback',
+    losDetails: hasPoiLos && typeof poiLos === 'object' ? poiLos : null,
   }
 }
 

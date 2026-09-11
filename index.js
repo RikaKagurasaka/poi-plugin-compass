@@ -3,7 +3,16 @@
 const path = require('path')
 const React = require('react')
 const { store } = require('views/create-store')
-const mapCatalog = require('./data/maps.json')
+const primaryMapCatalog = require('./data/maps.json')
+const normalMapCatalog = require('./data/normal-maps.json')
+const mapCatalog = {
+  ...normalMapCatalog,
+  ...primaryMapCatalog,
+  maps: { ...normalMapCatalog.maps, ...primaryMapCatalog.maps },
+}
+const mapIds = Object.keys(mapCatalog.maps).sort((left, right) =>
+  left.localeCompare(right, undefined, { numeric: true }),
+)
 const {
   CATEGORY_LABELS,
   evaluateMap,
@@ -14,6 +23,13 @@ const {
   normalizeMapId,
   predicateLabel,
 } = require('./logic')
+
+let poiGetSaku33 = null
+try {
+  ;({ getSaku33: poiGetSaku33 } = require('views/utils/game-utils'))
+} catch (_) {
+  // The standalone test harness does not load poi's path aliases.
+}
 
 const h = React.createElement
 const listeners = new Set()
@@ -43,6 +59,49 @@ function getRootState() {
     return window.getStore() || {}
   }
   return store && typeof store.getState === 'function' ? store.getState() : {}
+}
+
+function getFleet(state, deckId = 1) {
+  const fleets = state?.info?.fleets
+  if (Array.isArray(fleets)) return fleets[deckId - 1] || null
+  return fleets?.[deckId - 1] || fleets?.[deckId] || null
+}
+
+function calculatePoiLos33(state, deckId = 1) {
+  if (typeof poiGetSaku33 !== 'function') return null
+  const fleet = getFleet(state, deckId)
+  const shipIds = Array.isArray(fleet?.api_ship)
+    ? fleet.api_ship.filter((id) => number(id) > 0)
+    : []
+  if (!fleet || !shipIds.length) return null
+
+  const ships = state?.info?.ships || {}
+  const masterShips = state?.const?.$ships || {}
+  const equips = state?.info?.equips || {}
+  const masterEquips = state?.const?.$equips || {}
+  const shipsData = []
+  const equipsData = []
+
+  for (const shipId of shipIds) {
+    const ship = ships[shipId]
+    const masterShip = masterShips[ship?.api_ship_id]
+    if (!ship || !masterShip) return null
+    shipsData.push([ship, masterShip])
+
+    const slotIds = Array.isArray(ship.api_slot) ? [...ship.api_slot] : []
+    if (ship.api_slot_ex != null) slotIds.push(ship.api_slot_ex)
+    equipsData.push(slotIds.map((equipId) => {
+      if (number(equipId) <= 0) return undefined
+      const equip = equips[equipId]
+      const masterEquip = masterEquips[equip?.api_slotitem_id]
+      return equip && masterEquip ? [equip, masterEquip] : undefined
+    }))
+  }
+
+  const commanderLevel = state?.info?.basic?.api_level
+  if (!Number.isFinite(Number(commanderLevel))) return null
+  const slotCount = Array.isArray(fleet.api_ship) ? fleet.api_ship.length : 6
+  return poiGetSaku33(shipsData, equipsData, Number(commanderLevel), 1.0, slotCount)
 }
 
 function notify() {
@@ -138,25 +197,23 @@ function routeEdges(geometry) {
     .filter((edge) => edge.from && edge.to)
 }
 
-function statusLabel(status) {
+function outcomeText(outcome) {
+  return `${outcome.to} ${formatPercent(outcome.probability)}`
+}
+
+function conditionIcon(status, active) {
+  if (active) return '✓'
+  if (status === 'true') return '•'
+  if (status === 'false') return '×'
+  return '?'
+}
+
+function conditionStatus(status) {
   return {
     true: '满足',
     false: '不满足',
-    unknown: '未知',
+    unknown: '无法判断',
   }[status] || status
-}
-
-function confidenceLabel(confidence) {
-  return {
-    verified: '已核对',
-    approximate: '近似',
-    parsed: '已解析',
-    unknown: '待核对',
-  }[confidence] || confidence || '未标注'
-}
-
-function outcomeText(outcome) {
-  return `${outcome.to} ${formatPercent(outcome.probability)}`
 }
 
 function ruleRows(mapDefinition, node, context) {
@@ -191,7 +248,7 @@ class Compass extends React.Component {
     this.state = {
       mapId: pluginState.currentMapId && mapCatalog.maps[pluginState.currentMapId]
         ? pluginState.currentMapId
-        : Object.keys(mapCatalog.maps)[0],
+        : mapIds[0],
       selectedNode: pluginState.currentNode || null,
       overrides: {},
     }
@@ -285,44 +342,50 @@ class Compass extends React.Component {
   }
 
   renderRulePanel(mapDefinition, node, context, evaluation) {
-    if (!node) return h('div', { className: 'compass-empty-panel' }, '点击地图节点查看带路条件。')
+    if (!node) return h('div', { className: 'compass-empty-panel' }, '选择节点')
     const rows = ruleRows(mapDefinition, node, context)
     const decision = evaluation.decisions[node]
     return h('section', { className: 'compass-panel' },
-      h('h4', null, `${node} 点带路条件`),
+      h('h4', null, `${node} 点`),
       rows.length
-        ? h('div', { className: 'compass-rules' }, ...rows.map(({ rule, result }) => h('div', {
+        ? h('div', { className: 'compass-conditions' }, ...rows.map(({ rule, result }) => {
+          const active = decision?.rule?.id === rule.id
+          const outcomes = rule.outcomes?.length ? rule.outcomes.map(outcomeText).join(' / ') : '—'
+          return h('div', {
           key: rule.id,
-          className: `compass-rule is-${result.status}`,
+          className: `compass-condition is-${result.status}${active ? ' is-active' : ''}`,
+          tabIndex: 0,
+          'aria-label': `${conditionStatus(result.status)}：${predicateLabel(rule.predicate)}`,
         },
-        h('div', { className: 'compass-rule-heading' },
-          h('span', { className: 'compass-rule-status' }, statusLabel(result.status)),
-          h('span', null, predicateLabel(rule.predicate)),
-          h('span', { className: 'compass-confidence' }, confidenceLabel(rule.confidence)),
-        ),
-        h('div', { className: 'compass-rule-outcomes' },
-          rule.outcomes?.length ? rule.outcomes.map((outcome) => h('span', { key: `${rule.id}-${outcome.to}` }, outcomeText(outcome))) : '无确定出口',
-        ),
-        )))
-        : h('div', { className: 'compass-muted' }, '该节点没有录入带路规则，可能是终点。'),
+          h('span', { className: 'compass-condition-icon', 'aria-hidden': 'true' }, conditionIcon(result.status, active)),
+          h('span', { className: 'compass-condition-label' }, predicateLabel(rule.predicate)),
+          h('span', { className: 'compass-condition-outcomes' }, outcomes),
+          h('div', { className: 'compass-condition-popover', role: 'tooltip' },
+            h('div', null, `${conditionStatus(result.status)}${active ? ' · 当前出口规则' : ''}`),
+            h('div', null, `出口：${outcomes}`),
+            rule.confidence === 'approximate' ? h('div', null, '概率为资料中的近似值') : null,
+          ),
+        )
+        }))
+        : h('div', { className: 'compass-muted' }, '暂无规则'),
       decision?.manual
         ? h('div', { className: 'compass-manual' },
-          h('strong', null, '手动路线覆盖（仅用于推演）'),
+          h('strong', null, '手动选择出口'),
           ...decision.baseOutcomes.map((outcome) => h('button', {
             key: outcome.to,
             type: 'button',
             className: decision.manualOverride === outcome.to ? 'is-active' : '',
             onClick: () => this.setManualOverride(node, outcome.to),
-          }, `选择 ${outcome.to}`)),
+          }, outcome.to)),
         )
         : null,
     )
   }
 
   render() {
-    const mapDefinition = mapCatalog.maps[this.state.mapId] || mapCatalog.maps[Object.keys(mapCatalog.maps)[0]]
+    const mapDefinition = mapCatalog.maps[this.state.mapId] || mapCatalog.maps[mapIds[0]]
     const rootState = getRootState()
-    const context = fleetContextFromState(rootState, 1)
+    const context = fleetContextFromState(rootState, 1, { losCalculator: calculatePoiLos33 })
     const geometry = mapGeometry(this.state.mapId)
     const evaluation = evaluateMap(mapDefinition, context, this.state.overrides)
     const currentNode = pluginState.currentMapId === this.state.mapId ? pluginState.currentNode : null
@@ -331,51 +394,33 @@ class Compass extends React.Component {
       ? this.state.selectedNode
       : currentNode || mapDefinition.start
     const cssPath = path.join(__dirname, 'assets', 'compass.css')
-    const currentDecision = evaluation.decisions[selectedNode]
     const warnings = [
-      context.complete ? null : 'poi 尚未提供完整舰队 master 数据，部分条件会显示为未知。',
-      context.losApproximate && context.losScore != null ? `索敌值为插件估算值：${context.losScore}` : null,
-      evaluation.probability.unknownNodes.length ? `未闭合概率：${evaluation.probability.unknownNodes.join('、')} 点` : null,
+      context.complete ? null : '舰队数据未完整',
+      context.losApproximate && context.losScore != null ? `索敌≈${context.losScore}` : null,
+      evaluation.probability.unknownNodes.length ? `未知路线 ${evaluation.probability.unknownNodes.join('、')}` : null,
     ].filter(Boolean)
 
     return h('div', { className: 'poi-compass' },
       h('link', { rel: 'stylesheet', href: cssPath }),
-      h('header', { className: 'compass-header' },
-        h('div', null,
-          h('h3', null, '舰队罗盘'),
-          h('span', { className: 'compass-subtitle' }, '通常海域 · 离线规则数据'),
-        ),
+      h('header', { className: 'compass-titlebar' }, h('h3', null, '舰队罗盘')),
+      h('div', { className: 'compass-toolbar' },
         h('label', { className: 'compass-map-select' },
-          h('span', null, '海图'),
           h('select', { value: this.state.mapId, onChange: (event) => this.selectMap(event) },
-            Object.entries(mapCatalog.maps).map(([mapId, definition]) => h('option', { key: mapId, value: mapId }, `${mapId} ${definition.name}`)),
+            mapIds.map((mapId) => h('option', { key: mapId, value: mapId }, `${mapId} ${mapCatalog.maps[mapId].name}`)),
           ),
         ),
-        h('button', { type: 'button', className: 'compass-reset', onClick: () => this.setState({ overrides: {} }) }, '清除手动路线'),
-      ),
-      h('div', { className: 'compass-meta' },
-        h('span', null, `第一舰队：${fleetSummary(context)}`),
-        h('span', null, `当前节点：${currentNode || '未在出击中'}`),
-        h('span', null, `规则数据：${mapCatalog.dataVersion}`),
+        h('span', {
+          className: 'compass-toolbar-fleet',
+          title: `第一舰队：${fleetSummary(context)}`,
+        }, `舰队 1 · ${fleetSummary(context)}`),
+        currentNode ? h('span', { className: 'compass-toolbar-node' }, `当前 ${currentNode}`) : null,
+        h('button', { type: 'button', className: 'compass-reset', onClick: () => this.setState({ overrides: {} }) }, '重置路线'),
       ),
       warnings.length ? h('div', { className: 'compass-warnings' }, ...warnings.map((warning) => h('div', { key: warning }, warning))) : null,
       h('main', { className: 'compass-layout' },
         h('section', { className: 'compass-map-panel' }, this.renderMap(mapDefinition, geometry, evaluation, selectedNode, currentNode)),
         h('aside', { className: 'compass-sidebar' },
           this.renderRulePanel(mapDefinition, selectedNode, context, evaluation),
-          h('section', { className: 'compass-panel' },
-            h('h4', null, '当前分歧结果'),
-            currentDecision?.rule
-              ? h('div', { className: 'compass-current-result' },
-                h('div', null, `${selectedNode}：${currentDecision.status === 'matched' ? '已匹配' : '未知'}`),
-                h('div', { className: 'compass-rule-outcomes' }, currentDecision.outcomes.length ? currentDecision.outcomes.map(outcomeText).join(' / ') : '无法计算出口'),
-              )
-              : h('div', { className: 'compass-muted' }, '该节点没有后续分歧。'),
-          ),
-          h('section', { className: 'compass-panel compass-sources' },
-            h('h4', null, '来源'),
-            ...(mapDefinition.sourceRefs || []).map((source) => h('a', { key: source.url, href: source.url, target: '_blank', rel: 'noreferrer' }, source.kind)),
-          ),
         ),
       ),
     )
@@ -387,9 +432,11 @@ exports.windowMode = true
 exports.pluginDidLoad = startPlugin
 exports.pluginWillUnload = stopPlugin
 exports.__test = {
+  calculatePoiLos33,
   cellFromDetail,
   handleGameResponse,
   mapIdFromDetail,
+  mapIds,
   mapNodes,
   pluginState,
   routeEdges,

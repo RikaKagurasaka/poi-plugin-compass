@@ -85,6 +85,8 @@ const label = maps?.[mapKey]?.route?.[Number(cell)]?.[1]
 - `info.basic.api_level`：司令部等级；
 - `sortie.combinedFlag`、`sortie.sortieMapId`、`sortie.currentNode`：当前出击上下文（字段的可用性需以当前 poi 版本实测为准）。
 
+索敌值已在当前 poi 源码中确认：`views/utils/game-utils.ts` 的 `getSaku33` 返回 `{ ship, item, teitoku, total }`，分别对应舰船项、装备项、提督等级惩罚和总值。插件运行时优先组装与 poi `fleet-stat` 相同的 `[舰船实例, 舰船 master]` 和装备数据并调用该函数；只有 master/提督等级缺失时才使用降级估算并标记为近似。
+
 所有规则求值都应基于 master ID、舰种 ID、装备 type2、速度值和当前实例数据；名称只用于显示和 source note。敌舰也用敌舰 master ID，不用翻译后的名字作为身份。
 
 ### 3.3 事件监听
@@ -376,7 +378,7 @@ poi 当前的 `ShareDialog` 也已有同一方向的实现，并另有 `pdz` dec
 - 固定 `1-1`、`2-5`、至少一张含索敌和随机分歧的 fixture；
 - 定义 normalized schema、置信度和 unknown 语义。
 
-当前实现已在独立 `poi-plugin-compass` 仓库中落地规则 AST、来源引用、置信度和未知结果语义；首批 fixture 为 1-1 与 2-5。
+当前实现已在独立 `poi-plugin-compass` 仓库中落地规则 AST、来源引用、置信度和未知结果语义；首批 fixture 为 1-1、1-2、1-3、1-4、2-1、2-5 与 3-1。
 
 ### P1：离线通常海域 MVP（进行中）
 
@@ -387,8 +389,8 @@ poi 当前的 `ShareDialog` 也已有同一方向的实现，并另有 `pdz` dec
 - 支持能动分歧 override；
 - 不接运行时网络，不复制第三方地图图片。
 
-已完成：CommonJS poi 插件壳、SVG 地图、第一舰队状态读取、1-1/2-5 规则样本、局部/全局概率传播和手动覆盖引擎。
-未完成：全部通常海域规则、敌编成/制空数据面板、完整 33 式索敌实现和事件/联合舰队状态。
+已完成：CommonJS poi 插件壳、全部通常海域地图目录与 SVG 几何、第一舰队状态读取、1-1/1-2/1-3/1-4/2-1/2-5/3-1 规则样本、局部/全局概率传播、手动覆盖引擎，以及直接复用 poi `getSaku33` 的 33 式索敌读取。
+未完成：其余通常海域规则、敌编成/制空数据面板和联合舰队状态。
 
 ### P2：敌编成和制空
 
