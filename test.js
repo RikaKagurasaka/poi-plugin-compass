@@ -33,6 +33,9 @@ assert.strictEqual(normalizeMapId('nope'), null)
 assert.strictEqual(evaluatePredicate({ kind: 'count', category: 'DD', op: '>=', value: 2 }, context(2, { DD: 2 })).status, 'true')
 assert.strictEqual(evaluatePredicate({ kind: 'count', category: 'DD', op: '>=', value: 2 }, context(1, { DD: 1 })).status, 'false')
 assert.strictEqual(evaluatePredicate({ kind: 'los', op: '>=', value: 34 }, context(6, {}, { losScore: null })).status, 'unknown')
+assert.strictEqual(evaluatePredicate({ kind: 'speed', mode: 'highPlus' }, context(6)).status, 'unknown')
+assert.strictEqual(evaluatePredicate({ kind: 'speed', mode: 'fastest' }, context(6, {}, { enhancedSpeedClass: 'fastest' })).status, 'true')
+assert.strictEqual(evaluatePredicate({ kind: 'equipmentShips', equipment: 'radar', op: '>=', value: 4 }, context(6, {}, { equipmentShips: { drum: 0, radar: 4 } })).status, 'true')
 
 const oneShip = evaluateMap(catalog.maps['1-1'], context(1), {})
 assert.strictEqual(oneShip.decisions['1'].outcomes[0].to, 'A')
@@ -107,6 +110,29 @@ const twoOne = evaluateMap(normalCatalog.maps['2-1'], context(6, { DD: 6 }), {})
 assert.deepStrictEqual(twoOne.decisions['1'].outcomes, [{ to: 'C', probability: 1 }])
 assert.deepStrictEqual(twoOne.decisions.E.outcomes, [{ to: 'H', probability: 1 }])
 assert.strictEqual(twoOne.probability.reach.H, 1)
+
+const twoTwo = evaluateMap(normalCatalog.maps['2-2'], context(6, { CV_MAIN: 3 }), {})
+assert.deepStrictEqual(twoTwo.decisions.C.outcomes, [{ to: 'B', probability: 1 }])
+assert.deepStrictEqual(twoTwo.decisions.B.outcomes, [{ to: 'A', probability: 1 }])
+
+const threeTwo = evaluateMap(normalCatalog.maps['3-2'], context(6, { DD: 6 }), {})
+assert.deepStrictEqual(threeTwo.decisions['1'].outcomes, [{ to: 'C', probability: 1 }])
+assert.deepStrictEqual(threeTwo.decisions.C.outcomes, [{ to: 'G', probability: 1 }])
+assert.strictEqual(threeTwo.probability.reach.L, 1)
+
+const threeFive = evaluateMap(normalCatalog.maps['3-5'], context(6, { DD: 6 }), {})
+assert.deepStrictEqual(threeFive.decisions['1'].outcomes, [{ to: 'F', probability: 1 }])
+assert.deepStrictEqual(threeFive.decisions.G.outcomes, [{ to: 'K', probability: 1 }])
+
+const fourOne = evaluateMap(normalCatalog.maps['4-1'], context(6, { DD: 6 }), {})
+assert.strictEqual(fourOne.probability.reach.J, 1)
+
+const fourTwo = evaluateMap(normalCatalog.maps['4-2'], context(6, { DD: 6 }), {})
+assert.strictEqual(fourTwo.probability.reach.L, 1)
+
+const fourThree = evaluateMap(normalCatalog.maps['4-3'], context(6, { DD: 6 }), {})
+assert.deepStrictEqual(fourThree.decisions.D.outcomes, [{ to: 'H', probability: 1 }])
+assert.strictEqual(fourThree.probability.reach.N, 0.7)
 
 const state = {
   info: {

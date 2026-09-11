@@ -89,6 +89,10 @@ const label = maps?.[mapKey]?.route?.[Number(cell)]?.[1]
 
 所有规则求值都应基于 master ID、舰种 ID、装备 type2、速度值和当前实例数据；名称只用于显示和 source note。敌舰也用敌舰 master ID，不用翻译后的名字作为身份。
 
+当前实现还把装备 type2=12/13（poi 的小型/大型电探）归入 `radar` 舰数，用于 3-2 等通常图。poi 的 `getFleetSpeed` 只返回基础速力，不能单独证明“高速+”或“最速”；规则引擎因此为这两个条件保留独立的未知状态，不把普通高速误当成高速+。
+
+出击路径会在插件状态中记录已经经过的节点，并通过 `visited` 条件支持 4-5 的“经过 E/F 点”规则。路径历史只用于当前出击过程，不写回游戏状态。
+
 ### 3.3 事件监听
 
 现有 sibling plugin 使用 `window.addEventListener('game.response', ...)`，按 `event.detail.path` 分派：

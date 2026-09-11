@@ -36,6 +36,7 @@ const listeners = new Set()
 const pluginState = {
   currentMapId: null,
   currentNode: null,
+  passedNodes: [],
 }
 
 function number(value) {
@@ -133,11 +134,15 @@ function cellFromDetail(detail) {
 function updateSortieState(detail) {
   const mapId = mapIdFromDetail(detail) || pluginState.currentMapId
   if (!mapId) return
+  if (pluginState.currentMapId !== mapId) pluginState.passedNodes = []
   const maps = getStore('fcd.map') || {}
   const cell = cellFromDetail(detail)
   const node = cell == null ? null : mapNodeLabel(mapId, cell, maps)
   pluginState.currentMapId = mapId
-  if (node) pluginState.currentNode = node
+  if (node) {
+    pluginState.currentNode = node
+    if (pluginState.passedNodes.at(-1) !== node) pluginState.passedNodes.push(node)
+  }
   notify()
 }
 
@@ -146,6 +151,7 @@ function handleGameResponse(event) {
   const pathName = detail.path || ''
   if (pathName === '/kcsapi/api_req_map/start') {
     pluginState.currentNode = null
+    pluginState.passedNodes = []
     updateSortieState(detail)
   } else if (pathName === '/kcsapi/api_req_map/next') {
     updateSortieState(detail)
@@ -156,6 +162,7 @@ function startPlugin() {
   pluginState.currentMapId = normalizeMapId(
     getStore('sortie.sortieMapId') || getStore('sortie.mapId') || getStore('info.sortieMapId'),
   )
+  pluginState.passedNodes = []
   if (typeof window !== 'undefined') window.addEventListener('game.response', handleGameResponse)
 }
 
@@ -385,7 +392,10 @@ class Compass extends React.Component {
   render() {
     const mapDefinition = mapCatalog.maps[this.state.mapId] || mapCatalog.maps[mapIds[0]]
     const rootState = getRootState()
-    const context = fleetContextFromState(rootState, 1, { losCalculator: calculatePoiLos33 })
+    const context = fleetContextFromState(rootState, 1, {
+      losCalculator: calculatePoiLos33,
+      passedNodes: pluginState.currentMapId === this.state.mapId ? pluginState.passedNodes : [],
+    })
     const geometry = mapGeometry(this.state.mapId)
     const evaluation = evaluateMap(mapDefinition, context, this.state.overrides)
     const currentNode = pluginState.currentMapId === this.state.mapId ? pluginState.currentNode : null

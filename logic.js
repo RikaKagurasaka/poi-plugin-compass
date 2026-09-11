@@ -42,6 +42,7 @@ const CATEGORY_LABELS = {
 
 const EQUIPMENT_CATEGORY_LABELS = {
   drum: '运输桶',
+  radar: '电探',
 }
 
 function number(value) {
@@ -108,10 +109,16 @@ function predicateLabel(predicate) {
   }
   if (predicate.kind === 'los') return `索敌 ${predicate.op || '=='} ${predicate.value}`
   if (predicate.kind === 'losRange') return `索敌 ${predicate.min}～${predicate.max}`
-  if (predicate.kind === 'speed') return predicate.mode === 'hasLow' ? '含低速舰' : '全高速'
+  if (predicate.kind === 'speed') {
+    if (predicate.mode === 'hasLow') return '含低速舰'
+    if (predicate.mode === 'highPlus') return '高速+舰队'
+    if (predicate.mode === 'fastest') return '最速舰队'
+    return '全高速'
+  }
   if (predicate.kind === 'onlyCategories') {
     return `仅含 ${(predicate.categories || []).map((category) => CATEGORY_LABELS[category] || category).join('、')}`
   }
+  if (predicate.kind === 'visited') return `已经过 ${predicate.node} 点`
   if (predicate.kind === 'all') return (predicate.predicates || []).map(predicateLabel).join(' 且 ')
   if (predicate.kind === 'any') return (predicate.predicates || []).map(predicateLabel).join(' 或 ')
   return predicate.kind || '未知条件'
@@ -142,6 +149,14 @@ function evaluatePredicate(predicate, context = {}) {
       return statusResult(compare(actual, predicate.op || '==', number(predicate.value)) ? 'true' : 'false', predicate)
     }
     case 'speed': {
+      if (predicate.mode === 'highPlus' || predicate.mode === 'fastest') {
+        const enhancedSpeedClass = context.enhancedSpeedClass || 'unknown'
+        if (enhancedSpeedClass === 'unknown') return statusResult('unknown', predicate)
+        const matches = predicate.mode === 'fastest'
+          ? enhancedSpeedClass === 'fastest'
+          : ['highPlus', 'fastest'].includes(enhancedSpeedClass)
+        return statusResult(matches ? 'true' : 'false', predicate)
+      }
       if (!context.speedClass || context.speedClass === 'unknown') return statusResult('unknown', predicate)
       const matches = predicate.mode === 'hasLow'
         ? context.speedClass === 'low'
@@ -174,6 +189,10 @@ function evaluatePredicate(predicate, context = {}) {
         categories.some((category) => ship.categoryIds?.includes(category)),
       )
       return statusResult(matches ? 'true' : 'false', predicate)
+    }
+    case 'visited': {
+      if (!Array.isArray(context.passedNodes)) return statusResult('unknown', predicate)
+      return statusResult(context.passedNodes.includes(predicate.node) ? 'true' : 'false', predicate)
     }
     case 'all': {
       const results = (predicate.predicates || []).map((child) => evaluatePredicate(child, context))
@@ -321,6 +340,7 @@ function shipCategoryIds(typeId) {
 function equipmentKind(master) {
   const name = String(master?.api_name || '')
   if (name.includes('ドラム缶') || name.includes('运输桶')) return 'drum'
+  if ([12, 13].includes(number(master?.api_type?.[2])) || name.includes('電探') || name.includes('电探')) return 'radar'
   return null
 }
 
@@ -385,6 +405,7 @@ function fleetContextFromState(state, deckId = 1, options = {}) {
   const speedClass = !speedKnown ? 'unknown' : ships.some((ship) => ship.speed < 10) ? 'low' : 'high'
   const equipmentShips = {
     drum: ships.filter((ship) => ship.equipmentKinds.includes('drum')).length,
+    radar: ships.filter((ship) => ship.equipmentKinds.includes('radar')).length,
   }
   const poiLos = typeof options.losCalculator === 'function'
     ? options.losCalculator(state, deckId)
@@ -399,6 +420,8 @@ function fleetContextFromState(state, deckId = 1, options = {}) {
     counts,
     equipmentShips,
     speedClass,
+    enhancedSpeedClass: 'unknown',
+    passedNodes: Array.isArray(options.passedNodes) ? options.passedNodes : null,
     losScore: hasPoiLos ? Number(poiLosScore) : calculateLosScore(ships, state?.info?.basic?.api_level),
     losApproximate: !hasPoiLos,
     losSource: hasPoiLos ? 'poi-33' : 'fallback',
