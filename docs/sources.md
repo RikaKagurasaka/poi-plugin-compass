@@ -14,7 +14,7 @@
 | [NGA 关联回复帖](https://bbs.nga.cn/read.php?tid=16820397&authorid=39227030&opt=262144&noBBCode) | 被上述带路和敌舰配置引用的回复 | Firefox 登录会话可读取；主题为“地图配置2.0”，第 1 页可见按地图/节点拆分的敌编成表、master ID、装备和制空门槛 | 浏览器人工采集/复核来源；以 `tid/page/pid` 建立可追溯引用 |
 | [TsunKit 地图 API](https://tsunkit.net/api/routing/maps/{mapId}/) | 路由、节点坐标、mapSet 素材元数据 | 当前调研用 `1-1`、`2-5` 请求成功；末尾 `/` 更稳定 | 建构时地图补充/校验，必要时缓存原始响应 |
 | [TsunKit 敌编成 API](https://tsunkit.net/api/routing/maps/{mapId}/nodes/{nodeLabel}/enemycomps/) | 敌舰 master ID、装备 ID、编成出现次数、制空门槛 | 当前调研用 `2-5/O`、`2-5/C`、`2-5/I` 请求成功 | 建构时敌编成主来源，运行时读取规范缓存 |
-| [TsunKit KCNav](https://tsunkit.net/nav/{mapId}) / [地图背景接口](https://tsunkit.net/api/assets/images/maps/{mapId}/background) | 地图和其他图像资源、人工交叉检查 | KCNav 前端实际使用背景接口；通常图背景当前返回 `image/png`，约 1200×720 | 构建期下载到插件本地 `assets/kcnav/`；运行时不请求远程 |
+| [TsunKit KCNav](https://tsunkit.net/nav/{mapId}) / [地图背景接口](https://tsunkit.net/api/assets/images/maps/{mapId}/background) | 地图和其他图像资源、人工交叉检查 | KCNav 前端实际使用背景接口；通常图背景源文件返回 `image/png`，约 1200×720 | 构建期下载后转换为质量 85 的 WebP，保存到插件本地 `assets/kcnav/`；运行时不请求远程 |
 | [TsunKit 路线 API / 图标接口](https://tsunkit.net/api/routing/maps/{mapId}/) | 节点类型编号、KCNav 节点图标 | `result.route[cell][2]` 与 KCNav `getNodeTypes` 一致；图标接口返回 `image/png`；路线 API 连续请求时曾返回 `401 Unauthorized API automation detected` | 构建期来源；图标和已核对的节点类型快照保存到插件本地，运行时不请求远程 |
 
 KCNav 地图路线响应由 `scripts/cache-kcnav-maps.js` 构建期获取，默认每次请求间隔 15 秒：

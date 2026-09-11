@@ -202,7 +202,7 @@ result.entries[]:
 
 poi `fcd.map` 已有可用的节点坐标和边信息，仍作为路线绘制和数据可用性的主来源。进一步检查 TsunKit KCNav 前端后确认：地图背景使用 `https://tsunkit.net/api/assets/images/maps/{mapId}/background`；路线 API 的 `result.route[cell]` 第三个值是节点类型编号；KCNav 前端用该编号推导每个节点的 `nodeType`，再从 `map_main/{icon}` 或 `map_common/{icon}` 加载图标。
 
-插件沿用 KCNav 的节点类型表，把起点、Boss、运输、航空战、空袭、夜战、修理、能动分歧等类型映射到地图主图标和公共图标。由于路线 API 在连续请求时可能返回 `401 Unauthorized API automation detected`，当前实现把 37 张通常图背景和节点图标提前下载到 `assets/kcnav/`，运行时完全使用本地 `file://` 资源，不再请求远程；当前节点图标暂不渲染，仅保留样式数据。37 张通常图的地图 API 原始响应另缓存到 `data/sources/kcnav/maps/`，并从每条 `route` 的第三项生成各图节点类型表；只有缓存缺失的地图才会保留圆形节点和字母。
+插件沿用 KCNav 的节点类型表，把起点、Boss、运输、航空战、空袭、夜战、修理、能动分歧等类型映射到地图主图标和公共图标。由于路线 API 在连续请求时可能返回 `401 Unauthorized API automation detected`，当前实现把 37 张通常图背景提前转为质量 85 的 WebP，并把节点图标提前下载到 `assets/kcnav/`，运行时完全使用本地 `file://` 资源，不再请求远程；当前节点图标暂不渲染，仅保留样式数据。37 张通常图的地图 API 原始响应另缓存到 `data/sources/kcnav/maps/`，并从每条 `route` 的第三项生成各图节点类型表；只有缓存缺失的地图才会保留圆形节点和字母。
 
 ## 5. 规范数据模型建议
 

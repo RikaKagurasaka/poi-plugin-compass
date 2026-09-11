@@ -467,7 +467,7 @@ function probabilityTier(value) {
 }
 
 function mapBackgroundUrl(mapId) {
-  return localKcnavAssetUrl(`maps/${mapId}.png`)
+  return localKcnavAssetUrl(`maps/${mapId}.webp`)
 }
 
 function passedEdgeKeys(passedNodes) {

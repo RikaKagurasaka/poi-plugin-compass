@@ -28,7 +28,9 @@
     "cache:kcwiki": "node scripts/cache-kcwiki-routes.js",
     "cache:kcnav-maps": "node scripts/cache-kcnav-maps.js",
     "cache:kcnav-enemies": "node scripts/cache-kcnav-enemies.js",
-    "check:syntax": "node --check index.js && node --check logic.js && node --check enemies.js && node --check exporters.js && node --check scripts/cache-kcnav-enemies.js && node --check test.js && node --check test-enemies.js && node --check test-exporters.js",
+    "compress:kcnav-maps": "node scripts/compress-kcnav-maps.js --remove-png",
+    "compress:kcnav-enemies": "node scripts/compact-kcnav-enemies.js",
+    "check:syntax": "node --check index.js && node --check logic.js && node --check enemies.js && node --check exporters.js && node --check scripts/cache-kcnav-enemies.js && node --check scripts/compress-kcnav-maps.js && node --check scripts/compact-kcnav-enemies.js && node --check test.js && node --check test-enemies.js && node --check test-exporters.js",
     "test": "node test.js && node test-enemies.js && node test-exporters.js && node test-ui.js && node test-overview.js"
   },
   "keywords": [

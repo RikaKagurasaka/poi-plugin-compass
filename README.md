@@ -34,7 +34,7 @@
 - 当前来源页面将 7-4 记为单一血条海图，暂未伪造 P1/P2 按钮；若后续来源确认存在独立阶段，再复用同一 phase 控件。
 - 规则引擎支持条件 AST、规则优先级、概率传播和手动路线覆盖；手动覆盖只影响当前推演，不修改游戏状态。
 - 界面采用窄标题栏、单行条件、状态图标/颜色和 hover popover，详细说明不占用常驻面板空间。
-- TsunKit 的 37 张通常海图背景和 KCNav 节点图标已下载到 `assets/kcnav/`；运行时不请求远程图片或路线 API。由于 KCNav 当前图片资源异常，节点图片暂时不在界面中显示。
+- TsunKit 的 37 张通常海图背景已转换为质量 85 的 WebP，和 KCNav 节点图标一起下载到 `assets/kcnav/`；运行时不请求远程图片或路线 API。由于 KCNav 当前图片资源异常，节点图片暂时不在界面中显示。
 - 节点类型仍按 KCNav 的 `nodeTypes` 表映射到颜色和节点说明。37 张通常图的 KCNav 节点类型都已从本地 API 响应快照提取；若某张图未来缓存缺失，未知类型才显示为较小的可交互圆形节点和节点字母。
 - 中文 Wiki 的路线分歧原文已缓存到 `data/sources/kcwiki/routes/*.wiki`，`manifest.json` 同时记录页面标题、page/revision ID、修订时间、抓取时间、来源 URL 和 SHA-256。缓存是校对材料，不在运行时请求 Wiki；需要显式刷新时运行 `npm run cache:kcwiki`。
 - KCNav 地图 API 响应已提供构建期缓存脚本：`npm run cache:kcnav-maps` 会按地图逐张请求 `https://tsunkit.net/api/routing/maps/{mapId}/`，默认请求间隔 15 秒，原始 JSON 保存到 `data/sources/kcnav/maps/`，并从 `result.route[*][2]` 生成 `data/kcnav-node-types-by-map.json`。插件运行时不访问该 API。
@@ -44,11 +44,13 @@
 
 节点面板支持显示本地 KCNav 敌编成、阵型、样本占比和空优/空确范围；展开可查看敌舰与装备 master ID、四档制空门槛及陆航门槛。数据只按最近一个自然月的日期范围筛选，不区分司令部等级、磨血、斩杀、血条或 phase；无样本与未缓存分别提示，未知制空不按零处理。
 
-运行 `npm run cache:kcnav-enemies` 按 15 秒间隔缓存全部可能战斗的节点，原始响应和清单保存在 `data/sources/kcnav/enemies/`。中断后重跑会保留原日期范围并跳过已校验文件；`npm run cache:kcnav-enemies -- --refresh` 显式开始刷新。运行时不请求远程接口。
+运行 `npm run cache:kcnav-enemies` 按 15 秒间隔缓存全部可能战斗的节点，响应和清单保存在 `data/sources/kcnav/enemies/`；响应以紧凑 JSON 保存，结构和 SHA-256 校验不变。中断后重跑会保留原日期范围并跳过已校验文件；`npm run cache:kcnav-enemies -- --refresh` 显式开始刷新。运行时不请求远程接口。
 
 ```sh
 npm test
 npm run check:syntax
+npm run compress:kcnav-maps
+npm run compress:kcnav-enemies
 npm run cache:kcwiki # 仅在需要更新 KCWiki 原文快照时运行
 npm run cache:kcnav-maps # 按 15 秒间隔更新 KCNav 地图快照
 ```

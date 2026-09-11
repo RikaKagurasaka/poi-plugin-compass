@@ -41,8 +41,8 @@ function validateResponse(payload) {
   return result
 }
 
-function writeJson(file, value) {
-  const content = `${JSON.stringify(value, null, 2)}\n`
+function writeJson(file, value, compact = false) {
+  const content = `${JSON.stringify(value, null, compact ? 0 : 2)}\n`
   fs.mkdirSync(path.dirname(file), { recursive: true })
   fs.writeFileSync(`${file}.tmp`, content)
   fs.renameSync(`${file}.tmp`, file)
@@ -84,7 +84,7 @@ async function main() {
     const payload = await response.json()
     const result = validateResponse(payload)
     const file = `${window.start}_${window.end}/${mapId}/${node}.json`
-    const sha256 = writeJson(path.join(root, file), payload)
+    const sha256 = writeJson(path.join(root, file), payload, true)
     manifest.nodes[key] = { file, url, sha256, fetchedAt: new Date().toISOString(), entries: result.entries.length }
     writeJson(manifestPath, manifest)
   }
