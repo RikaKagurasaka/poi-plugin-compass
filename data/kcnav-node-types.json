@@ -1,0 +1,176 @@
+{
+  "-2": {
+    "label": "基地",
+    "name": "nodeTypeLBAS",
+    "icon": 19,
+    "hasEnemies": true,
+    "className": "is-node-airbase"
+  },
+  "-1": {
+    "label": "未知",
+    "name": "nodeTypeUnknown",
+    "background": "#dddddd",
+    "border": "#999999",
+    "hasEnemies": true,
+    "className": "is-node-unknown"
+  },
+  "0": {
+    "label": "起点",
+    "name": "nodeTypeStart",
+    "color": "white",
+    "strokeColor": "#210c",
+    "background": "#c9a852",
+    "border": "#081736",
+    "icon": 53,
+    "alwaysShowIcon": false,
+    "simpleSize": 3,
+    "size": 2.5,
+    "fontSize": 22,
+    "stroke": 8,
+    "textOffsetY": 4,
+    "className": "is-node-start"
+  },
+  "2": {
+    "label": "资源",
+    "name": "nodeTypeResource",
+    "background": "#b0ff5b",
+    "border": "#76d406",
+    "className": "is-node-resource"
+  },
+  "3": {
+    "label": "旋涡",
+    "name": "nodeTypeMaelstrom",
+    "background": "#d2c6ff",
+    "border": "#ae8ae7",
+    "className": "is-node-maelstrom"
+  },
+  "4": {
+    "label": "战斗",
+    "name": "nodeTypeBattle",
+    "background": "#ff7979",
+    "border": "#ef1a1a",
+    "hasEnemies": true,
+    "className": "is-node-battle"
+  },
+  "5": {
+    "label": "Boss",
+    "name": "nodeTypeBoss",
+    "color": "white",
+    "strokeColor": "#210c",
+    "background": "#d92b2b",
+    "border": "#980d02",
+    "icon": 48,
+    "alwaysShowIcon": false,
+    "simpleSize": 3,
+    "width": 3,
+    "height": 2.5,
+    "offsetY": -4.5,
+    "fontSize": 19,
+    "stroke": 6,
+    "hasEnemies": true,
+    "className": "is-node-boss"
+  },
+  "6": {
+    "label": "运输",
+    "name": "nodeTypeTransport",
+    "background": "#76d406",
+    "border": "#b0ff5b",
+    "icon2": 40,
+    "offsetX2": -10,
+    "offsetY2": -10,
+    "className": "is-node-transport"
+  },
+  "7": {
+    "label": "航空战",
+    "name": "nodeTypeAirBattle",
+    "background": "#ff7979",
+    "border": "#1abaef",
+    "icon": 46,
+    "width": 1.5,
+    "height": 1.5,
+    "hasEnemies": true,
+    "className": "is-node-air-battle"
+  },
+  "8": {
+    "label": "终点",
+    "name": "nodeTypeFinishLine",
+    "background": "#dbe5ea",
+    "border": "#497291",
+    "icon": 47,
+    "className": "is-node-finish"
+  },
+  "9": {
+    "label": "航空资源",
+    "name": "nodeTypeAirResource",
+    "background": "#8fa933",
+    "border": "#577c21",
+    "className": "is-node-air-resource"
+  },
+  "10": {
+    "label": "空袭",
+    "name": "nodeTypeAirRaid",
+    "background": "#ff7979",
+    "border": "#fad0d3",
+    "icon": 42,
+    "width": 2,
+    "height": 1,
+    "offsetX": 8,
+    "offsetY": -6,
+    "hasEnemies": true,
+    "className": "is-node-air-raid"
+  },
+  "11": {
+    "label": "夜战",
+    "name": "nodeTypeNightBattle",
+    "background": "#b076ec",
+    "border": "#dad0e1",
+    "icon": 62,
+    "hasEnemies": true,
+    "className": "is-node-night-battle"
+  },
+  "13": {
+    "label": "伏击",
+    "name": "nodeTypeAmbush",
+    "background": "#ffad22",
+    "border": "#ef4b1a",
+    "icon": 17,
+    "hasEnemies": true,
+    "className": "is-node-ambush"
+  },
+  "14": {
+    "label": "修理",
+    "name": "nodeTypeRepair",
+    "background": "#a2efff",
+    "border": "#f0f0ff",
+    "icon": 54,
+    "icon2": "map_common/137",
+    "className": "is-node-repair"
+  },
+  "15": {
+    "label": "潜艇空袭",
+    "name": "nodeTypeSubStrike",
+    "background": "#ff7979",
+    "border": "#3b81f0",
+    "icon": 18,
+    "offsetX": 7,
+    "hasEnemies": true,
+    "className": "is-node-sub-strike"
+  },
+  "90": {
+    "label": "无事",
+    "name": "nodeTypeNothing",
+    "background": "#82e9ff",
+    "border": "#1abaef",
+    "className": "is-node-nothing"
+  },
+  "91": {
+    "label": "能动分歧",
+    "name": "nodeTypeChoice",
+    "background": "#82e9ff",
+    "border": "#1abaef",
+    "simpleBorder": "#f7f733",
+    "icon2": "map_common/136",
+    "opacity2": 1,
+    "className": "is-node-choice"
+  }
+}

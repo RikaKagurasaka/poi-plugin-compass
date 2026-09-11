@@ -44,9 +44,47 @@
 }
 
 .compass-toolbar-fleet {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.compass-fleet-portraits { display: flex; align-items: center; gap: 3px; flex-shrink: 0; }
+.compass-fleet-select { background: #303844; color: #f1f5f9; border: 1px solid #687587; border-radius: 3px; padding: 4px; }
+.compass-los-icons { display: flex; gap: 6px; flex-shrink: 0; }
+.compass-los-item { display: inline-flex; align-items: center; gap: 4px; }
+.compass-los-value { color: #a9daf8; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.compass-fleet-air { color: #91d9b2; font-weight: 650; font-variant-numeric: tabular-nums; white-space: nowrap; flex-shrink: 0; }
+.compass-los-icon { position: relative; display: inline-flex; width: 28px; height: 28px; align-items: center; justify-content: center; }
+.compass-los-icon img { width: 28px; height: 28px; }
+.compass-los-coefficient { position: absolute; right: -1px; bottom: -3px; font-size: 14px; font-weight: 800; color: white; -webkit-text-stroke: 3px #151a22; paint-order: stroke fill; }
+.compass-portrait {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #344454;
+  box-shadow: 0 0 0 1px #8898aa;
+  vertical-align: middle;
+}
+.compass-portrait img { display: block; flex: none; max-width: none; }
+.compass-portrait-missing { width: 100%; text-align: center; font-size: 9px; color: #d5deea; }
+.compass-panel-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.compass-panel-heading h4 { margin: 0; }
+.compass-enemy-region { margin-top: 10px; }
+.compass-overview dl { display: grid; grid-template-columns: 110px 1fr; gap: 8px; }
+.compass-overview dd { margin: 0; font-variant-numeric: tabular-nums; }
+.compass-overview dl { align-items: center; }
+.compass-overview dd { font-size: 19px; font-weight: 650; color: #c8d8ed; }
+.compass-overview dd.compass-overview-air { font-size: 27px; color: #91d9b2; }
+.compass-overview dd.compass-overview-los { font-size: 27px; color: #8ecbff; }
+.compass-overview dd small { font-size: 13px; font-weight: 400; color: #c8d8ed; }
+.compass-enemy-ship { display: inline-flex; align-items: center; gap: 5px; }
+.compass-enemy-ship.is-escort-start { border-left: 1px solid #687587; padding-left: 8px; }
 
 .compass-toolbar-node {
   color: #9fe0b0;
@@ -54,14 +92,15 @@
 }
 
 .compass-map-select {
-  display: flex;
-  align-items: center;
-  min-width: 190px;
+  position: relative;
+  flex-shrink: 0;
+  min-width: 64px;
 }
 
-.compass-map-select select,
+.compass-map-select summary,
 .compass-reset,
-.compass-manual button {
+.compass-manual button,
+.compass-phase-group button {
   color: #f1f5f9;
   border: 1px solid #687587;
   border-radius: 3px;
@@ -69,19 +108,77 @@
   padding: 4px 8px;
 }
 
-.compass-map-select select {
-  width: 100%;
+.compass-map-select summary {
+  cursor: pointer;
+}
+
+.compass-map-matrix {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  z-index: 30;
+  width: min(370px, calc(100vw - 44px));
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #7c90a8;
+  border-radius: 4px;
+  background: #252e3a;
+  box-shadow: 0 5px 18px #0008;
+}
+
+.compass-map-matrix-row {
+  display: grid;
+  grid-template-columns: 66px repeat(6, minmax(0, 1fr));
+  gap: 3px;
+  align-items: center;
+}
+
+.compass-map-matrix-row + .compass-map-matrix-row {
+  margin-top: 4px;
+}
+
+.compass-map-area {
+  color: #c9d8e7;
+  font-size: 12px;
+}
+
+.compass-map-matrix button {
+  min-height: 30px;
+  padding: 3px 0;
+  border: 1px solid #687d96;
+  border-radius: 3px;
+  background: #354254;
+  color: #edf4fc;
+  cursor: pointer;
+  font-variant-numeric: tabular-nums;
+}
+
+.compass-map-matrix button:hover,
+.compass-map-matrix button:focus-visible {
+  background: #4a6078;
+  outline: 2px solid #bfe1f7;
+  outline-offset: -2px;
+}
+
+.compass-map-matrix button.is-active {
+  background: #285b48;
+  border-color: #9fe0b0;
+  color: #fff;
+  font-weight: 700;
 }
 
 .compass-reset,
-.compass-manual button {
+.compass-manual button,
+.compass-phase-group button {
   cursor: pointer;
 }
 
 .compass-reset:hover,
 .compass-reset:focus,
 .compass-manual button:hover,
-.compass-manual button:focus {
+.compass-manual button:focus,
+.compass-phase-group button:hover,
+.compass-phase-group button:focus {
   border-color: #b8c7d9;
   background: #3a4655;
 }
@@ -114,33 +211,84 @@
   min-height: 520px;
 }
 
-.compass-arrow {
-  fill: #cbd5e1;
+.compass-map-background {
+  opacity: 0.32;
+  pointer-events: none;
+}
+
+.compass-node-air-state { font-size: 18px; font-weight: 750; fill: white; stroke: #151a22; stroke-width: 3px; paint-order: stroke fill; stroke-linejoin: round; }
+
+.compass-edge {
+  outline: none;
 }
 
 .compass-edge line {
-  stroke: #9aa8ba;
-  stroke-width: 2;
-  opacity: 0.62;
+  stroke: #8cbce0;
+  stroke-width: 4;
+  opacity: 0.85;
+  transition: stroke 120ms ease, stroke-width 120ms ease, opacity 120ms ease;
 }
 
-.compass-edge line.is-reachable {
-  stroke: #8fc9f1;
+.compass-edge.is-reachable line {
   opacity: 1;
 }
 
-.compass-edge line.is-unresolved {
-  stroke-dasharray: 5 4;
+.compass-edge.is-probability-high line {
+  stroke: #78d99a;
+  stroke-width: 7;
+}
+
+.compass-edge.is-probability-medium line {
+  stroke: #8fc9f1;
+  stroke-width: 5;
+}
+
+.compass-edge.is-probability-low line {
+  stroke: #91c4e8;
+  stroke-width: 4.5;
+}
+
+.compass-edge.is-probability-zero line {
+  stroke: #8cbce0;
+  stroke-width: 4;
+  opacity: 0.85;
+}
+
+.compass-edge.is-passed line {
+  stroke-width: 6;
+  opacity: 1;
+}
+
+.compass-edge.is-passed.is-probability-high line {
+  stroke-width: 8;
+}
+
+.compass-edge.is-passed.is-probability-medium line {
+  stroke-width: 7;
+}
+
+.compass-edge.is-passed.is-probability-zero line {
+  stroke-width: 6;
+}
+
+.compass-edge.is-manual-choice {
+  cursor: pointer;
+}
+
+.compass-edge.is-manual-choice:hover line,
+.compass-edge.is-manual-choice:focus line {
+  stroke: #f4d476;
+  stroke-width: 8;
 }
 
 .compass-edge-label {
   fill: #e2e8f0;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 800;
   text-anchor: middle;
   paint-order: stroke;
   stroke: var(--color-background, #20242b);
-  stroke-width: 4px;
+  stroke-width: 5px;
   stroke-linejoin: round;
 }
 
@@ -149,48 +297,59 @@
   outline: none;
 }
 
-.compass-node circle {
-  fill: #35404e;
-  stroke: #c1ccda;
-  stroke-width: 2;
+.compass-node-shape {
+  vector-effect: non-scaling-stroke;
+  transition: filter 120ms ease, stroke-width 120ms ease;
 }
 
-.compass-node:hover circle,
-.compass-node:focus circle {
+.compass-node-simple-border {
+  fill: none;
+  pointer-events: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.compass-node-icon,
+.compass-node-icon-secondary {
+  pointer-events: none;
+}
+
+.compass-node:hover .compass-node-shape,
+.compass-node:focus .compass-node-shape {
+  filter: brightness(1.12);
+}
+
+.compass-node.is-selected .compass-node-shape {
   stroke: #f4d476;
-  stroke-width: 3;
+  filter: brightness(1.06);
 }
 
-.compass-node.is-selected circle {
-  fill: #4c647b;
-  stroke: #f4d476;
-}
-
-.compass-node.is-current circle {
+.compass-node.is-current .compass-node-shape {
   stroke: #8fe0a2;
   stroke-width: 4;
 }
 
-.compass-node.is-boss circle {
-  fill: #67434f;
+.compass-node.is-manual-target .compass-node-shape {
+  stroke: #f4d476;
+  stroke-dasharray: 4 3;
 }
 
-.compass-node-label,
-.compass-node-probability {
+.compass-node.is-manual-target:hover .compass-node-shape,
+.compass-node.is-manual-target:focus .compass-node-shape {
+  filter: brightness(1.15);
+}
+
+.compass-node-label {
   text-anchor: middle;
   pointer-events: none;
 }
 
 .compass-node-label {
   fill: #ffffff;
-  font-size: 16px;
+  stroke: #000000;
+  stroke-width: 3px;
   font-weight: 700;
-}
-
-.compass-node-probability {
-  fill: #d2dbe7;
-  font-size: 13px;
-  font-weight: 600;
+  paint-order: stroke;
+  stroke-linejoin: round;
 }
 
 .compass-sidebar {
@@ -239,6 +398,80 @@
   border-left-color: #d47f8a;
   color: #b5beca;
 }
+
+.compass-enemy-period {
+  color: #c9d8e7;
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+
+.compass-enemy-air-range {
+  color: #bfe1f7;
+  margin-bottom: 8px;
+}
+
+.compass-enemy-list {
+  max-height: 440px;
+  overflow: auto;
+}
+
+.compass-enemy-entry {
+  border-bottom: 1px solid #556579;
+  color: #edf3fa;
+}
+
+.compass-enemy-entry summary {
+  display: grid;
+  grid-template-columns: 58px 64px minmax(238px, 1fr) 190px;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 2px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.compass-enemy-entry summary:hover,
+.compass-enemy-entry summary:focus-visible {
+  background: #3a4655;
+}
+
+.compass-enemy-share,
+.compass-enemy-air {
+  color: #bfe1f7;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.compass-enemy-fleet {
+  display: grid;
+  grid-template-columns: repeat(6, 34px);
+  gap: 8px 6px;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.compass-enemy-detail {
+  padding: 4px 6px 10px;
+  line-height: 1.7;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.compass-enemy-entry { min-width: 590px; }
+.compass-enemy-stats { margin-top: 8px; }
+.compass-enemy-stat-row {
+  display: grid;
+  grid-template-columns: 40px repeat(5, 54px) minmax(160px, 1fr);
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  font-variant-numeric: tabular-nums;
+}
+.compass-enemy-stat-row > span:not(:first-child):not(:last-child) { text-align: right; }
+.compass-enemy-stat-row.is-escort-start { border-top: 1px solid #687587; margin-top: 5px; }
+.compass-enemy-air { text-align: right; white-space: nowrap; }
 
 .compass-condition.is-unknown {
   border-left-color: #e0af56;
@@ -329,6 +562,38 @@
   background: rgba(143, 224, 162, 0.2);
 }
 
+.compass-phase-group {
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.compass-phase-group button {
+  border-radius: 0;
+}
+
+.compass-phase-group button:first-child {
+  border-radius: 3px 0 0 3px;
+}
+
+.compass-phase-group button:last-child {
+  border-radius: 0 3px 3px 0;
+}
+
+.compass-phase-group button + button {
+  margin-left: -1px;
+}
+
+.compass-phase-group button.is-active {
+  position: relative;
+  z-index: 1;
+  border-color: #8fe0a2;
+  background: rgba(143, 224, 162, 0.2);
+}
+
+.compass-warnings > div:first-child {
+  color: #ffb5b5;
+}
+
 .compass-muted,
 .compass-empty-panel {
   color: #c3cedb;
@@ -337,6 +602,39 @@
 .compass-empty-panel {
   padding: 12px;
 }
+
+.compass-export-route {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.compass-export-battle {
+  display: grid;
+  grid-template-columns: 32px 76px minmax(0, 1fr);
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.compass-export-panel select,
+.compass-export-actions button {
+  min-width: 0;
+  padding: 4px;
+  color: #f1f5f9;
+  background: #303844;
+  border: 1px solid #687587;
+  border-radius: 3px;
+}
+
+.compass-export-actions {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.compass-export-actions button { padding: 5px 12px; cursor: pointer; }
+.compass-export-actions button:disabled { opacity: 0.5; cursor: not-allowed; }
 
 @media (max-width: 900px) {
   .compass-layout {

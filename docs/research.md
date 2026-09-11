@@ -34,7 +34,7 @@
 - `observedProbability`：TsunDB/KCNav 等出击样本按条件筛选后的统计比例。
 - `reachProbability`：从起点概率质量传播到该节点或该边的结果。
 
-三者不能混成一个数字。规则缺失或条件未知时，UI 显示 `unknown`，不显示 0%，也不擅自采用统计结果替代规则结果。统计样本可以作为辅助提示，例如“规则未收录，近 N 次样本为……”，但必须显示样本量和过滤条件。
+三者不能混成一个数字。规则缺失或舰队条件未知时，UI 显示 `unknown`；仅当非能动分歧出口存在但没有可靠概率时，才将出口按均等概率处理并加 `?`。能动分歧没有手动方向且没有可用 phase 默认规则时暂停概率传播并提示用户选择，不擅自采用统计结果替代规则结果。统计样本可以作为辅助提示，例如“规则未收录，近 N 次样本为……”，但必须显示样本量和过滤条件。
 
 ### 2.3 最小可行架构：离线规范数据 + poi 实时状态
 
@@ -71,7 +71,7 @@ const mapKey = `${Math.floor(mapId / 10)}-${mapId % 10}`
 const label = maps?.[mapKey]?.route?.[Number(cell)]?.[1]
 ```
 
-因此第一版不需要重新下载地图坐标。插件应优先从 poi store 读取 `fcd.map`；当运行环境没有该结构时，再从版本化的本地适配数据降级。
+因此第一版不需要重新下载地图坐标。插件运行时从 poi store 读取 `fcd.map`；该结构缺失时地图几何标为不可用，不从其他来源静默替代。
 
 ### 3.2 当前舰队和 master ID
 
@@ -85,13 +85,15 @@ const label = maps?.[mapKey]?.route?.[Number(cell)]?.[1]
 - `info.basic.api_level`：司令部等级；
 - `sortie.combinedFlag`、`sortie.sortieMapId`、`sortie.currentNode`：当前出击上下文（字段的可用性需以当前 poi 版本实测为准）。
 
-索敌值已在当前 poi 源码中确认：`views/utils/game-utils.ts` 的 `getSaku33` 返回 `{ ship, item, teitoku, total }`，分别对应舰船项、装备项、提督等级惩罚和总值。插件运行时优先组装与 poi `fleet-stat` 相同的 `[舰船实例, 舰船 master]` 和装备数据并调用该函数；只有 master/提督等级缺失时才使用降级估算并标记为近似。
+索敌值已在当前 poi 源码中确认：`views/utils/game-utils.ts` 的 `getSaku33` 返回 `{ ship, item, teitoku, total }`，分别对应舰船项、装备项、提督等级惩罚和总值。插件运行时组装与 poi `fleet-stat` 相同的 `[舰船实例, 舰船 master]` 和装备数据并调用该函数：装备槽按 `api_slotnum` 截断，保留 `api_slot_ex` 作为最后一槽，并把 `api_onslot` 与补强槽的 0 传入；出击中已护卫舰也按 poi selector 规则排除。插件分别以 `mapModifier = 1/2/3/4` 调用 poi，顶部显示四个 `total` 值；地图规则用 `data/los-config.json` 选择对应的分歧点系数。master、装备、提督等级或任一 33 式结果缺失时直接报告 poi 数据不可用，不使用本地公式替代。
+
+根据当前提供的通常图表格，已记录的索敌分歧点系数 / 司令部系数为：1-6 `3/0.35`、2-5 `1/0.4`、3-5 `4/0.35`、4-5 `2/0.35`、5-2 `2/0.35`、5-4 `2/0.35`、5-5 `2/0.35`、5-6 `4/0.4?`、6-1 `4/0.35`、6-2 `3/0.35`、6-3 `3/0.35`、6-5 `3/0.4?`、7-2 `4/0.4`、7-4 `4/0.35`、7-5 `4/0.35`。5-6 的 KCWiki 页面明确给出分歧点系数 4，并说明页面索敌线按 120 级司令部记录，低于 120 级时建议额外提高 1，因此司令部系数暂标为近似。其余通常图在该表中没有索敌分歧线，配置记为不适用；这不代表可以把它们的系数猜成 1 或 0.4。
 
 所有规则求值都应基于 master ID、舰种 ID、装备 type2、速度值和当前实例数据；名称只用于显示和 source note。敌舰也用敌舰 master ID，不用翻译后的名字作为身份。
 
-当前实现还把装备 type2=12/13（poi 的小型/大型电探）归入 `radar` 舰数，用于 3-2 等通常图。poi 的 `getFleetSpeed` 只返回基础速力，不能单独证明“高速+”或“最速”；规则引擎因此为这两个条件保留独立的未知状态，不把普通高速误当成高速+。
+当前实现还把装备 type2=12/13（poi 的小型/大型电探）归入 `radar` 舰数，用于 3-2 等通常图。poi 的 `getFleetSpeed` 从舰娘实例的 `api_soku` 取舰队最低速力；该实例字段就是 poi 舰队页展示的有效速力，插件据此区分普通高速、高速+和最速。
 
-规则引擎另外支持 `containsName` / `nameCount`，用于长门、陆奥、秋津洲、如月以及 7-3 的史实舰组合。这里的名称只作为当前 poi master 数据的匹配键，实际舰队对象仍保留 master ID。地图阶段、出发点解锁、7-3 一期/二期等状态使用 `flag` 条件表达；当前插件没有足够可靠的 poi 状态字段自动填充时，结果保持未知。
+规则引擎另外支持 `containsName` / `nameCount`，用于长门、陆奥、秋津洲、如月以及 7-3 的史实舰组合。这里的名称只作为当前 poi master 数据的匹配键，实际舰队对象仍保留 master ID。地图阶段通过手动 phase 选择传入上下文；7-3 一期/二期使用 `flag` 条件表达，其他多阶段图仍需继续拆分来源规则。
 
 出击路径会在插件状态中记录已经经过的节点，并通过 `visited` 条件支持 4-5 的“经过 E/F 点”规则。路径历史只用于当前出击过程，不写回游戏状态。
 
@@ -128,6 +130,8 @@ const label = maps?.[mapKey]?.route?.[Number(cell)]?.[1]
 ```
 
 无法确定“约 80%”是否为长期规则、样本估计还是攻略近似时，应使用 `approximate` 或 `unknown`，并把原文保留到审阅队列。
+
+本轮已将通常海域 36 张 `/{带路条件}` 子页以及 5-6 主页面的原始 wikitext 缓存到 `data/sources/kcwiki/routes/`，并在 `manifest.json` 中记录 revision ID、修订时间和 SHA-256。规则校正以这批缓存为审阅入口：`CV系`/`CV*` 归入 `CV_ALL`，明确的 `CV+CVB` 归入 `CV_MAIN`；`CL系`、`CL+CT`、`BB系` 和单独 `BB` 也分别使用不同令牌，避免把 CVL、CT 或 BBV 静默漏掉或误计入。
 
 ### 4.2 日文 Wiki
 
@@ -196,9 +200,9 @@ result.entries[]:
 
 ### 4.5 地图图像
 
-poi `fcd.map` 已有可用的节点坐标和边信息，足以先用 SVG/Canvas 画图。TsunKit 的 `mapSet` 还有 sprite frame 和地图图集元数据，但远程图像地址/版本契约尚未在本次调研中固定；KCNav 页面本身还可能出现 metadata 加载失败。
+poi `fcd.map` 已有可用的节点坐标和边信息，仍作为路线绘制和数据可用性的主来源。进一步检查 TsunKit KCNav 前端后确认：地图背景使用 `https://tsunkit.net/api/assets/images/maps/{mapId}/background`；路线 API 的 `result.route[cell]` 第三个值是节点类型编号；KCNav 前端用该编号推导每个节点的 `nodeType`，再从 `map_main/{icon}` 或 `map_common/{icon}` 加载图标。
 
-MVP 只画节点、边、节点类型和当前路径，不复制第三方地图图像。之后再以可配置远程资源或用户本地 poi 缓存作为增强项，并在 UI 标出资源来源。
+插件沿用 KCNav 的节点类型表，把起点、Boss、运输、航空战、空袭、夜战、修理、能动分歧等类型映射到地图主图标和公共图标。由于路线 API 在连续请求时可能返回 `401 Unauthorized API automation detected`，当前实现把 37 张通常图背景和节点图标提前下载到 `assets/kcnav/`，运行时完全使用本地 `file://` 资源，不再请求远程；当前节点图标暂不渲染，仅保留样式数据。37 张通常图的地图 API 原始响应另缓存到 `data/sources/kcnav/maps/`，并从每条 `route` 的第三项生成各图节点类型表；只有缓存缺失的地图才会保留圆形节点和字母。
 
 ## 5. 规范数据模型建议
 
@@ -305,11 +309,17 @@ UI 同时显示：
 - 当前边的局部概率 `localProbability`；
 - 当前边承载的全局概率 `edgeMass`。
 
-图中若有合流节点，应按路径状态合并“只读的可交换上下文”；若规则依赖曾经经过的节点或阶段，则保留路径上下文，不能只按节点字符串去重。对未知边不传播伪造数值，而是单独显示“概率质量未闭合”。
+图中若有合流节点，应按路径状态合并“只读的可交换上下文”；若规则依赖曾经经过的节点或阶段，则保留路径上下文，不能只按节点字符串去重。对非能动分歧中完全没有可靠概率的出口，按均等概率传播并把不确定性沿全局路径传递，在概率后附加 `?`；能动分歧则要求手动方向或使用命中的 phase 默认规则。真正无法求值的舰队条件仍显示未知，不与概率估算混淆。
 
 ### 6.3 能动分歧
 
+2026-09-11 全通常图拓扑复查：以本地 KCNav 响应交叉检查规则出口、遗漏续航和 Boss 类型。修正 2-4 的 A/D 为终点（E→D），7-5 的 M 为终点，补充 5-6 H→R 和 5-2 出发点其余编成→B。4-5 K 的随机去 M 条件此前误写 K→N，现按索敌 <60、60～70、≥70 分别列 M/L、M/T/L、M/T，未知分布均分并标记问号。6-1、6-2、7-1 Boss 为 K，5-1 为 J；1-6 没有 Boss。7-4 J 的缓存类型为 4，KCWiki 也说明该点发生含潜艇的战斗，保留该类型。
+
+明确终点规则使用 `terminal: true`，避免与 `outcomes: []` 的“规则未收录”混淆；存在分歧规则却没有命中时仍为未知。测试覆盖全部规则的实际出口和显式终点，仅排除 6-4/6-5 用于选择起点的虚拟 1→2 转移。节点颜色以 KCNav 缓存类型为准，旧 Boss 字段不覆盖已知类型；圆形节点不应用图片位置偏移，航空战圆半径与空袭一致为 15。基础路径为 4px 蓝色线，透明度 0.85。
+
 用户选择能动分歧后，对该节点加入临时 `manualOverride`：
+
+当前通常海域已核对的能动分歧点为：4-5（A、C、I）、5-3（O）、5-5（F）、6-3（A）、7-4（F）、7-5（F、H、O）。7-5 的 F/H/O 分别对应 G/J、I/K、P/Q 两个出口；有 phase 规则时先采用命中的 phase 默认出口，用户手动选择后再覆盖；没有 phase 默认规则的能动点必须由用户指定方向，不再默认均分。
 
 - 选中的边：`localProbability = 1`；
 - 其他边：`localProbability = 0`；
@@ -359,22 +369,19 @@ KC3Kai 的 import help 明确支持：
 
 风险是 URL 长度和 simulator 对新 master ID 的支持。如果 simulator 数据库没有某个 master ID，import help 要求同时提供 stats；插件应捕获这个情况并允许只导出舰队或复制 JSON。
 
-### 8.2 noro6：先做最小 POC
+2026-09-11 重新核对已部署的 `js/simulator-ui/ui-main.js`：URL hash 中的 `{ fleetF, nodes }` 会调用 `initSimImport`，直接执行 `SIM.runStats`，并非仅填充编辑界面。若按钮语义是“打开编辑”，应使用其 `#backup=`（LZMA + Base64）存档导入流程，或先验证其他编辑导入路径。`convert.js` 确认 `fleetEComps[].weight`、`NBOnly`、`airOnly`、`airRaid` 等字段。需要保留补给消耗、夜战和我方阵型的准确含义。
 
-noro6 源码显示其外部 URL 采用：
+### 8.2 noro6：DeckBuilder 可导入出击信息
 
-```text
-?data=<LZString.compressToEncodedURIComponent(managerJson)>
-```
+我方裸值来源修正：ship-info 无装备模式确实从 WCTF 成长数据计算，但本机及 npm 最新 WCTF 均为 20240308.0.1，缺少 #736 榧改等新舰，故最终移除该依赖。KC3Kai `FLEET_MODEL.getDefaultShip` 在传入等级时按 EVbase/EV、ASWbase/ASW、LOSbase/LOS 推算裸值，备份导入仅覆盖实际提供的字段，因此省略 EV/LOS 与未改修 ASW。对潜改修不能从等级推断，使用本地 `data/kc3kai-ship-stats.json` 成长快照补入；noro6 的 `convert.ts` 用 `s.asw`（总面板）反推出额外改修，因此保留 poi 实例总对潜。火雷空甲/运/耐久保留真实状态，敌方不删 KCNav 数据。已回归验证没有 WCTF 时 #736 可导出、175 级对潜改修、正常成长字段省略；不新增任何插件运行时远程数据库请求。
 
-poi 当前的 `ShareDialog` 也已有同一方向的实现，并另有 `pdz` deckbuilder 压缩链接。完整 manager JSON 不只是舰队，还包含内部保存数据、敌舰和战斗信息；所以“直接生成当前路线并让 noro6 还原”需要一个最小 fixture POC：
+2026-09-11 核对 [App.vue](https://github.com/noro6/kc-web/blob/main/src/App.vue) 与 [convert.ts](https://github.com/noro6/kc-web/blob/main/src/classes/convert.ts)：支持 `?predeck=<encodeURIComponent(JSON)>`，DeckBuilder v4 除玩家舰队之外还支持 `s: { a: 海域编号, i: 海图编号, c: 节点列表 }`，每个节点使用 `{ c: 数字cell, pf: 我方阵型, ef: 敌方阵型, f1: { s: 敌舰列表 }, f2?: { s: 护卫敌舰列表 } }`。节点数字 cell 应从当前选定路线的 KCNav/poi 边映射取得。
 
-1. 生成只有玩家舰队的 manager JSON；
-2. 打开 noro6 的 `?data=` 并确认能解码；
-3. 增加一个敌节点和一条路线；
-4. 再验证空袭/联合舰队/新舰装备的兼容性。
+限制：当前 `loadDeckBuilder` 按敌舰 master ID 调用 `Enemy.createEnemyFromMasterId`，没有读取敌舰 `items`；同一 master ID 的不同装备/属性配置不能通过这条路径精确保留。此外每个节点只接受一套敌编成，没有 `fleetEComps` 权重列表。第一版建议由玩家选择敌编成（可预选样本最多的一组），明确使用目标站默认敌舰数据；若要求忠实传递装备变体，再验证其内部 SaveData 导入格式。
 
-如果第三步无法稳定通过，MVP 只提供 noro6 海域页和当前舰队 deckbuilder/aircalc 链接，不承诺自动填充每个敌节点。
+两者都导出一条具体路线，不把所有有非零概率的节点串成一条路线。当前 `exporters.js` 按路径历史逐分歧求值，排除零概率边，并在导出面板提供完整路线选择；默认优先当前阶段 Boss，再按概率排序。未选择的能动分歧列出候选但不显示伪造概率，命中的 phase 默认规则仍适用。noro6 每节点默认样本最多的一套，可单独修改；我方阵型亦可调整。
+
+2026-09-11 实施与验证：KC3Kai 采用 v2 `#backup=`，已在浏览器用合成舰队确认编辑界面恢复两套敌编成及 90%/10% 权重，没有自动运行模拟。源码 `ui-main.js` 限 9 战、每节点 12 编成，导出超限直接提示，不截断。master ID 快照用于拦截目标站不支持的舰娘/装备。noro6 浏览器确认恢复合成睦月 Lv50、改修装备、1-4 L 点和複縦陣；`f1.t=0` 必须用于通常舰队，`t=1` 会错误变成空母机动部队。noro6 导入页面会自行计算。单测覆盖链接编解码、补强槽/空槽、编成选择、phase 默认、能动候选和航空/夜战映射；尚未验证真实 poi 舰队端到端及完整多战航空损耗。陆航、支援和漩涡损耗不在本次导出范围。
 
 ## 9. 分阶段实施计划
 

@@ -1,0 +1,1168 @@
+{
+  "result": {
+    "entryCount": 9,
+    "entries": [
+      {
+        "map": "5-6",
+        "node": "X",
+        "mainFleet": [
+          {
+            "id": 1974,
+            "name": "南太平洋空母棲姫-壊",
+            "name_en": "South Pacific Aircraft Carrier Princess (Damaged)",
+            "lvl": 1,
+            "hp": 888,
+            "fp": 238,
+            "aa": 158,
+            "armor": 268,
+            "equips": [
+              1581,
+              1582,
+              1557,
+              1583,
+              -1
+            ]
+          },
+          {
+            "id": 1616,
+            "name": "空母ヲ級改",
+            "name_en": "Wo-Class Standard Carrier Kai",
+            "lvl": 1,
+            "hp": 160,
+            "fp": 40,
+            "aa": 90,
+            "armor": 120,
+            "equips": [
+              1547,
+              1548,
+              1549,
+              1549,
+              -1
+            ]
+          },
+          {
+            "id": 1562,
+            "name": "戦艦レ級",
+            "name_en": "Re-Class Battleship",
+            "lvl": 1,
+            "hp": 270,
+            "fp": 130,
+            "torp": 120,
+            "aa": 100,
+            "armor": 130,
+            "equips": [
+              1509,
+              1512,
+              1541,
+              1546,
+              -1
+            ]
+          },
+          {
+            "id": 1562,
+            "name": "戦艦レ級",
+            "name_en": "Re-Class Battleship",
+            "lvl": 1,
+            "hp": 270,
+            "fp": 130,
+            "torp": 120,
+            "aa": 100,
+            "armor": 130,
+            "equips": [
+              1509,
+              1512,
+              1541,
+              1546,
+              -1
+            ]
+          },
+          {
+            "id": 1623,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 46,
+            "fp": 58,
+            "torp": 76,
+            "aa": 48,
+            "armor": 36,
+            "equips": [
+              1502,
+              1559,
+              1544,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1623,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 46,
+            "fp": 58,
+            "torp": 76,
+            "aa": 48,
+            "armor": 36,
+            "equips": [
+              1502,
+              1559,
+              1544,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 3,
+        "count": 242,
+        "airpower": [
+          145,
+          290,
+          651,
+          1302
+        ],
+        "lbasAirpower": [
+          145,
+          290,
+          651,
+          1302
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 261090738
+      },
+      {
+        "map": "5-6",
+        "node": "X",
+        "mainFleet": [
+          {
+            "id": 1971,
+            "name": "南太平洋空母棲姫",
+            "name_en": "South Pacific Aircraft Carrier Princess",
+            "lvl": 1,
+            "hp": 888,
+            "fp": 208,
+            "aa": 138,
+            "armor": 218,
+            "equips": [
+              1581,
+              1582,
+              1557,
+              1583,
+              -1
+            ]
+          },
+          {
+            "id": 1616,
+            "name": "空母ヲ級改",
+            "name_en": "Wo-Class Standard Carrier Kai",
+            "lvl": 1,
+            "hp": 160,
+            "fp": 40,
+            "aa": 90,
+            "armor": 120,
+            "equips": [
+              1547,
+              1548,
+              1549,
+              1549,
+              -1
+            ]
+          },
+          {
+            "id": 1562,
+            "name": "戦艦レ級",
+            "name_en": "Re-Class Battleship",
+            "lvl": 1,
+            "hp": 270,
+            "fp": 130,
+            "torp": 120,
+            "aa": 100,
+            "armor": 130,
+            "equips": [
+              1509,
+              1512,
+              1541,
+              1546,
+              -1
+            ]
+          },
+          {
+            "id": 1592,
+            "name": "軽巡ツ級",
+            "name_en": "Tsu-Class Light Cruiser",
+            "lvl": 1,
+            "hp": 66,
+            "fp": 64,
+            "torp": 92,
+            "aa": 96,
+            "armor": 68,
+            "equips": [
+              1550,
+              1550,
+              1545,
+              1525,
+              -1
+            ]
+          },
+          {
+            "id": 1577,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 38,
+            "fp": 44,
+            "torp": 72,
+            "aa": 36,
+            "armor": 29,
+            "equips": [
+              1502,
+              1515,
+              1542,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1577,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 38,
+            "fp": 44,
+            "torp": 72,
+            "aa": 36,
+            "armor": 29,
+            "equips": [
+              1502,
+              1515,
+              1542,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 3,
+        "count": 238,
+        "airpower": [
+          109,
+          217,
+          488,
+          975
+        ],
+        "lbasAirpower": [
+          109,
+          218,
+          489,
+          978
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 261080238
+      },
+      {
+        "map": "5-6",
+        "node": "X",
+        "mainFleet": [
+          {
+            "id": 1971,
+            "name": "南太平洋空母棲姫",
+            "name_en": "South Pacific Aircraft Carrier Princess",
+            "lvl": 1,
+            "hp": 888,
+            "fp": 208,
+            "aa": 138,
+            "armor": 218,
+            "equips": [
+              1581,
+              1582,
+              1557,
+              1583,
+              -1
+            ]
+          },
+          {
+            "id": 1616,
+            "name": "空母ヲ級改",
+            "name_en": "Wo-Class Standard Carrier Kai",
+            "lvl": 1,
+            "hp": 160,
+            "fp": 40,
+            "aa": 90,
+            "armor": 120,
+            "equips": [
+              1547,
+              1548,
+              1549,
+              1549,
+              -1
+            ]
+          },
+          {
+            "id": 1561,
+            "name": "戦艦レ級",
+            "name_en": "Re-Class Battleship",
+            "lvl": 1,
+            "hp": 180,
+            "fp": 90,
+            "torp": 100,
+            "aa": 80,
+            "armor": 110,
+            "equips": [
+              1509,
+              1512,
+              1515,
+              1546,
+              -1
+            ]
+          },
+          {
+            "id": 1591,
+            "name": "軽巡ツ級",
+            "name_en": "Tsu-Class Light Cruiser",
+            "lvl": 1,
+            "hp": 48,
+            "fp": 58,
+            "torp": 84,
+            "aa": 88,
+            "armor": 55,
+            "equips": [
+              1550,
+              1550,
+              1545,
+              1525,
+              -1
+            ]
+          },
+          {
+            "id": 1577,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 38,
+            "fp": 44,
+            "torp": 72,
+            "aa": 36,
+            "armor": 29,
+            "equips": [
+              1502,
+              1515,
+              1542,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1577,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 38,
+            "fp": 44,
+            "torp": 72,
+            "aa": 36,
+            "armor": 29,
+            "equips": [
+              1502,
+              1515,
+              1542,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 3,
+        "count": 225,
+        "airpower": [
+          105,
+          209,
+          468,
+          936
+        ],
+        "lbasAirpower": [
+          105,
+          209,
+          470,
+          939
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 261079984
+      },
+      {
+        "map": "5-6",
+        "node": "X",
+        "mainFleet": [
+          {
+            "id": 1974,
+            "name": "南太平洋空母棲姫-壊",
+            "name_en": "South Pacific Aircraft Carrier Princess (Damaged)",
+            "lvl": 1,
+            "hp": 888,
+            "fp": 238,
+            "aa": 158,
+            "armor": 268,
+            "equips": [
+              1581,
+              1582,
+              1557,
+              1583,
+              -1
+            ]
+          },
+          {
+            "id": 1616,
+            "name": "空母ヲ級改",
+            "name_en": "Wo-Class Standard Carrier Kai",
+            "lvl": 1,
+            "hp": 160,
+            "fp": 40,
+            "aa": 90,
+            "armor": 120,
+            "equips": [
+              1547,
+              1548,
+              1549,
+              1549,
+              -1
+            ]
+          },
+          {
+            "id": 1616,
+            "name": "空母ヲ級改",
+            "name_en": "Wo-Class Standard Carrier Kai",
+            "lvl": 1,
+            "hp": 160,
+            "fp": 40,
+            "aa": 90,
+            "armor": 120,
+            "equips": [
+              1547,
+              1548,
+              1549,
+              1549,
+              -1
+            ]
+          },
+          {
+            "id": 1562,
+            "name": "戦艦レ級",
+            "name_en": "Re-Class Battleship",
+            "lvl": 1,
+            "hp": 270,
+            "fp": 130,
+            "torp": 120,
+            "aa": 100,
+            "armor": 130,
+            "equips": [
+              1509,
+              1512,
+              1541,
+              1546,
+              -1
+            ]
+          },
+          {
+            "id": 1623,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 46,
+            "fp": 58,
+            "torp": 76,
+            "aa": 48,
+            "armor": 36,
+            "equips": [
+              1502,
+              1559,
+              1544,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1623,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 46,
+            "fp": 58,
+            "torp": 76,
+            "aa": 48,
+            "armor": 36,
+            "equips": [
+              1502,
+              1559,
+              1544,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 3,
+        "count": 157,
+        "airpower": [
+          146,
+          291,
+          653,
+          1305
+        ],
+        "lbasAirpower": [
+          146,
+          291,
+          653,
+          1305
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 261091168
+      },
+      {
+        "map": "5-6",
+        "node": "X",
+        "mainFleet": [
+          {
+            "id": 1974,
+            "name": "南太平洋空母棲姫-壊",
+            "name_en": "South Pacific Aircraft Carrier Princess (Damaged)",
+            "lvl": 1,
+            "hp": 888,
+            "fp": 238,
+            "aa": 158,
+            "armor": 268,
+            "equips": [
+              1581,
+              1582,
+              1557,
+              1583,
+              -1
+            ]
+          },
+          {
+            "id": 1616,
+            "name": "空母ヲ級改",
+            "name_en": "Wo-Class Standard Carrier Kai",
+            "lvl": 1,
+            "hp": 160,
+            "fp": 40,
+            "aa": 90,
+            "armor": 120,
+            "equips": [
+              1547,
+              1548,
+              1549,
+              1549,
+              -1
+            ]
+          },
+          {
+            "id": 1616,
+            "name": "空母ヲ級改",
+            "name_en": "Wo-Class Standard Carrier Kai",
+            "lvl": 1,
+            "hp": 160,
+            "fp": 40,
+            "aa": 90,
+            "armor": 120,
+            "equips": [
+              1547,
+              1548,
+              1549,
+              1549,
+              -1
+            ]
+          },
+          {
+            "id": 1862,
+            "name": "軽巡ツ級",
+            "name_en": "Tsu-Class Light Cruiser",
+            "lvl": 1,
+            "hp": 130,
+            "fp": 122,
+            "torp": 98,
+            "aa": 108,
+            "armor": 108,
+            "equips": [
+              1550,
+              1550,
+              1545,
+              1525,
+              -1
+            ]
+          },
+          {
+            "id": 1623,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 46,
+            "fp": 58,
+            "torp": 76,
+            "aa": 48,
+            "armor": 36,
+            "equips": [
+              1502,
+              1559,
+              1544,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1623,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 46,
+            "fp": 58,
+            "torp": 76,
+            "aa": 48,
+            "armor": 36,
+            "equips": [
+              1502,
+              1559,
+              1544,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 3,
+        "count": 286,
+        "airpower": [
+          110,
+          219,
+          492,
+          984
+        ],
+        "lbasAirpower": [
+          110,
+          220,
+          494,
+          987
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 261090686
+      },
+      {
+        "map": "5-6",
+        "node": "X",
+        "mainFleet": [
+          {
+            "id": 1971,
+            "name": "南太平洋空母棲姫",
+            "name_en": "South Pacific Aircraft Carrier Princess",
+            "lvl": 1,
+            "hp": 888,
+            "fp": 208,
+            "aa": 138,
+            "armor": 218,
+            "equips": [
+              1581,
+              1582,
+              1557,
+              1583,
+              -1
+            ]
+          },
+          {
+            "id": 1616,
+            "name": "空母ヲ級改",
+            "name_en": "Wo-Class Standard Carrier Kai",
+            "lvl": 1,
+            "hp": 160,
+            "fp": 40,
+            "aa": 90,
+            "armor": 120,
+            "equips": [
+              1547,
+              1548,
+              1549,
+              1549,
+              -1
+            ]
+          },
+          {
+            "id": 1594,
+            "name": "重巡ネ級",
+            "name_en": "Ne-Class Heavy Cruiser",
+            "lvl": 1,
+            "hp": 80,
+            "fp": 73,
+            "torp": 66,
+            "aa": 72,
+            "armor": 82,
+            "equips": [
+              1505,
+              1505,
+              1515,
+              1525,
+              -1
+            ]
+          },
+          {
+            "id": 1591,
+            "name": "軽巡ツ級",
+            "name_en": "Tsu-Class Light Cruiser",
+            "lvl": 1,
+            "hp": 48,
+            "fp": 58,
+            "torp": 84,
+            "aa": 88,
+            "armor": 55,
+            "equips": [
+              1550,
+              1550,
+              1545,
+              1525,
+              -1
+            ]
+          },
+          {
+            "id": 1577,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 38,
+            "fp": 44,
+            "torp": 72,
+            "aa": 36,
+            "armor": 29,
+            "equips": [
+              1502,
+              1515,
+              1542,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1577,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 38,
+            "fp": 44,
+            "torp": 72,
+            "aa": 36,
+            "armor": 29,
+            "equips": [
+              1502,
+              1515,
+              1542,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 3,
+        "count": 16,
+        "airpower": [
+          73,
+          146,
+          327,
+          654
+        ],
+        "lbasAirpower": [
+          74,
+          148,
+          332,
+          663
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 261088393
+      },
+      {
+        "map": "5-6",
+        "node": "X",
+        "mainFleet": [
+          {
+            "id": 1971,
+            "name": "南太平洋空母棲姫",
+            "name_en": "South Pacific Aircraft Carrier Princess",
+            "lvl": 1,
+            "hp": 888,
+            "fp": 208,
+            "aa": 138,
+            "armor": 218,
+            "equips": [
+              1581,
+              1582,
+              1557,
+              1583,
+              -1
+            ]
+          },
+          {
+            "id": 1616,
+            "name": "空母ヲ級改",
+            "name_en": "Wo-Class Standard Carrier Kai",
+            "lvl": 1,
+            "hp": 160,
+            "fp": 40,
+            "aa": 90,
+            "armor": 120,
+            "equips": [
+              1547,
+              1548,
+              1549,
+              1549,
+              -1
+            ]
+          },
+          {
+            "id": 1591,
+            "name": "軽巡ツ級",
+            "name_en": "Tsu-Class Light Cruiser",
+            "lvl": 1,
+            "hp": 48,
+            "fp": 58,
+            "torp": 84,
+            "aa": 88,
+            "armor": 55,
+            "equips": [
+              1550,
+              1550,
+              1545,
+              1525,
+              -1
+            ]
+          },
+          {
+            "id": 1577,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 38,
+            "fp": 44,
+            "torp": 72,
+            "aa": 36,
+            "armor": 29,
+            "equips": [
+              1502,
+              1515,
+              1542,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1577,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 38,
+            "fp": 44,
+            "torp": 72,
+            "aa": 36,
+            "armor": 29,
+            "equips": [
+              1502,
+              1515,
+              1542,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1577,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 38,
+            "fp": 44,
+            "torp": 72,
+            "aa": 36,
+            "armor": 29,
+            "equips": [
+              1502,
+              1515,
+              1542,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 3,
+        "count": 312,
+        "airpower": [
+          73,
+          146,
+          327,
+          654
+        ],
+        "lbasAirpower": [
+          74,
+          147,
+          329,
+          657
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 261092047
+      },
+      {
+        "map": "5-6",
+        "node": "X",
+        "mainFleet": [
+          {
+            "id": 1971,
+            "name": "南太平洋空母棲姫",
+            "name_en": "South Pacific Aircraft Carrier Princess",
+            "lvl": 1,
+            "hp": 888,
+            "fp": 208,
+            "aa": 138,
+            "armor": 218,
+            "equips": [
+              1581,
+              1582,
+              1557,
+              1583,
+              -1
+            ]
+          },
+          {
+            "id": 1763,
+            "name": "軽母ヌ級",
+            "name_en": "Nu-Class Light Carrier",
+            "lvl": 1,
+            "hp": 84,
+            "fp": 18,
+            "aa": 36,
+            "armor": 70,
+            "equips": [
+              1547,
+              1548,
+              1549,
+              1532,
+              -1
+            ]
+          },
+          {
+            "id": 1594,
+            "name": "重巡ネ級",
+            "name_en": "Ne-Class Heavy Cruiser",
+            "lvl": 1,
+            "hp": 80,
+            "fp": 73,
+            "torp": 66,
+            "aa": 72,
+            "armor": 82,
+            "equips": [
+              1505,
+              1505,
+              1515,
+              1525,
+              -1
+            ]
+          },
+          {
+            "id": 1591,
+            "name": "軽巡ツ級",
+            "name_en": "Tsu-Class Light Cruiser",
+            "lvl": 1,
+            "hp": 48,
+            "fp": 58,
+            "torp": 84,
+            "aa": 88,
+            "armor": 55,
+            "equips": [
+              1550,
+              1550,
+              1545,
+              1525,
+              -1
+            ]
+          },
+          {
+            "id": 1577,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 38,
+            "fp": 44,
+            "torp": 72,
+            "aa": 36,
+            "armor": 29,
+            "equips": [
+              1502,
+              1515,
+              1542,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1577,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 38,
+            "fp": 44,
+            "torp": 72,
+            "aa": 36,
+            "armor": 29,
+            "equips": [
+              1502,
+              1515,
+              1542,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 3,
+        "count": 17,
+        "airpower": [
+          63,
+          125,
+          281,
+          561
+        ],
+        "lbasAirpower": [
+          64,
+          127,
+          285,
+          570
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 261088585
+      },
+      {
+        "map": "5-6",
+        "node": "X",
+        "mainFleet": [
+          {
+            "id": 1971,
+            "name": "南太平洋空母棲姫",
+            "name_en": "South Pacific Aircraft Carrier Princess",
+            "lvl": 1,
+            "hp": 888,
+            "fp": 208,
+            "aa": 138,
+            "armor": 218,
+            "equips": [
+              1581,
+              1582,
+              1557,
+              1583,
+              -1
+            ]
+          },
+          {
+            "id": 1591,
+            "name": "軽巡ツ級",
+            "name_en": "Tsu-Class Light Cruiser",
+            "lvl": 1,
+            "hp": 48,
+            "fp": 58,
+            "torp": 84,
+            "aa": 88,
+            "armor": 55,
+            "equips": [
+              1550,
+              1550,
+              1545,
+              1525,
+              -1
+            ]
+          },
+          {
+            "id": 1577,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 38,
+            "fp": 44,
+            "torp": 72,
+            "aa": 36,
+            "armor": 29,
+            "equips": [
+              1502,
+              1515,
+              1542,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1577,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 38,
+            "fp": 44,
+            "torp": 72,
+            "aa": 36,
+            "armor": 29,
+            "equips": [
+              1502,
+              1515,
+              1542,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1577,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 38,
+            "fp": 44,
+            "torp": 72,
+            "aa": 36,
+            "armor": 29,
+            "equips": [
+              1502,
+              1515,
+              1542,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1577,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 38,
+            "fp": 44,
+            "torp": 72,
+            "aa": 36,
+            "armor": 29,
+            "equips": [
+              1502,
+              1515,
+              1542,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 3,
+        "count": 19,
+        "airpower": [
+          37,
+          74,
+          165,
+          330
+        ],
+        "lbasAirpower": [
+          38,
+          75,
+          167,
+          333
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 261116065
+      }
+    ]
+  },
+  "retrieved": "2026-09-11T19:23:24+09:00"
+}

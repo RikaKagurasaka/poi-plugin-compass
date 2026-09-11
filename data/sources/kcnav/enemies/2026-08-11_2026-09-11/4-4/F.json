@@ -1,0 +1,135 @@
+{
+  "result": {
+    "entryCount": 1,
+    "entries": [
+      {
+        "map": "4-4",
+        "node": "F",
+        "mainFleet": [
+          {
+            "id": 1560,
+            "name": "軽母ヌ級",
+            "name_en": "Nu-Class Light Carrier",
+            "lvl": 1,
+            "hp": 84,
+            "fp": 18,
+            "aa": 36,
+            "armor": 70,
+            "equips": [
+              1520,
+              1524,
+              1524,
+              1517,
+              -1
+            ]
+          },
+          {
+            "id": 1523,
+            "name": "軽母ヌ級",
+            "name_en": "Nu-Class Light Carrier",
+            "lvl": 1,
+            "hp": 70,
+            "aa": 15,
+            "armor": 35,
+            "equips": [
+              1520,
+              1523,
+              1516,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1542,
+            "name": "戦艦タ級",
+            "name_en": "Ta-Class Battleship",
+            "lvl": 1,
+            "hp": 88,
+            "fp": 75,
+            "aa": 65,
+            "armor": 88,
+            "equips": [
+              1509,
+              1508,
+              1512,
+              1528,
+              -1
+            ]
+          },
+          {
+            "id": 1554,
+            "name": "軽巡ホ級",
+            "name_en": "Ho-Class Light Cruiser",
+            "lvl": 1,
+            "hp": 53,
+            "fp": 42,
+            "torp": 72,
+            "aa": 27,
+            "armor": 36,
+            "equips": [
+              1504,
+              1542,
+              1543,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1577,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 38,
+            "fp": 44,
+            "torp": 72,
+            "aa": 36,
+            "armor": 29,
+            "equips": [
+              1502,
+              1515,
+              1542,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1577,
+            "name": "駆逐ハ級後期型",
+            "name_en": "Ha-Class Destroyer{ -}? Late Model",
+            "lvl": 1,
+            "hp": 38,
+            "fp": 44,
+            "torp": 72,
+            "aa": 36,
+            "armor": 29,
+            "equips": [
+              1502,
+              1515,
+              1542,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 3,
+        "count": 1,
+        "airpower": [
+          16,
+          32,
+          71,
+          141
+        ],
+        "lbasAirpower": [
+          16,
+          32,
+          71,
+          141
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 125491109
+      }
+    ]
+  },
+  "retrieved": "2026-09-11T19:03:09+09:00"
+}

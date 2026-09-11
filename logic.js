@@ -3,20 +3,24 @@
 const SHIP_CATEGORIES = {
   DE: new Set([1]),
   DD: new Set([2]),
-  CL: new Set([3, 4, 21]),
+  CL: new Set([3]),
   CLT: new Set([4]),
+  CT: new Set([21]),
+  CL_ALL: new Set([3, 4, 21]),
   CA: new Set([5]),
   CAV: new Set([6]),
   CVL: new Set([7]),
-  BB: new Set([8, 9, 10]),
-  CV: new Set([7, 11, 12, 18]),
+  BB: new Set([8, 9]),
+  BBV: new Set([10]),
+  BB_ALL: new Set([8, 9, 10]),
+  CV: new Set([11, 12, 18]),
+  CV_ALL: new Set([7, 11, 12, 18]),
   SS: new Set([13, 14]),
   AO: new Set([15]),
   AV: new Set([16]),
   LHA: new Set([17]),
   AR: new Set([19]),
   AS: new Set([20]),
-  BBV: new Set([10]),
   CV_MAIN: new Set([11, 12, 18]),
 }
 
@@ -25,18 +29,22 @@ const CATEGORY_LABELS = {
   DD: '驱逐',
   CL: '轻巡',
   CLT: '雷巡',
+  CT: '练巡',
+  CL_ALL: 'CL系',
   CA: '重巡',
   CAV: '航巡',
   CVL: '轻空母',
-  BB: '战舰系',
-  CV: '空母系',
+  BB: '战舰（BB/FBB）',
+  BBV: '航战',
+  BB_ALL: 'BB系',
+  CV: '空母（CV/CVB）',
+  CV_ALL: 'CV系',
   SS: '潜水系',
   AO: '补给',
   AV: '水母',
   LHA: '扬陆',
   AR: '工作舰',
   AS: '潜母',
-  BBV: '航战',
   CV_MAIN: '正规/装甲空母',
 }
 
@@ -95,14 +103,20 @@ function statusResult(status, predicate, label) {
   }
 }
 
+function categoryLabel(category) {
+  const value = String(category || '舰队')
+  if (value.endsWith('_ALL')) return `${value.slice(0, -4)}系`
+  return CATEGORY_LABELS[value] || value
+}
+
 function predicateLabel(predicate) {
   if (!predicate || typeof predicate !== 'object') return '未知条件'
   if (predicate.label) return predicate.label
   if (predicate.kind === 'always') return '始终适用'
   if (predicate.kind === 'count') {
     const category = Array.isArray(predicate.category)
-      ? predicate.category.join('+')
-      : predicate.category || '舰队'
+      ? predicate.category.map(categoryLabel).join('+')
+      : categoryLabel(predicate.category)
     return `${category} ${predicate.op || '=='} ${predicate.value}`
   }
   if (predicate.kind === 'equipmentShips') {
@@ -117,13 +131,14 @@ function predicateLabel(predicate) {
     return '全高速'
   }
   if (predicate.kind === 'onlyCategories') {
-    return `仅含 ${(predicate.categories || []).map((category) => CATEGORY_LABELS[category] || category).join('、')}`
+    return `仅含 ${(predicate.categories || []).map(categoryLabel).join('、')}`
   }
   if (predicate.kind === 'visited') return `已经过 ${predicate.node} 点`
   if (predicate.kind === 'containsMaster') return `包含指定舰娘 (${(predicate.masterIds || []).join('/')})`
   if (predicate.kind === 'containsName') return `包含 ${(predicate.names || []).join('/')}`
   if (predicate.kind === 'nameCount') return `${(predicate.names || []).join('/')} ${predicate.op || '=='} ${predicate.value}`
   if (predicate.kind === 'flag') return `状态：${predicate.name || predicate.flag}`
+  if (predicate.kind === 'phase') return `阶段：${predicate.phase || predicate.value}`
   if (predicate.kind === 'equipmentShipsTotal') {
     return `${(predicate.equipment || []).map((equipment) => EQUIPMENT_CATEGORY_LABELS[equipment] || equipment).join('+')} 舰数 ${predicate.op || '=='} ${predicate.value}`
   }
@@ -157,6 +172,7 @@ function evaluatePredicate(predicate, context = {}) {
       return statusResult(compare(actual, predicate.op || '==', number(predicate.value)) ? 'true' : 'false', predicate)
     }
     case 'speed': {
+      if (context.complete === false) return statusResult('unknown', predicate)
       if (predicate.mode === 'highPlus' || predicate.mode === 'fastest') {
         const enhancedSpeedClass = context.enhancedSpeedClass || 'unknown'
         if (enhancedSpeedClass === 'unknown') return statusResult('unknown', predicate)
@@ -224,6 +240,10 @@ function evaluatePredicate(predicate, context = {}) {
       if (!context.flags || typeof context.flags[predicate.flag] !== 'boolean') return statusResult('unknown', predicate)
       return statusResult(context.flags[predicate.flag] === Boolean(predicate.value) ? 'true' : 'false', predicate)
     }
+    case 'phase': {
+      if (typeof context.phase !== 'string' || !context.phase) return statusResult('unknown', predicate)
+      return statusResult(context.phase === String(predicate.phase || predicate.value) ? 'true' : 'false', predicate)
+    }
     case 'equipmentShipsTotal': {
       if (context.complete === false) return statusResult('unknown', predicate)
       const actual = (predicate.equipment || []).reduce((total, equipment) => total + number(context.equipmentShips?.[equipment]), 0)
@@ -257,33 +277,73 @@ function rulesForNode(mapDefinition, node) {
     .sort((left, right) => number(left.priority) - number(right.priority))
 }
 
-function selectRouteRule(mapDefinition, node, context) {
-  let firstUnknown = null
-  for (const rule of rulesForNode(mapDefinition, node)) {
-    const predicate = evaluatePredicate(rule.predicate, context)
-    if (predicate.status === 'true') {
-      return { status: rule.outcomes?.length ? 'matched' : 'unknown', rule, predicate }
-    }
-    if (predicate.status === 'unknown' && !firstUnknown) firstUnknown = { rule, predicate }
-  }
-  if (firstUnknown) return { status: 'unknown', ...firstUnknown }
-  return { status: 'terminal', rule: null, predicate: null }
+function containsPhasePredicate(predicate) {
+  if (!predicate || typeof predicate !== 'object') return false
+  if (predicate.kind === 'phase') return true
+  if (Array.isArray(predicate.predicates) && predicate.predicates.some(containsPhasePredicate)) return true
+  return containsPhasePredicate(predicate.predicate)
 }
 
-function normalizeOutcomes(outcomes) {
-  return (Array.isArray(outcomes) ? outcomes : [])
+function hasPhaseRules(mapDefinition, node) {
+  return rulesForNode(mapDefinition, node).some((rule) => containsPhasePredicate(rule.predicate))
+}
+
+function selectRouteRule(mapDefinition, node, context) {
+  const rules = rulesForNode(mapDefinition, node)
+  for (const rule of rules) {
+    const predicate = evaluatePredicate(rule.predicate, context)
+    if (predicate.status === 'true') {
+      const status = rule.terminal === true
+        ? 'terminal'
+        : rule.outcomes?.length ? 'matched' : 'unknown'
+      return { status, rule, predicate }
+    }
+    if (predicate.status === 'unknown') return { status: 'unknown', rule, predicate }
+  }
+  return { status: rules.length ? 'unknown' : 'terminal', rule: null, predicate: null }
+}
+
+function normalizeOutcomes(outcomes, rule = null, options = {}) {
+  const normalized = (Array.isArray(outcomes) ? outcomes : [])
     .filter((outcome) => outcome && typeof outcome.to === 'string')
     .map((outcome) => ({
       to: outcome.to,
-      probability: Number.isFinite(Number(outcome.probability)) ? Number(outcome.probability) : null,
+      probability: outcome.probability == null
+        ? null
+        : Number.isFinite(Number(outcome.probability)) ? Number(outcome.probability) : null,
     }))
+
+  const hasMissingProbability = normalized.some((outcome) => outcome.probability == null)
+  const equalize = options.equalizeUnknown !== false && (hasMissingProbability || rule?.confidence === 'unknown')
+  const estimated = equalize || rule?.confidence === 'approximate' && normalized.length > 1
+  return normalized.map((outcome) => {
+    const normalizedOutcome = {
+      to: outcome.to,
+      probability: equalize && normalized.length ? 1 / normalized.length : outcome.probability,
+    }
+    if (estimated) normalizedOutcome.estimated = true
+    return normalizedOutcome
+  })
 }
 
 function routeDecision(mapDefinition, node, context, overrides = {}) {
   const selected = selectRouteRule(mapDefinition, node, context)
-  const baseOutcomes = normalizeOutcomes(selected.rule?.outcomes)
+  const configuredManualOutcomes = mapDefinition?.manualOutcomes?.[node]
+  const manual = selected.rule?.manual === true
+    || Array.isArray(mapDefinition?.manualNodes) && mapDefinition.manualNodes.includes(node)
+  const manualOutcomes = Array.isArray(configuredManualOutcomes)
+    ? normalizeOutcomes(configuredManualOutcomes, { confidence: 'unknown' }, { equalizeUnknown: false })
+    : null
+  const autoOutcomes = selected.status === 'matched'
+    ? normalizeOutcomes(selected.rule?.outcomes, selected.rule)
+    : []
+  const phaseRuleMatched = manual && hasPhaseRules(mapDefinition, node) && selected.status === 'matched'
+  const baseOutcomes = phaseRuleMatched
+    ? autoOutcomes
+    : manualOutcomes || autoOutcomes
   const override = overrides[node]
-  const validOverride = selected.rule?.manual === true && baseOutcomes.some((outcome) => outcome.to === override)
+  const selectableOutcomes = manualOutcomes || baseOutcomes
+  const validOverride = manual && selectableOutcomes.some((outcome) => outcome.to === override)
   const outcomes = validOverride
     ? [{ to: override, probability: 1 }]
     : baseOutcomes
@@ -293,8 +353,11 @@ function routeDecision(mapDefinition, node, context, overrides = {}) {
     rule: selected.rule,
     predicate: selected.predicate,
     baseOutcomes,
+    manualOutcomes,
     outcomes,
-    manual: selected.rule?.manual === true,
+    manual,
+    phaseRuleMatched,
+    manualChoiceRequired: manual && !phaseRuleMatched && !validOverride,
     manualOverride: validOverride ? override : null,
   }
 }
@@ -308,17 +371,20 @@ function propagateProbability(start, decisions) {
   const edgeMass = {}
   const unknownNodes = new Set()
   const unknownEdges = new Set()
+  const estimatedNodes = new Set()
+  const estimatedEdges = new Set()
 
-  function walk(node, mass, path) {
+  function walk(node, mass, path, estimatedPath = false) {
     if (!Number.isFinite(mass) || mass <= 0) return
     reach[node] = number(reach[node]) + mass
+    if (estimatedPath) estimatedNodes.add(node)
     if (path.has(node)) {
       unknownNodes.add(node)
       return
     }
     const decision = decisions[node]
     if (!decision || decision.status === 'unknown' || decision.status === 'terminal' && !decision.outcomes.length) {
-      if (decision?.status === 'unknown' || decision?.rule) unknownNodes.add(node)
+      if (decision?.status === 'unknown') unknownNodes.add(node)
       return
     }
     const nextPath = new Set(path)
@@ -329,8 +395,10 @@ function propagateProbability(start, decisions) {
         unknownEdges.add(key)
         return
       }
+      const edgeEstimated = estimatedPath || outcome.estimated === true
+      if (edgeEstimated) estimatedEdges.add(key)
       edgeMass[key] = number(edgeMass[key]) + mass * outcome.probability
-      walk(outcome.to, mass * outcome.probability, nextPath)
+      walk(outcome.to, mass * outcome.probability, nextPath, edgeEstimated)
     })
   }
 
@@ -340,6 +408,8 @@ function propagateProbability(start, decisions) {
     edgeMass,
     unknownNodes: Array.from(unknownNodes),
     unknownEdges: Array.from(unknownEdges),
+    estimatedNodes: Array.from(estimatedNodes),
+    estimatedEdges: Array.from(estimatedEdges),
   }
 }
 
@@ -387,18 +457,6 @@ function getFleet(state, deckId = 1) {
   return fleets?.[deckId - 1] || fleets?.[deckId] || null
 }
 
-function calculateLosScore(ships, commanderLevel) {
-  if (!ships.length || ships.some((ship) => !Number.isFinite(ship.baseLos))) return null
-  const shipLos = ships.reduce((total, ship) => total + Math.sqrt(Math.max(0, ship.baseLos)), 0)
-  const equipmentLos = ships.reduce(
-    (total, ship) => total + ship.equipments.reduce((subtotal, equipment) => subtotal + number(equipment.api_sakuteki), 0),
-    0,
-  )
-  const commanderPenalty = Math.ceil(number(commanderLevel) * 0.4)
-  const fleetSizeCorrection = 2 * Math.max(0, 6 - ships.length)
-  return Math.floor(shipLos + equipmentLos - commanderPenalty + fleetSizeCorrection)
-}
-
 function fleetContextFromState(state, deckId = 1, options = {}) {
   const fleet = getFleet(state, deckId)
   const instanceShips = state?.info?.ships || {}
@@ -406,18 +464,38 @@ function fleetContextFromState(state, deckId = 1, options = {}) {
   const instanceEquips = state?.info?.equips || {}
   const masterEquips = state?.const?.$equips || {}
   const shipIds = Array.isArray(fleet?.api_ship) ? fleet.api_ship : []
-  const complete = Boolean(fleet && Object.keys(masterShips).length)
+  const activeShipIds = shipIds.filter((id) => number(id) > 0)
+  const dataIssues = []
+  if (!fleet) dataIssues.push('舰队')
+  if (!Array.isArray(fleet?.api_ship)) dataIssues.push('舰队槽位')
+  if (!activeShipIds.length) dataIssues.push('舰娘')
   const ships = shipIds
     .filter((id) => number(id) > 0)
     .map((instanceId, index) => {
       const instance = instanceShips[instanceId]
       const master = masterShips[instance?.api_ship_id]
-      if (!instance || !master) return null
+      if (!instance) {
+        dataIssues.push(`舰娘实例 #${instanceId}`)
+        return null
+      }
+      if (!master) {
+        dataIssues.push(`舰娘 master #${instance.api_ship_id}`)
+        return null
+      }
+      if (!Number.isFinite(Number(master.api_stype))) dataIssues.push(`舰种 #${instance.api_ship_id}`)
+      if (!Array.isArray(instance.api_slot)) dataIssues.push(`装备槽位 #${instanceId}`)
       const equipmentIds = Array.isArray(instance.api_slot) ? instance.api_slot : []
-      const equipments = equipmentIds
-        .filter((id) => number(id) > 0)
-        .map((id) => masterEquips[instanceEquips[id]?.api_slotitem_id])
-        .filter(Boolean)
+      const equipments = []
+      for (const id of equipmentIds.filter((value) => number(value) > 0)) {
+        const equipment = instanceEquips[id]
+        const masterEquipment = masterEquips[equipment?.api_slotitem_id]
+        if (!equipment || !masterEquipment) {
+          dataIssues.push(`装备 #${id}`)
+          continue
+        }
+        equipments.push(masterEquipment)
+      }
+      if (!Number.isFinite(Number(instance.api_soku))) dataIssues.push(`速力 #${instanceId}`)
       const categoryIds = shipCategoryIds(master.api_stype)
       return {
         instanceId: number(instanceId),
@@ -425,7 +503,7 @@ function fleetContextFromState(state, deckId = 1, options = {}) {
         name: master.api_name || `#${instance.api_ship_id}`,
         categoryIds,
         typeId: number(master.api_stype),
-        speed: number(master.api_soku),
+        speed: Number.isFinite(Number(instance.api_soku)) ? Number(instance.api_soku) : null,
         baseLos: Number.isFinite(Number(master.api_sakuteki)) ? Number(master.api_sakuteki) : null,
         equipments,
         equipmentKinds: equipments.map(equipmentKind).filter(Boolean),
@@ -434,48 +512,80 @@ function fleetContextFromState(state, deckId = 1, options = {}) {
     })
     .filter(Boolean)
 
+  const fleetComplete = dataIssues.length === 0 && ships.length === activeShipIds.length
   const counts = {}
   Object.keys(SHIP_CATEGORIES).forEach((category) => {
     counts[category] = ships.filter((ship) => ship.categoryIds.includes(category)).length
   })
-  const speedKnown = ships.length > 0 && ships.every((ship) => ship.speed > 0)
-  const speedClass = !speedKnown ? 'unknown' : ships.some((ship) => ship.speed < 10) ? 'low' : 'high'
+  const speedKnown = fleetComplete && ships.length > 0 && ships.every((ship) => Number.isFinite(ship.speed))
+  const fleetSpeed = speedKnown ? Math.min(...ships.map((ship) => ship.speed)) : null
+  const speedClass = fleetSpeed == null ? 'unknown' : fleetSpeed < 10 ? 'low' : 'high'
+  const enhancedSpeedClass = fleetSpeed == null
+    ? 'unknown'
+    : fleetSpeed >= 20 ? 'fastest'
+      : fleetSpeed >= 15 ? 'highPlus'
+        : 'high'
   const equipmentShips = {
     drum: ships.filter((ship) => ship.equipmentKinds.includes('drum')).length,
     radar: ships.filter((ship) => ship.equipmentKinds.includes('radar')).length,
     daihatsu: ships.filter((ship) => ship.equipmentKinds.includes('daihatsu')).length,
   }
-  const poiLos = typeof options.losCalculator === 'function'
-    ? options.losCalculator(state, deckId)
-    : null
-  const poiLosScore = poiLos && typeof poiLos === 'object' ? poiLos.total : poiLos
-  const hasPoiLos = Number.isFinite(Number(poiLosScore))
+  const losCoefficients = [1, 2, 3, 4]
+  const poiLosResults = losCoefficients.map((coefficient) => {
+    if (typeof options.losCalculator !== 'function') return null
+    try {
+      return options.losCalculator(state, deckId, coefficient)
+    } catch (_) {
+      return null
+    }
+  })
+  const poiLosScores = poiLosResults.map((result) => {
+    const score = result && typeof result === 'object' ? result.total : result
+    return score != null && Number.isFinite(Number(score)) ? Number(score) : null
+  })
+  const requestedCoefficient = Number(options.losCoefficient)
+  const selectedCoefficient = losCoefficients.includes(requestedCoefficient) ? requestedCoefficient : 1
+  const selectedIndex = selectedCoefficient - 1
+  const poiLos = poiLosResults[selectedIndex]
+  const poiLosScore = poiLosScores[selectedIndex]
+  const hasPoiLos = fleetComplete && poiLosScores.every((score) => score != null)
+  if (!hasPoiLos) dataIssues.push('poi 33式索敌')
+  const dataAvailable = fleetComplete && hasPoiLos
   return {
-    complete,
+    complete: dataAvailable,
+    fleetComplete,
+    dataAvailable,
+    dataIssues: Array.from(new Set(dataIssues)),
     shipCount: ships.length,
     ships,
     flagship: ships[0] || null,
     counts,
     equipmentShips,
+    fleetSpeed,
     speedClass,
-    enhancedSpeedClass: 'unknown',
+    enhancedSpeedClass,
+    phase: typeof options.phase === 'string' ? options.phase : null,
     passedNodes: Array.isArray(options.passedNodes) ? options.passedNodes : null,
     flags: options.flags || null,
-    losScore: hasPoiLos ? Number(poiLosScore) : calculateLosScore(ships, state?.info?.basic?.api_level),
-    losApproximate: !hasPoiLos,
-    losSource: hasPoiLos ? 'poi-33' : 'fallback',
+    losScore: hasPoiLos ? poiLosScore : null,
+    losScores: hasPoiLos ? poiLosScores : [null, null, null, null],
+    losCoefficient: selectedCoefficient,
+    admiralCoefficient: options.admiralCoefficient ?? null,
+    losApproximate: false,
+    losSource: hasPoiLos ? 'poi-33' : 'unavailable',
     losDetails: hasPoiLos && typeof poiLos === 'object' ? poiLos : null,
   }
 }
 
-function formatPercent(value) {
-  return Number.isFinite(Number(value)) ? `${(Number(value) * 100).toFixed(1).replace(/\.0$/, '')}%` : '未知'
+function formatPercent(value, estimated = false) {
+  if (!Number.isFinite(Number(value))) return '未知'
+  const suffix = estimated ? '?' : ''
+  return `${(Number(value) * 100).toFixed(1).replace(/\.0$/, '')}%${suffix}`
 }
 
 module.exports = {
   CATEGORY_LABELS,
   SHIP_CATEGORIES,
-  calculateLosScore,
   categoryCount,
   edgeKey,
   evaluateMap,
@@ -484,6 +594,7 @@ module.exports = {
   formatPercent,
   mapNodeLabel,
   normalizeMapId,
+  normalizeOutcomes,
   predicateLabel,
   propagateProbability,
   routeDecision,

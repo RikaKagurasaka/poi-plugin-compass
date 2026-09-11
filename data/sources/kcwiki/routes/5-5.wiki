@@ -1,0 +1,80 @@
+
+{{{!}} class="wikitable"
+{{!}} colspan="2" {{!}}
+* [<span style="color:teal"><b><运输桶></b></span>]：
+** [ドラム缶]
+* [<span style="color:teal"><b><大发系></b></span>]：
+** 包括[大発動艇]、[大発動艇(八九式中戦車&陸戦隊)]、[特大発動艇]、[武装大発]、[大発動艇(II号戦車/北アフリカ仕様)]、[特大発動艇+一式砲戦車]、[特二式内火艇]、[特四式内火艇]、[特四式内火艇改]
+** 不包括[特大発動艇+戦車第11連隊]、[M4A1 DD]、[装甲艇(AB艇)]、[特大発動艇+III号戦車(北アフリカ仕様)]、[特大発動艇+チハ]、[特大発動艇+チハ改]、[特大発動艇+III号戦車J型]
+{{!}}-
+{{!}}分歧点
+{{!}}条件
+{{!}}-
+{{!}}出发点
+{{!}}
+* DD>=4 去A
+* 装备[<span style="color:teal"><b><运输桶></b></span>]的船数>=4 去A
+* 装备[<span style="color:teal"><b><大发系></b></span>]的船数>=4 去A
+* 其余去B
+{{!}}-
+{{!}}B
+{{!}}
+* CV+CVB>=3 去K
+* BB系+CLT>=4 去K
+* DD>=2 去F
+* 其余去K
+{{!}}-
+{{!}}E
+{{!}}
+* <span style="color:royalblue">最速</span>舰队 去H
+* DD>=2 且 <span style="color:skyblue">高速+</span>舰队 去H
+* 去G
+{{!}}-
+{{!}}H
+{{!}}
+* <span style="color:royalblue">最速</span>舰队 去N
+* BB系+CV系>=4 去P
+* <span style="color:skyblue">高速+</span>舰队 去N
+* DD>=2 去N
+* DD<=1 去L
+{{!}}-
+{{!}}I
+{{!}}
+* BB系+CV系>=4 去M
+* BB系+CV系<=2 去M
+* DD<=1 去M
+* 其余去L
+{{!}}-
+{{!}}M
+{{!}}
+* 经过N的舰队 去O
+* BB系+CV系>=4 去L
+* DD<=1 去L
+* 其余去O
+{{!}}-
+{{!}}N
+{{!}}
+* 经过M的舰队 去O
+* <span style="color:skyblue">高速+</span>、<span style="color:royalblue">最速</span>舰队 去O
+* AO>=1 去O
+* CV+CVB>=1去M
+* BB系+CVL>=3 去M
+* DD>=2 去O
+* DD<=1 去M
+{{!}}-
+{{!}}O
+{{!}}
+* <span style="color:skyblue">高速+</span>、<span style="color:royalblue">最速</span>舰队 去S
+* SS+SSV>=1：35%去R
+* 分歧点系数=2，索敌>=66 去S(司令部系数0.35，索敌>=72) <br>索敌63~66，索敌越高去S概率越高 <br>索敌不足63 去R
+{{!}}-
+{{!}}P
+{{!}}
+* <span style="color:royalblue">最速</span>舰队 去S
+* <span style="color:skyblue">高速+</span>舰队 且 BB系+CV系<=5 去S
+* BB系+CV系>=5：35%去Q
+* SS+SSV>=1：35%去Q
+* 分歧点系数=2，索敌>=80 去S(司令部系数0.35，索敌>=86) <br>索敌73~80，索敌越高去S概率越高 <br>索敌不足73 去Q
+{{!}}}
+
+<div>转自nga梦美:https://bbs.nga.cn/read.php?pid=330616376</div>

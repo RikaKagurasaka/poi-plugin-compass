@@ -1,0 +1,338 @@
+{
+  "result": {
+    "entryCount": 6,
+    "entries": [
+      {
+        "map": "1-5",
+        "node": "A",
+        "mainFleet": [
+          {
+            "id": 1532,
+            "name": "潜水カ級",
+            "name_en": "Ka-Class Submarine",
+            "lvl": 50,
+            "hp": 27,
+            "torp": 64,
+            "armor": 21,
+            "equips": [
+              1515,
+              1513,
+              1513,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1530,
+            "name": "潜水カ級",
+            "name_en": "Ka-Class Submarine",
+            "lvl": 50,
+            "hp": 19,
+            "torp": 42,
+            "armor": 7,
+            "equips": [
+              1513,
+              1513,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1530,
+            "name": "潜水カ級",
+            "name_en": "Ka-Class Submarine",
+            "lvl": 50,
+            "hp": 19,
+            "torp": 42,
+            "armor": 7,
+            "equips": [
+              1513,
+              1513,
+              -1,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 4,
+        "count": 7436,
+        "airpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "lbasAirpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 114980099
+      },
+      {
+        "map": "1-5",
+        "node": "A",
+        "mainFleet": [
+          {
+            "id": 1530,
+            "name": "潜水カ級",
+            "name_en": "Ka-Class Submarine",
+            "lvl": 50,
+            "hp": 19,
+            "torp": 42,
+            "armor": 7,
+            "equips": [
+              1513,
+              1513,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1530,
+            "name": "潜水カ級",
+            "name_en": "Ka-Class Submarine",
+            "lvl": 50,
+            "hp": 19,
+            "torp": 42,
+            "armor": 7,
+            "equips": [
+              1513,
+              1513,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1530,
+            "name": "潜水カ級",
+            "name_en": "Ka-Class Submarine",
+            "lvl": 50,
+            "hp": 19,
+            "torp": 42,
+            "armor": 7,
+            "equips": [
+              1513,
+              1513,
+              -1,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 4,
+        "count": 7497,
+        "airpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "lbasAirpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 114980148
+      },
+      {
+        "map": "1-5",
+        "node": "A",
+        "mainFleet": [
+          {
+            "id": 1532,
+            "name": "潜水カ級",
+            "name_en": "Ka-Class Submarine",
+            "lvl": 50,
+            "hp": 27,
+            "torp": 64,
+            "armor": 21,
+            "equips": [
+              1515,
+              1513,
+              1513,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1530,
+            "name": "潜水カ級",
+            "name_en": "Ka-Class Submarine",
+            "lvl": 50,
+            "hp": 19,
+            "torp": 42,
+            "armor": 7,
+            "equips": [
+              1513,
+              1513,
+              -1,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 4,
+        "count": 7784,
+        "airpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "lbasAirpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 114980090
+      },
+      {
+        "map": "1-5",
+        "node": "A",
+        "mainFleet": [
+          {
+            "id": 1530,
+            "name": "潜水カ級",
+            "name_en": "Ka-Class Submarine",
+            "lvl": 50,
+            "hp": 19,
+            "torp": 42,
+            "armor": 7,
+            "equips": [
+              1513,
+              1513,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1530,
+            "name": "潜水カ級",
+            "name_en": "Ka-Class Submarine",
+            "lvl": 50,
+            "hp": 19,
+            "torp": 42,
+            "armor": 7,
+            "equips": [
+              1513,
+              1513,
+              -1,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 4,
+        "count": 598,
+        "airpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "lbasAirpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 114980382
+      },
+      {
+        "map": "1-5",
+        "node": "A",
+        "mainFleet": [
+          {
+            "id": 1532,
+            "name": "潜水カ級",
+            "name_en": "Ka-Class Submarine",
+            "lvl": 50,
+            "hp": 27,
+            "torp": 64,
+            "armor": 21,
+            "equips": [
+              1515,
+              1513,
+              1513,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 4,
+        "count": 7775,
+        "airpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "lbasAirpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 114980186
+      },
+      {
+        "map": "1-5",
+        "node": "A",
+        "mainFleet": [
+          {
+            "id": 1530,
+            "name": "潜水カ級",
+            "name_en": "Ka-Class Submarine",
+            "lvl": 50,
+            "hp": 19,
+            "torp": 42,
+            "armor": 7,
+            "equips": [
+              1513,
+              1513,
+              -1,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 4,
+        "count": 616,
+        "airpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "lbasAirpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 114981027
+      }
+    ]
+  },
+  "retrieved": "2026-09-11T18:30:44+09:00"
+}

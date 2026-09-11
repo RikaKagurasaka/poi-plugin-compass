@@ -3,17 +3,33 @@
   "version": "0.1.0",
   "description": "通常海域舰队罗盘",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RikaKagurasaka/poi-plugin-compass.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RikaKagurasaka/poi-plugin-compass/issues"
+  },
+  "homepage": "https://github.com/RikaKagurasaka/poi-plugin-compass#readme",
   "files": [
     "index.js",
     "logic.js",
+    "enemies.js",
+    "exporters.js",
+    "overview.js",
+    "air-status.js",
     "data",
     "assets",
+    "scripts",
     "README.md",
     "docs"
   ],
   "scripts": {
-    "check:syntax": "node --check index.js && node --check logic.js && node --check test.js",
-    "test": "node test.js"
+    "cache:kcwiki": "node scripts/cache-kcwiki-routes.js",
+    "cache:kcnav-maps": "node scripts/cache-kcnav-maps.js",
+    "cache:kcnav-enemies": "node scripts/cache-kcnav-enemies.js",
+    "check:syntax": "node --check index.js && node --check logic.js && node --check enemies.js && node --check exporters.js && node --check scripts/cache-kcnav-enemies.js && node --check test.js && node --check test-enemies.js && node --check test-exporters.js",
+    "test": "node test.js && node test-enemies.js && node test-exporters.js && node test-ui.js && node test-overview.js"
   },
   "keywords": [
     "poi-plugin",
@@ -41,5 +57,8 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "lzma": "2.3.2"
   }
 }

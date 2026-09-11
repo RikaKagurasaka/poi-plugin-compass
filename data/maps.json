@@ -129,7 +129,7 @@
           "id": "2-5-1-cv",
           "node": "1",
           "priority": 20,
-          "predicate": { "kind": "count", "category": "CV", "op": ">=", "value": 1, "label": "空母系 ≥ 1" },
+          "predicate": { "kind": "count", "category": "CV_ALL", "op": ">=", "value": 1, "label": "空母系 ≥ 1" },
           "outcomes": [{ "to": "C", "probability": 1 }],
           "confidence": "verified"
         },
@@ -176,7 +176,7 @@
           "id": "2-5-1-bb",
           "node": "1",
           "priority": 70,
-          "predicate": { "kind": "count", "category": "BB", "op": ">=", "value": 1, "label": "战舰系 ≥ 1" },
+          "predicate": { "kind": "count", "category": "BB_ALL", "op": ">=", "value": 1, "label": "战舰系 ≥ 1" },
           "outcomes": [{ "to": "C", "probability": 1 }],
           "confidence": "verified"
         },
@@ -223,8 +223,8 @@
             "kind": "any",
             "label": "战舰系 ≥ 3 或 空母系 ≥ 3",
             "predicates": [
-              { "kind": "count", "category": "BB", "op": ">=", "value": 3 },
-              { "kind": "count", "category": "CV", "op": ">=", "value": 3 }
+              { "kind": "count", "category": "BB_ALL", "op": ">=", "value": 3 },
+              { "kind": "count", "category": "CV_ALL", "op": ">=", "value": 3 }
             ]
           },
           "outcomes": [{ "to": "D", "probability": 1 }],
@@ -260,7 +260,7 @@
           "id": "2-5-E-bb",
           "node": "E",
           "priority": 10,
-          "predicate": { "kind": "count", "category": "BB", "op": ">=", "value": 1, "label": "战舰系 ≥ 1" },
+          "predicate": { "kind": "count", "category": "BB_ALL", "op": ">=", "value": 1, "label": "战舰系 ≥ 1" },
           "outcomes": [{ "to": "G", "probability": 1 }],
           "confidence": "verified"
         },
@@ -283,7 +283,7 @@
           "id": "2-5-E-cv-ca",
           "node": "E",
           "priority": 30,
-          "predicate": { "kind": "count", "category": ["CV", "CA", "CAV"], "op": ">=", "value": 2, "label": "空母/重巡系 ≥ 2" },
+          "predicate": { "kind": "count", "category": ["CV_MAIN", "CA", "CAV"], "op": ">=", "value": 2, "label": "空母/重巡系 ≥ 2" },
           "outcomes": [{ "to": "G", "probability": 1 }],
           "confidence": "verified"
         },
@@ -346,7 +346,7 @@
           "id": "2-5-F-bb3",
           "node": "F",
           "priority": 40,
-          "predicate": { "kind": "count", "category": "BB", "op": ">=", "value": 3, "label": "战舰系 ≥ 3" },
+          "predicate": { "kind": "count", "category": "BB_ALL", "op": ">=", "value": 3, "label": "战舰系 ≥ 3" },
           "outcomes": [{ "to": "J", "probability": 1 }],
           "confidence": "verified"
         },
@@ -381,7 +381,7 @@
             "label": "驱逐 ≥ 4 且 战舰/空母 ≤ 1",
             "predicates": [
               { "kind": "count", "category": "DD", "op": ">=", "value": 4 },
-              { "kind": "count", "category": ["BB", "CV"], "op": "<=", "value": 1 }
+              { "kind": "count", "category": ["BB_ALL", "CV_ALL"], "op": "<=", "value": 1 }
             ]
           },
           "outcomes": [{ "to": "I", "probability": 1 }],
@@ -397,7 +397,7 @@
             "predicates": [
               { "kind": "count", "category": "DD", "op": "==", "value": 3 },
               { "kind": "count", "category": "CL", "op": ">=", "value": 1 },
-              { "kind": "count", "category": ["BB", "CV"], "op": "==", "value": 0 }
+              { "kind": "count", "category": ["BB_ALL", "CV_ALL"], "op": "==", "value": 0 }
             ]
           },
           "outcomes": [{ "to": "I", "probability": 1 }],
@@ -530,7 +530,7 @@
             "label": "33 式索敌 ≥ 49 且 战舰系 ≤ 3",
             "predicates": [
               { "kind": "los", "op": ">=", "value": 49 },
-              { "kind": "count", "category": "BB", "op": "<=", "value": 3 }
+              { "kind": "count", "category": "BB_ALL", "op": "<=", "value": 3 }
             ]
           },
           "outcomes": [{ "to": "O", "probability": 1 }],
@@ -566,7 +566,7 @@
           "id": "2-5-L-no-heavy",
           "node": "L",
           "priority": 20,
-          "predicate": { "kind": "count", "category": ["BB", "CV"], "op": "==", "value": 0, "label": "无战舰/空母" },
+          "predicate": { "kind": "count", "category": ["BB_ALL", "CV_ALL"], "op": "==", "value": 0, "label": "无战舰/空母" },
           "outcomes": [
             { "to": "N", "probability": 0.4 },
             { "to": "O", "probability": 0.6 }

@@ -1,0 +1,2120 @@
+{
+  "source": "KCNav",
+  "window": {
+    "start": "2026-08-11",
+    "end": "2026-09-11"
+  },
+  "intervalMs": 15000,
+  "complete": true,
+  "nodes": {
+    "1-1/A": {
+      "file": "2026-08-11_2026-09-11/1-1/A.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-1/nodes/A/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "157fc5bafb0d7508c4483f6ddc9bcabc2d9f7b4fc330adf838c08920acf406cf",
+      "fetchedAt": "2026-09-11T09:26:29.868Z",
+      "entries": 3
+    },
+    "1-1/B": {
+      "file": "2026-08-11_2026-09-11/1-1/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-1/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "56a7d176aee3ec13aa5698558bdd9483482de5b7f7e059446f708b9a9a1362c3",
+      "fetchedAt": "2026-09-11T09:26:44.056Z",
+      "entries": 3
+    },
+    "1-1/C": {
+      "file": "2026-08-11_2026-09-11/1-1/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-1/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "bc06533922cf591533314b278740eda11bf176c1c4a07d2d13985bc874d94729",
+      "fetchedAt": "2026-09-11T09:26:59.404Z",
+      "entries": 3
+    },
+    "1-2/A": {
+      "file": "2026-08-11_2026-09-11/1-2/A.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-2/nodes/A/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "de351b29bbdbc67e38beb7e3ca42b6c5c6611fde2fb198b878f2ce6c2d3cc567",
+      "fetchedAt": "2026-09-11T09:27:13.778Z",
+      "entries": 5
+    },
+    "1-2/C": {
+      "file": "2026-08-11_2026-09-11/1-2/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-2/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "d8640b73b3f11d713990295dbf89c4a20229eb7577b0360369063ad8779502b8",
+      "fetchedAt": "2026-09-11T09:27:28.758Z",
+      "entries": 5
+    },
+    "1-2/D": {
+      "file": "2026-08-11_2026-09-11/1-2/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-2/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "566ff52c82f8128f76a2f27f86c2921d04ee7a15bc5d04c9edc5b9ca48abf83a",
+      "fetchedAt": "2026-09-11T09:27:43.724Z",
+      "entries": 6
+    },
+    "1-2/E": {
+      "file": "2026-08-11_2026-09-11/1-2/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-2/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "92fa842a402f799d6d0c794444a1f23b74239ab1f0da372da31865c97e0cfaa7",
+      "fetchedAt": "2026-09-11T09:27:58.899Z",
+      "entries": 5
+    },
+    "1-3/C": {
+      "file": "2026-08-11_2026-09-11/1-3/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-3/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "74de00e37c3718a870da6122a6a1cfd4cb8fb22fde35a9217d58e456b88e44bc",
+      "fetchedAt": "2026-09-11T09:28:13.729Z",
+      "entries": 6
+    },
+    "1-3/E": {
+      "file": "2026-08-11_2026-09-11/1-3/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-3/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "c883907ad45e985325e26c4b2179748fd660619caebe0143c161408d03a863a3",
+      "fetchedAt": "2026-09-11T09:28:29.229Z",
+      "entries": 6
+    },
+    "1-3/F": {
+      "file": "2026-08-11_2026-09-11/1-3/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-3/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "557469e12314ac3827d3407e5dfa53b248570e84a03b7ceb7696d073558b12e5",
+      "fetchedAt": "2026-09-11T09:28:43.908Z",
+      "entries": 8
+    },
+    "1-3/J": {
+      "file": "2026-08-11_2026-09-11/1-3/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-3/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "d04a71eb0c99b93c51cdf70ac441ffb8fa67913e84b64fdfc15d8a3f9dc0a4aa",
+      "fetchedAt": "2026-09-11T09:28:58.751Z",
+      "entries": 6
+    },
+    "1-4/B": {
+      "file": "2026-08-11_2026-09-11/1-4/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-4/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "d861c1487095ef20b17da43299745779b286cb76d881d53be953ee6c5b5a829a",
+      "fetchedAt": "2026-09-11T09:29:13.793Z",
+      "entries": 6
+    },
+    "1-4/D": {
+      "file": "2026-08-11_2026-09-11/1-4/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-4/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "203eb3118c54bebf02ad78e17da0ddbf34edd0b0940a89a0bb15e9419290dc6c",
+      "fetchedAt": "2026-09-11T09:29:28.820Z",
+      "entries": 6
+    },
+    "1-4/H": {
+      "file": "2026-08-11_2026-09-11/1-4/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-4/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "524f03b4dfe567ca8b5d8a3c9aa6ab884526da4d185dece11301b90ae5016a56",
+      "fetchedAt": "2026-09-11T09:29:43.765Z",
+      "entries": 2
+    },
+    "1-4/I": {
+      "file": "2026-08-11_2026-09-11/1-4/I.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-4/nodes/I/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "4852dbb2254bdfe3da0af536bedb109025d1ad38fb3f70a1d5110d3f127d70d0",
+      "fetchedAt": "2026-09-11T09:29:58.756Z",
+      "entries": 3
+    },
+    "1-4/J": {
+      "file": "2026-08-11_2026-09-11/1-4/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-4/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "3e5ece7be2f237be708c8a166b7ebccca7d56e01b0db7d781a4071bab11cb36d",
+      "fetchedAt": "2026-09-11T09:30:13.735Z",
+      "entries": 6
+    },
+    "1-4/L": {
+      "file": "2026-08-11_2026-09-11/1-4/L.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-4/nodes/L/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "9682c76f59e9dfc5494bb9f6b9d3fe167b26831ae6172118fa61bbf3d1567734",
+      "fetchedAt": "2026-09-11T09:30:28.795Z",
+      "entries": 6
+    },
+    "1-5/A": {
+      "file": "2026-08-11_2026-09-11/1-5/A.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-5/nodes/A/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "547e9bb83c3397ec73353e8db89e769fb65580834c0121c262f92c7df41d8a56",
+      "fetchedAt": "2026-09-11T09:30:44.135Z",
+      "entries": 6
+    },
+    "1-5/C": {
+      "file": "2026-08-11_2026-09-11/1-5/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-5/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "abe31eb2b18cd2944db4a86287a7889bb94bab8f51645d1436f52dc0bbc08b64",
+      "fetchedAt": "2026-09-11T09:30:58.745Z",
+      "entries": 6
+    },
+    "1-5/D": {
+      "file": "2026-08-11_2026-09-11/1-5/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-5/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "a52a4ba4ce11b09571425a1f82c086895156b34e91f5eb2b02aa78f4e9cd25dc",
+      "fetchedAt": "2026-09-11T09:31:14.156Z",
+      "entries": 6
+    },
+    "1-5/E": {
+      "file": "2026-08-11_2026-09-11/1-5/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-5/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "2fcf8b73c9ebf3485be567fa6100a4f3e5fce985672cb2cba8a0dd483da8eddb",
+      "fetchedAt": "2026-09-11T09:31:28.815Z",
+      "entries": 6
+    },
+    "1-5/F": {
+      "file": "2026-08-11_2026-09-11/1-5/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-5/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "6cbd0c2bfd40db19d0626b6df2a00bc2b939306e72fcec406f884fa8eb65bb80",
+      "fetchedAt": "2026-09-11T09:31:43.941Z",
+      "entries": 6
+    },
+    "1-5/H": {
+      "file": "2026-08-11_2026-09-11/1-5/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-5/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "a59223d8b8ab23a56a4464a4eb7a35033cee851bb8786e3874da1d820fd8f67a",
+      "fetchedAt": "2026-09-11T09:31:58.851Z",
+      "entries": 6
+    },
+    "1-5/I": {
+      "file": "2026-08-11_2026-09-11/1-5/I.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-5/nodes/I/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "aaaf5f5df6107215318076cad6ae5cf33e52f346e7260011817aa8f98218e3f0",
+      "fetchedAt": "2026-09-11T09:32:13.728Z",
+      "entries": 6
+    },
+    "1-5/J": {
+      "file": "2026-08-11_2026-09-11/1-5/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-5/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "3749405ad57daefa9c2a5f277135667d164db008ff7cb9afb23dc8ad9277781b",
+      "fetchedAt": "2026-09-11T09:32:29.021Z",
+      "entries": 7
+    },
+    "1-6/C": {
+      "file": "2026-08-11_2026-09-11/1-6/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-6/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "04c73c9168ac078791905cc5f2bf04f2bbfeb583ef0778946840e9665aa51322",
+      "fetchedAt": "2026-09-11T09:32:43.719Z",
+      "entries": 6
+    },
+    "1-6/E": {
+      "file": "2026-08-11_2026-09-11/1-6/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-6/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "59c59f991d9a5d37d64c04ad8f34ecf36a2d7fe002fc94351f1855c6d345ff26",
+      "fetchedAt": "2026-09-11T09:32:58.792Z",
+      "entries": 6
+    },
+    "1-6/K": {
+      "file": "2026-08-11_2026-09-11/1-6/K.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-6/nodes/K/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "ca88080fc0d327366761221983edb9a23566f87ccda132f06148ba85549d2198",
+      "fetchedAt": "2026-09-11T09:33:13.798Z",
+      "entries": 6
+    },
+    "1-6/L": {
+      "file": "2026-08-11_2026-09-11/1-6/L.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-6/nodes/L/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "edd9c6f8419aa24a949e7a5b42ece28ea79e768126d4bc1e86b6734d8e870031",
+      "fetchedAt": "2026-09-11T09:33:28.761Z",
+      "entries": 6
+    },
+    "1-6/J": {
+      "file": "2026-08-11_2026-09-11/1-6/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-6/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "f04dbedba2c7400c85db62f767b710c8534c5a26ae6e01d9fa5b6009b457f7f3",
+      "fetchedAt": "2026-09-11T09:33:43.801Z",
+      "entries": 6
+    },
+    "1-6/I": {
+      "file": "2026-08-11_2026-09-11/1-6/I.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-6/nodes/I/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "2979c935ec3b9e3ab75e60f43e7421bfffe7d55f79b257d61bbd46afe7117fc6",
+      "fetchedAt": "2026-09-11T09:33:58.819Z",
+      "entries": 6
+    },
+    "1-6/D": {
+      "file": "2026-08-11_2026-09-11/1-6/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-6/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "3115b372819dc915f9bf3f7e0842d4d742de5d2d11c727768e6cf49cf4950f0a",
+      "fetchedAt": "2026-09-11T09:34:13.739Z",
+      "entries": 6
+    },
+    "1-6/F": {
+      "file": "2026-08-11_2026-09-11/1-6/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-6/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "b5c0a4b0ef65b1bfcac4708fa2f1aab2978b928b95ff2300fa7de3b9eff1b2bb",
+      "fetchedAt": "2026-09-11T09:34:28.891Z",
+      "entries": 6
+    },
+    "1-6/B": {
+      "file": "2026-08-11_2026-09-11/1-6/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/1-6/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "0ad19ca735226d0a4d6d7947d18990b90e4ea79937f0a1e51641c7177ca5f7ed",
+      "fetchedAt": "2026-09-11T09:34:43.790Z",
+      "entries": 6
+    },
+    "2-1/A": {
+      "file": "2026-08-11_2026-09-11/2-1/A.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-1/nodes/A/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "8a29e3e7b21db7f54f81092563c79c1c23faea04974302c94c1a2d1162cc3d7f",
+      "fetchedAt": "2026-09-11T09:34:58.791Z",
+      "entries": 6
+    },
+    "2-1/C": {
+      "file": "2026-08-11_2026-09-11/2-1/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-1/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "021025f7f0ec378cb8c8b5cadc488b47da3b12e9762c39a2e591e1b74c36c6b3",
+      "fetchedAt": "2026-09-11T09:35:14.136Z",
+      "entries": 6
+    },
+    "2-1/D": {
+      "file": "2026-08-11_2026-09-11/2-1/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-1/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "417808b602712f4b57c64da37fba6c9a4131cb3de24a5968318e58fdc8d65d1a",
+      "fetchedAt": "2026-09-11T09:35:29.042Z",
+      "entries": 6
+    },
+    "2-1/F": {
+      "file": "2026-08-11_2026-09-11/2-1/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-1/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "9d9a7a42f2e07127f78a7b841805f0a3c858cb246c8bd4093e97afc7ce80adbd",
+      "fetchedAt": "2026-09-11T09:35:43.864Z",
+      "entries": 5
+    },
+    "2-1/H": {
+      "file": "2026-08-11_2026-09-11/2-1/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-1/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "8afa97df081e5c96942ed3b30324af85844626d23e6ff8bd11bd04c21d185671",
+      "fetchedAt": "2026-09-11T09:35:59.069Z",
+      "entries": 6
+    },
+    "2-2/B": {
+      "file": "2026-08-11_2026-09-11/2-2/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-2/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "98a61e2f71095a33b6ad7d23d63d03382b47fa37765035b90dbfeb6e25e8df34",
+      "fetchedAt": "2026-09-11T09:36:14.053Z",
+      "entries": 6
+    },
+    "2-2/D": {
+      "file": "2026-08-11_2026-09-11/2-2/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-2/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "41d1f1ad39b46111b1489f4cfac87c1251b8f853fca828660bed79c19d0b4c60",
+      "fetchedAt": "2026-09-11T09:36:28.995Z",
+      "entries": 6
+    },
+    "2-2/E": {
+      "file": "2026-08-11_2026-09-11/2-2/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-2/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "e70fb8ac2508f7ffe8ccc8e052a015938fad04577fd260e13850284ea6be6c7f",
+      "fetchedAt": "2026-09-11T09:36:43.794Z",
+      "entries": 6
+    },
+    "2-2/G": {
+      "file": "2026-08-11_2026-09-11/2-2/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-2/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "e9f8ef6f152ef2b14acc6611dea4e96efa2d9523ffc55e69362d494f9ef54df7",
+      "fetchedAt": "2026-09-11T09:36:58.839Z",
+      "entries": 6
+    },
+    "2-2/K": {
+      "file": "2026-08-11_2026-09-11/2-2/K.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-2/nodes/K/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "212244779e9179e8cd4734484a09873140b4056aa170a5bcbdbe6c9d842c27ad",
+      "fetchedAt": "2026-09-11T09:37:13.790Z",
+      "entries": 8
+    },
+    "2-3/A": {
+      "file": "2026-08-11_2026-09-11/2-3/A.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-3/nodes/A/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "c5dd78629ce15f679d989b14753378afaa86ec5abfbaca151a0b75eee8774226",
+      "fetchedAt": "2026-09-11T09:37:28.845Z",
+      "entries": 9
+    },
+    "2-3/E": {
+      "file": "2026-08-11_2026-09-11/2-3/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-3/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "309145e317636cba1fb69c1be692ea3824178d86b02ea0d041f722877862897e",
+      "fetchedAt": "2026-09-11T09:37:44.011Z",
+      "entries": 9
+    },
+    "2-3/F": {
+      "file": "2026-08-11_2026-09-11/2-3/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-3/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "21dce23ee03c87c0b177e8c40774174891c344fb832c188e047f182ae9e29029",
+      "fetchedAt": "2026-09-11T09:37:58.810Z",
+      "entries": 6
+    },
+    "2-3/J": {
+      "file": "2026-08-11_2026-09-11/2-3/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-3/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "1ab19ac31ef6ac732b13d7595886abff46562b08cf4add933596f32f0e2d9df5",
+      "fetchedAt": "2026-09-11T09:38:13.844Z",
+      "entries": 8
+    },
+    "2-3/K": {
+      "file": "2026-08-11_2026-09-11/2-3/K.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-3/nodes/K/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "a9bf2642fa146ce149f5da49588c9fbdaa19d84d647312929d278be47fc5c6f7",
+      "fetchedAt": "2026-09-11T09:38:28.864Z",
+      "entries": 8
+    },
+    "2-3/M": {
+      "file": "2026-08-11_2026-09-11/2-3/M.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-3/nodes/M/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "380fa27900760bf9653fbbd9f509abe722ea6a3e13bc699fbf87d9195f38c78c",
+      "fetchedAt": "2026-09-11T09:38:43.739Z",
+      "entries": 4
+    },
+    "2-3/N": {
+      "file": "2026-08-11_2026-09-11/2-3/N.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-3/nodes/N/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "96e92c2b55e64cae6e0b456c94e5dd370b7509ad6369ca61c0a0306a645f7c37",
+      "fetchedAt": "2026-09-11T09:38:59.018Z",
+      "entries": 8
+    },
+    "2-4/B": {
+      "file": "2026-08-11_2026-09-11/2-4/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-4/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "2ae7715ecf5b21f26e2fe225d690e0b2189dae83a4e86150f9c1f74c3f36c7ee",
+      "fetchedAt": "2026-09-11T09:39:14.407Z",
+      "entries": 8
+    },
+    "2-4/E": {
+      "file": "2026-08-11_2026-09-11/2-4/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-4/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "5f35a40a5f3ad89b074bfa9798e43fa79840e66ba06bf51456620774b3b61f4c",
+      "fetchedAt": "2026-09-11T09:39:28.792Z",
+      "entries": 8
+    },
+    "2-4/F": {
+      "file": "2026-08-11_2026-09-11/2-4/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-4/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "dabb9a0f91508118c90da771ea5a6fd82cfb14e107a91e50fa0799583188f39c",
+      "fetchedAt": "2026-09-11T09:39:43.872Z",
+      "entries": 6
+    },
+    "2-4/I": {
+      "file": "2026-08-11_2026-09-11/2-4/I.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-4/nodes/I/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "a01e32015390d60b369a89a0ec5317d7c8085fd5ed6779faf22443912b67f48e",
+      "fetchedAt": "2026-09-11T09:39:58.910Z",
+      "entries": 9
+    },
+    "2-4/L": {
+      "file": "2026-08-11_2026-09-11/2-4/L.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-4/nodes/L/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "36de5e969f402083d5ed25885b5cbde9698250c7bc4894768defc63aad582b53",
+      "fetchedAt": "2026-09-11T09:40:13.878Z",
+      "entries": 6
+    },
+    "2-4/M": {
+      "file": "2026-08-11_2026-09-11/2-4/M.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-4/nodes/M/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "080f168542fe294007968e51f6580c0de1fd51e71e0398359f8da32dd066d9b0",
+      "fetchedAt": "2026-09-11T09:40:28.783Z",
+      "entries": 6
+    },
+    "2-4/P": {
+      "file": "2026-08-11_2026-09-11/2-4/P.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-4/nodes/P/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "5a6dd7c7a39285c2036ea24f7d84ec750837abf527f9360b240173cf9dd4b91f",
+      "fetchedAt": "2026-09-11T09:40:43.813Z",
+      "entries": 5
+    },
+    "2-5/B": {
+      "file": "2026-08-11_2026-09-11/2-5/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-5/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "ff78a936a1289eed14ca1ec1ab636aa36986bd1a7d2e653e83636f3f983b277f",
+      "fetchedAt": "2026-09-11T09:40:58.973Z",
+      "entries": 9
+    },
+    "2-5/C": {
+      "file": "2026-08-11_2026-09-11/2-5/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-5/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "8d2e56cde25eca43a88661cfa3d0776867db3f248f12931ad268beb5e2545aa3",
+      "fetchedAt": "2026-09-11T09:41:13.865Z",
+      "entries": 9
+    },
+    "2-5/E": {
+      "file": "2026-08-11_2026-09-11/2-5/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-5/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "293c20ad532b26c6cbd698c76288ea03d63d8f04b48604ee3614cfb6be211556",
+      "fetchedAt": "2026-09-11T09:41:28.864Z",
+      "entries": 9
+    },
+    "2-5/F": {
+      "file": "2026-08-11_2026-09-11/2-5/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-5/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "d6612cec5bb136565c52f47ee71e7f6d5c8dcc2d66294b48d085708706e29e1d",
+      "fetchedAt": "2026-09-11T09:41:43.871Z",
+      "entries": 10
+    },
+    "2-5/J": {
+      "file": "2026-08-11_2026-09-11/2-5/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-5/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "f3bf10cb3e30565a0df622dc1e151984942b383821a221059324a0cad3e9ba53",
+      "fetchedAt": "2026-09-11T09:41:58.856Z",
+      "entries": 9
+    },
+    "2-5/L": {
+      "file": "2026-08-11_2026-09-11/2-5/L.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-5/nodes/L/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "ddad04393ac89fce1ef4fa89d582dac4b9e236c0253171330a2ef003b238c1fd",
+      "fetchedAt": "2026-09-11T09:42:13.940Z",
+      "entries": 6
+    },
+    "2-5/O": {
+      "file": "2026-08-11_2026-09-11/2-5/O.json",
+      "url": "https://tsunkit.net/api/routing/maps/2-5/nodes/O/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "965b31e2bda9f832363f8e48c3554b08630bdd597db87e97f9fcaa4f0d8ecd1d",
+      "fetchedAt": "2026-09-11T09:42:28.805Z",
+      "entries": 9
+    },
+    "3-1/B": {
+      "file": "2026-08-11_2026-09-11/3-1/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-1/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "1c073137dfecc348c15e804a547f7cd1238f46f1376d92f4bb806b7222784e93",
+      "fetchedAt": "2026-09-11T09:42:43.824Z",
+      "entries": 2
+    },
+    "3-1/C": {
+      "file": "2026-08-11_2026-09-11/3-1/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-1/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "162c44b75e4c5b251589ca8ecd8967f8d436f7a9de1cd9cb8e9d18ae2bd74c86",
+      "fetchedAt": "2026-09-11T09:42:59.410Z",
+      "entries": 6
+    },
+    "3-1/D": {
+      "file": "2026-08-11_2026-09-11/3-1/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-1/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "bc84ffadeed94427e155fd52c082da07e2ed790e883ef35333482601fb7c6eaa",
+      "fetchedAt": "2026-09-11T09:43:13.773Z",
+      "entries": 6
+    },
+    "3-1/F": {
+      "file": "2026-08-11_2026-09-11/3-1/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-1/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "0716d9552ed0ad13d8b50d2e810c024e052dee2d0d036d2a74ef5ae387581a97",
+      "fetchedAt": "2026-09-11T09:43:28.916Z",
+      "entries": 8
+    },
+    "3-1/G": {
+      "file": "2026-08-11_2026-09-11/3-1/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-1/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "348bdbb44dd41470ddb034b42a8bc5de81476a273b1fbe80effc461bdf095930",
+      "fetchedAt": "2026-09-11T09:43:43.775Z",
+      "entries": 6
+    },
+    "3-2/A": {
+      "file": "2026-08-11_2026-09-11/3-2/A.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-2/nodes/A/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "3b5c817f368b051bbdcef8fe49177487e3f643c2c88ff7925cdba48dbf214686",
+      "fetchedAt": "2026-09-11T09:43:59.377Z",
+      "entries": 6
+    },
+    "3-2/C": {
+      "file": "2026-08-11_2026-09-11/3-2/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-2/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "916b851cb0fb5f6c2435ef590278bdc7e570b3c4828acdd549a0ab529f873de8",
+      "fetchedAt": "2026-09-11T09:44:14.548Z",
+      "entries": 6
+    },
+    "3-2/H": {
+      "file": "2026-08-11_2026-09-11/3-2/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-2/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "77a2ee14f6b8199a0ced1af3ce40b2e8294349a38784e4605f39e0ad31b8b5f8",
+      "fetchedAt": "2026-09-11T09:44:28.808Z",
+      "entries": 6
+    },
+    "3-2/J": {
+      "file": "2026-08-11_2026-09-11/3-2/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-2/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "27d451ebb998b741738654e20902efd6d45ceadf910d07192f01c250136aa80d",
+      "fetchedAt": "2026-09-11T09:50:09.020Z",
+      "entries": 0
+    },
+    "3-2/K": {
+      "file": "2026-08-11_2026-09-11/3-2/K.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-2/nodes/K/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "f3d3ec386b8873bbe8a5cfee3c2e6bb03fa06ecc3cffe7641682fb46ccd97b47",
+      "fetchedAt": "2026-09-11T09:50:23.729Z",
+      "entries": 0
+    },
+    "3-2/L": {
+      "file": "2026-08-11_2026-09-11/3-2/L.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-2/nodes/L/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "24416011de16e54c24ee6903e0307dc058d5cdbcae9f1423f43e6196462b26d9",
+      "fetchedAt": "2026-09-11T09:50:39.769Z",
+      "entries": 6
+    },
+    "3-3/A": {
+      "file": "2026-08-11_2026-09-11/3-3/A.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-3/nodes/A/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "01c908e07ffbbe79f1dd98fd4950ba8b5a7a34b5d8e23fa4f7c73f9a6caf2711",
+      "fetchedAt": "2026-09-11T09:50:53.952Z",
+      "entries": 6
+    },
+    "3-3/B": {
+      "file": "2026-08-11_2026-09-11/3-3/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-3/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "e90c90ccff76b1868a104eb056625d2a6012515270764703f72d2ee766203f79",
+      "fetchedAt": "2026-09-11T09:51:09.084Z",
+      "entries": 4
+    },
+    "3-3/E": {
+      "file": "2026-08-11_2026-09-11/3-3/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-3/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "b3df63a916bc23d27533d5c7b8d9c87c1c146e6570bc2570952c1055a814eda4",
+      "fetchedAt": "2026-09-11T09:51:23.923Z",
+      "entries": 4
+    },
+    "3-3/G": {
+      "file": "2026-08-11_2026-09-11/3-3/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-3/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "d16dbf0db4984c7947d95e0862f713d93bb6caa15a6c349e37d34a1e88226f62",
+      "fetchedAt": "2026-09-11T09:51:38.953Z",
+      "entries": 5
+    },
+    "3-3/K": {
+      "file": "2026-08-11_2026-09-11/3-3/K.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-3/nodes/K/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "3b91722c008a7f75d32e2074ab7ddb72dd3b78b106baa452fb4bbe01ddfc939d",
+      "fetchedAt": "2026-09-11T09:51:53.810Z",
+      "entries": 5
+    },
+    "3-3/M": {
+      "file": "2026-08-11_2026-09-11/3-3/M.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-3/nodes/M/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "f8365be5a99e137c120bb0e1999fdb94fef512049bbfe7629893df0bfa5780e5",
+      "fetchedAt": "2026-09-11T09:52:09.013Z",
+      "entries": 5
+    },
+    "3-4/A": {
+      "file": "2026-08-11_2026-09-11/3-4/A.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-4/nodes/A/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "1f57b6834bd1266459767cf06c73c22f7b53b418c7a8894e2d21c8da42748570",
+      "fetchedAt": "2026-09-11T09:52:23.792Z",
+      "entries": 6
+    },
+    "3-4/B": {
+      "file": "2026-08-11_2026-09-11/3-4/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-4/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "500bcfee033c89ef9ab2bd6cb90deec180d26bc5ca03778e052909fe92c3f632",
+      "fetchedAt": "2026-09-11T09:52:38.901Z",
+      "entries": 6
+    },
+    "3-4/C": {
+      "file": "2026-08-11_2026-09-11/3-4/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-4/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "0f620b883a59d4865d38741741f13ea7143814336c12b6026183a219b8cede2b",
+      "fetchedAt": "2026-09-11T09:52:53.816Z",
+      "entries": 6
+    },
+    "3-4/G": {
+      "file": "2026-08-11_2026-09-11/3-4/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-4/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "63ad46a82059144167481bf0639bd940eed998b38273d13c987803a690eb8c8f",
+      "fetchedAt": "2026-09-11T09:53:08.793Z",
+      "entries": 6
+    },
+    "3-4/H": {
+      "file": "2026-08-11_2026-09-11/3-4/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-4/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "c28282bc4ff1fb0224b759054c0eeef8cc684c6d3030e83b1231166d2588e710",
+      "fetchedAt": "2026-09-11T09:53:23.988Z",
+      "entries": 6
+    },
+    "3-4/I": {
+      "file": "2026-08-11_2026-09-11/3-4/I.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-4/nodes/I/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "c4ea29d4462648fb3a60275813c577a9a81fa80d619a3a0dcd337cb5a3dd4dde",
+      "fetchedAt": "2026-09-11T09:53:38.759Z",
+      "entries": 0
+    },
+    "3-4/M": {
+      "file": "2026-08-11_2026-09-11/3-4/M.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-4/nodes/M/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "6feb10478d621730e7afa7b667caabf17c8fec8b3ec9a72233af9f7efff89bfe",
+      "fetchedAt": "2026-09-11T09:53:53.873Z",
+      "entries": 5
+    },
+    "3-4/N": {
+      "file": "2026-08-11_2026-09-11/3-4/N.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-4/nodes/N/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "9d12114cbb69ec5822d6e3fff8f38662d8100683037ca89ac7d053e12c6a58e7",
+      "fetchedAt": "2026-09-11T09:54:08.744Z",
+      "entries": 1
+    },
+    "3-4/P": {
+      "file": "2026-08-11_2026-09-11/3-4/P.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-4/nodes/P/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "32dc65b94819c05115e7cd2cce343ec442a7b33e8fcb4cb71a5965ae238f1248",
+      "fetchedAt": "2026-09-11T09:54:23.943Z",
+      "entries": 5
+    },
+    "3-5/B": {
+      "file": "2026-08-11_2026-09-11/3-5/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-5/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "dfd6183ed9f5f40c3de6000718e5a6e25f2f7e0929065d6aaeb676541b3d994f",
+      "fetchedAt": "2026-09-11T09:54:38.962Z",
+      "entries": 4
+    },
+    "3-5/D": {
+      "file": "2026-08-11_2026-09-11/3-5/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-5/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "2687e2974401d9bf4c8dd91da627c38250c40c5b75dc1e9107786e8eba54ffb6",
+      "fetchedAt": "2026-09-11T09:54:53.805Z",
+      "entries": 5
+    },
+    "3-5/E": {
+      "file": "2026-08-11_2026-09-11/3-5/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-5/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "326e789e30d2365261a4473db0644adea9e82828822eae2c1bd022b3eb1cd5d0",
+      "fetchedAt": "2026-09-11T09:55:08.846Z",
+      "entries": 3
+    },
+    "3-5/F": {
+      "file": "2026-08-11_2026-09-11/3-5/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-5/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "190af0e42f5b6420f7731b02e3ec25350e7f5521bdeceaf5ac241b744e8c813f",
+      "fetchedAt": "2026-09-11T09:55:24.051Z",
+      "entries": 3
+    },
+    "3-5/G": {
+      "file": "2026-08-11_2026-09-11/3-5/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-5/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "9a3cea56957d1e3c268a444eb010c0b5bb3aa8fe67e4717544cde83324fd03dd",
+      "fetchedAt": "2026-09-11T09:55:38.907Z",
+      "entries": 5
+    },
+    "3-5/H": {
+      "file": "2026-08-11_2026-09-11/3-5/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-5/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "dfa283dfc2d42efe11e6d02ac555d60d91e14fe2deed5e6a0c12cee573413c67",
+      "fetchedAt": "2026-09-11T09:55:53.845Z",
+      "entries": 4
+    },
+    "3-5/K": {
+      "file": "2026-08-11_2026-09-11/3-5/K.json",
+      "url": "https://tsunkit.net/api/routing/maps/3-5/nodes/K/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "f9dcc9b236d9c35bb9707f51f61568307c49cbc6529ad77147a98088b73c2440",
+      "fetchedAt": "2026-09-11T09:56:08.815Z",
+      "entries": 4
+    },
+    "4-1/A": {
+      "file": "2026-08-11_2026-09-11/4-1/A.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-1/nodes/A/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "a7ed32e1600c3de9ba085fe223745a92d3e8ae7dfc87a690e598e44e0d49834f",
+      "fetchedAt": "2026-09-11T09:56:23.865Z",
+      "entries": 6
+    },
+    "4-1/C": {
+      "file": "2026-08-11_2026-09-11/4-1/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-1/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "88d54f8edc29f0098f921e126e17ed9a7ca34c2de711844afef7f22244a3d46a",
+      "fetchedAt": "2026-09-11T09:56:38.822Z",
+      "entries": 6
+    },
+    "4-1/D": {
+      "file": "2026-08-11_2026-09-11/4-1/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-1/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "3a2f49cbd09fcc61633ea288d852c7f0e08e6d814766860aa47af61e0a450a20",
+      "fetchedAt": "2026-09-11T09:56:53.801Z",
+      "entries": 6
+    },
+    "4-1/E": {
+      "file": "2026-08-11_2026-09-11/4-1/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-1/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "15c5c15fbcb715cdda3ae6e932f6db5cd44eae443b1c3684085aa97216c74d26",
+      "fetchedAt": "2026-09-11T09:57:08.908Z",
+      "entries": 2
+    },
+    "4-1/G": {
+      "file": "2026-08-11_2026-09-11/4-1/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-1/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "570a086905bf2ff03dd9f158ca2f7860d2f7a198a2290dbc62b5d7cc219b7fb6",
+      "fetchedAt": "2026-09-11T09:57:23.784Z",
+      "entries": 6
+    },
+    "4-1/H": {
+      "file": "2026-08-11_2026-09-11/4-1/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-1/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "701199e69f34ae5a16308b817d5caa17f71b75770eb68485b23edd358c8715aa",
+      "fetchedAt": "2026-09-11T09:57:38.794Z",
+      "entries": 4
+    },
+    "4-1/J": {
+      "file": "2026-08-11_2026-09-11/4-1/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-1/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "2f0d1ef4632ddef7f70a70a4cbfb46f0f31b73ef8a65618c3c51a1e1ab725175",
+      "fetchedAt": "2026-09-11T09:57:54.350Z",
+      "entries": 6
+    },
+    "4-2/A": {
+      "file": "2026-08-11_2026-09-11/4-2/A.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-2/nodes/A/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "74d93c723e4f3560a25d9763eb0be491b6d089f9404317890c9ee936a4852615",
+      "fetchedAt": "2026-09-11T09:58:08.862Z",
+      "entries": 6
+    },
+    "4-2/B": {
+      "file": "2026-08-11_2026-09-11/4-2/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-2/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "2ffe5bad9549a7bdbacf2ed7800ac01fc1ca3e87b8c0992330ab63585d154471",
+      "fetchedAt": "2026-09-11T09:58:23.882Z",
+      "entries": 6
+    },
+    "4-2/C": {
+      "file": "2026-08-11_2026-09-11/4-2/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-2/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "aa95710b9fd5ddf3b123d839b21e125c08cb15dffc6e7af0fe42bc5cd4e223e3",
+      "fetchedAt": "2026-09-11T09:58:38.886Z",
+      "entries": 9
+    },
+    "4-2/D": {
+      "file": "2026-08-11_2026-09-11/4-2/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-2/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "f979bdc6014879d3e1c4994ba3c2d48f8780ed3247914f6b1f93d7fd18f3fb9e",
+      "fetchedAt": "2026-09-11T09:58:53.819Z",
+      "entries": 4
+    },
+    "4-2/E": {
+      "file": "2026-08-11_2026-09-11/4-2/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-2/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "0ce322d7d3934a820540d97a7dc3cb65a95a151399cf26a8ffebe265152286fb",
+      "fetchedAt": "2026-09-11T09:59:08.873Z",
+      "entries": 9
+    },
+    "4-2/G": {
+      "file": "2026-08-11_2026-09-11/4-2/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-2/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "5f582f92cd84e811c611f3d6b563161d8d52fb6aa6510f2290c6deccfe21ff5b",
+      "fetchedAt": "2026-09-11T09:59:23.802Z",
+      "entries": 6
+    },
+    "4-2/H": {
+      "file": "2026-08-11_2026-09-11/4-2/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-2/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "a840f055ec71c896ea1c5e6492698f16e67f034946023b1d5577c2a9e7766962",
+      "fetchedAt": "2026-09-11T09:59:38.855Z",
+      "entries": 6
+    },
+    "4-2/L": {
+      "file": "2026-08-11_2026-09-11/4-2/L.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-2/nodes/L/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "fde0244438d577643d2719e96f65d81aa94a69eca5596b8f2cb75c6e52956eae",
+      "fetchedAt": "2026-09-11T09:59:53.949Z",
+      "entries": 6
+    },
+    "4-3/A": {
+      "file": "2026-08-11_2026-09-11/4-3/A.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-3/nodes/A/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "a9ef999fd80cf6013de85fa14e30c8648ea37a640d1d81880283b150bf5f9e0a",
+      "fetchedAt": "2026-09-11T10:00:08.786Z",
+      "entries": 6
+    },
+    "4-3/C": {
+      "file": "2026-08-11_2026-09-11/4-3/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-3/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "e268a12e7eb8462733099c3cebf0cda5ec7cec9d32ed3a4792e494f6b71bae8e",
+      "fetchedAt": "2026-09-11T10:00:23.948Z",
+      "entries": 6
+    },
+    "4-3/D": {
+      "file": "2026-08-11_2026-09-11/4-3/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-3/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "79347e10081e29a9e50fe3dfb131e6539a0dfaca3173d18ea814f35637d7d5c7",
+      "fetchedAt": "2026-09-11T10:00:38.798Z",
+      "entries": 6
+    },
+    "4-3/F": {
+      "file": "2026-08-11_2026-09-11/4-3/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-3/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "bd1ffa3f3e6a686c3962931274f72c9430d93fdb0ab8fd9e31b732af4f830b2d",
+      "fetchedAt": "2026-09-11T10:00:53.830Z",
+      "entries": 4
+    },
+    "4-3/G": {
+      "file": "2026-08-11_2026-09-11/4-3/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-3/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "c9ed821acf544567f9aa926434cefc8a30e7c0615f7ef1792e57c4b91229e6b9",
+      "fetchedAt": "2026-09-11T10:01:08.833Z",
+      "entries": 6
+    },
+    "4-3/H": {
+      "file": "2026-08-11_2026-09-11/4-3/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-3/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "54f08acc5de0c373b3d48be8e68246425484e3973c3949c76acc8f476cf59f2b",
+      "fetchedAt": "2026-09-11T10:01:23.798Z",
+      "entries": 5
+    },
+    "4-3/I": {
+      "file": "2026-08-11_2026-09-11/4-3/I.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-3/nodes/I/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "0800ca7e0c3e32a52dc2d76732052f9c4113f3c6684722a46c24d2ff897030d7",
+      "fetchedAt": "2026-09-11T10:01:38.919Z",
+      "entries": 4
+    },
+    "4-3/L": {
+      "file": "2026-08-11_2026-09-11/4-3/L.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-3/nodes/L/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "9595d5d476754666ba962f02420457ad605dbb551726304acec70eb2b45a8663",
+      "fetchedAt": "2026-09-11T10:01:53.760Z",
+      "entries": 6
+    },
+    "4-3/N": {
+      "file": "2026-08-11_2026-09-11/4-3/N.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-3/nodes/N/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "4c3c5538540175c66664dfef03505894525f57f67071c662aef729e52b86d749",
+      "fetchedAt": "2026-09-11T10:02:08.804Z",
+      "entries": 6
+    },
+    "4-4/A": {
+      "file": "2026-08-11_2026-09-11/4-4/A.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-4/nodes/A/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "9f09dc58134f4882ad94e2fd435b60e0f3b45f1273b5eb39711684305a7be783",
+      "fetchedAt": "2026-09-11T10:02:23.908Z",
+      "entries": 6
+    },
+    "4-4/B": {
+      "file": "2026-08-11_2026-09-11/4-4/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-4/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "acbd41082c5a58ad64ac0c58be8a71b68e06a1d43867e51d2448aeeccd903aaa",
+      "fetchedAt": "2026-09-11T10:02:38.778Z",
+      "entries": 4
+    },
+    "4-4/E": {
+      "file": "2026-08-11_2026-09-11/4-4/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-4/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "981bf0e1e69e1b85c6d34638522384bc1dfee09274898e890307c4d4378c190c",
+      "fetchedAt": "2026-09-11T10:02:53.911Z",
+      "entries": 6
+    },
+    "4-4/F": {
+      "file": "2026-08-11_2026-09-11/4-4/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-4/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "dd014b8ff10839acb3e9742def806eabcaab4acb2c0ae9c49a8de46b93a34fe2",
+      "fetchedAt": "2026-09-11T10:03:08.892Z",
+      "entries": 1
+    },
+    "4-4/G": {
+      "file": "2026-08-11_2026-09-11/4-4/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-4/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "3a257661dd8cc0f9b6577573c5865352e7818d05b736425c4572dc160dcbf194",
+      "fetchedAt": "2026-09-11T10:03:23.778Z",
+      "entries": 6
+    },
+    "4-4/H": {
+      "file": "2026-08-11_2026-09-11/4-4/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-4/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "081763e6df26d60901c2f3f2b5552031d5b79c97b63619bf4be10db7ae9445b7",
+      "fetchedAt": "2026-09-11T10:03:38.845Z",
+      "entries": 3
+    },
+    "4-4/I": {
+      "file": "2026-08-11_2026-09-11/4-4/I.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-4/nodes/I/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "a8249e10763e6890f74db7911f7588b6f13dd3afa47455402b3d489679f832ce",
+      "fetchedAt": "2026-09-11T10:03:53.944Z",
+      "entries": 5
+    },
+    "4-4/K": {
+      "file": "2026-08-11_2026-09-11/4-4/K.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-4/nodes/K/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "aa1f127b9088f90a940729acf2442bba8aa0b61d02a2c0604b05a22d51eb9ce5",
+      "fetchedAt": "2026-09-11T10:04:08.932Z",
+      "entries": 6
+    },
+    "4-5/B": {
+      "file": "2026-08-11_2026-09-11/4-5/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-5/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "7b4b83be4ed4765745d23590fce2e9a3a0551cd1c0498dd4297f4bbbb10d00f8",
+      "fetchedAt": "2026-09-11T10:04:23.892Z",
+      "entries": 6
+    },
+    "4-5/D": {
+      "file": "2026-08-11_2026-09-11/4-5/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-5/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "4ae94cb44e2f5af63260913e9f9250612da31949388b46c77ba5012d80419361",
+      "fetchedAt": "2026-09-11T10:04:38.953Z",
+      "entries": 6
+    },
+    "4-5/E": {
+      "file": "2026-08-11_2026-09-11/4-5/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-5/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "9d085184b946f6029a9569259b8a7a20dcfb86e892d4b089e8d86f314b2dfed9",
+      "fetchedAt": "2026-09-11T10:04:53.860Z",
+      "entries": 6
+    },
+    "4-5/F": {
+      "file": "2026-08-11_2026-09-11/4-5/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-5/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "065d2d30ca228f0e667ebd746dcf7aa5031b1bd894c1d9c21f7241ecdb890666",
+      "fetchedAt": "2026-09-11T10:05:08.784Z",
+      "entries": 6
+    },
+    "4-5/G": {
+      "file": "2026-08-11_2026-09-11/4-5/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-5/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "9f620bebe9966fb490f6d49987d49a84de98ecb270be59d02f36e3b7e6856691",
+      "fetchedAt": "2026-09-11T10:05:24.001Z",
+      "entries": 1
+    },
+    "4-5/H": {
+      "file": "2026-08-11_2026-09-11/4-5/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-5/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "ac58270ac6e0cbaf8f91bfa684ed7052ca2a9ba83f5763a239237b02486db1ee",
+      "fetchedAt": "2026-09-11T10:05:39.050Z",
+      "entries": 6
+    },
+    "4-5/J": {
+      "file": "2026-08-11_2026-09-11/4-5/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-5/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "90963385dbf34db6ea2aa45ea1495d9ed89523c3203bf7f33a06ac4ce0daebc9",
+      "fetchedAt": "2026-09-11T10:05:53.773Z",
+      "entries": 6
+    },
+    "4-5/K": {
+      "file": "2026-08-11_2026-09-11/4-5/K.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-5/nodes/K/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "e76f5169fdd2d06f8df26972a812d645fd9c2e2fa9ee4e9399e563f27c55926d",
+      "fetchedAt": "2026-09-11T10:06:08.933Z",
+      "entries": 5
+    },
+    "4-5/N": {
+      "file": "2026-08-11_2026-09-11/4-5/N.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-5/nodes/N/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "81d240956c6480c29a8adce40b3eb742d52a086cf533fcfd5ac959de51c3efdb",
+      "fetchedAt": "2026-09-11T10:06:23.809Z",
+      "entries": 6
+    },
+    "4-5/O": {
+      "file": "2026-08-11_2026-09-11/4-5/O.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-5/nodes/O/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "2464965c75f10342a1ec44cbbbe4d9f62ca194e351dd98d4c39b353a6ea8892b",
+      "fetchedAt": "2026-09-11T10:06:38.814Z",
+      "entries": 0
+    },
+    "4-5/S": {
+      "file": "2026-08-11_2026-09-11/4-5/S.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-5/nodes/S/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "83b857fffd31c19dbcafdae3a2dd42f73f653e7ecce63c256dedfc1b3ffd58b9",
+      "fetchedAt": "2026-09-11T10:06:53.802Z",
+      "entries": 2
+    },
+    "4-5/T": {
+      "file": "2026-08-11_2026-09-11/4-5/T.json",
+      "url": "https://tsunkit.net/api/routing/maps/4-5/nodes/T/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "680454c350b2c50d9a37bd234b3f48333842e74d054d1a7f98913e7f28ddda6e",
+      "fetchedAt": "2026-09-11T10:07:08.917Z",
+      "entries": 6
+    },
+    "5-1/B": {
+      "file": "2026-08-11_2026-09-11/5-1/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-1/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "76595fa6da1245986eb73ff6890a38810a35a511925eec1f6857fb1cdd7b2af6",
+      "fetchedAt": "2026-09-11T10:07:23.958Z",
+      "entries": 6
+    },
+    "5-1/D": {
+      "file": "2026-08-11_2026-09-11/5-1/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-1/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "65ce685807a5db1e7ae3f738ad51b5238ee892f9e2ca6499902cc5665a58caa5",
+      "fetchedAt": "2026-09-11T10:07:38.915Z",
+      "entries": 6
+    },
+    "5-1/E": {
+      "file": "2026-08-11_2026-09-11/5-1/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-1/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "ca513ba88fa48d46310921c4bb5b9f6e400f5928144e3284d7946de7fbb9f926",
+      "fetchedAt": "2026-09-11T10:07:53.857Z",
+      "entries": 6
+    },
+    "5-1/F": {
+      "file": "2026-08-11_2026-09-11/5-1/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-1/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "ee57b077feedf8c5b58a202d4e1500dbe7cea688982c3deaa13b98696958ed71",
+      "fetchedAt": "2026-09-11T10:08:09.535Z",
+      "entries": 6
+    },
+    "5-1/G": {
+      "file": "2026-08-11_2026-09-11/5-1/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-1/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "6d932bb07b500031a646ab17919abb445cf583de26f361d853e05fae21ff99ec",
+      "fetchedAt": "2026-09-11T10:08:23.841Z",
+      "entries": 6
+    },
+    "5-1/J": {
+      "file": "2026-08-11_2026-09-11/5-1/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-1/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "4d963dd4cdb28dfcddae4c73633191bf1b253033a3c04c6bd3bf20c500fa8f37",
+      "fetchedAt": "2026-09-11T10:08:38.927Z",
+      "entries": 6
+    },
+    "5-2/C": {
+      "file": "2026-08-11_2026-09-11/5-2/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-2/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "c080e5e3a4ec11b1502db8a7fa30c521e1db7f18a2366c87cd87c8f2a95abf05",
+      "fetchedAt": "2026-09-11T10:08:55.010Z",
+      "entries": 3
+    },
+    "5-2/D": {
+      "file": "2026-08-11_2026-09-11/5-2/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-2/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "ddf7832459bf62d07fd8a4dead0145ca3f3b0eead59eaa0e252fad7a35585b37",
+      "fetchedAt": "2026-09-11T10:09:08.877Z",
+      "entries": 6
+    },
+    "5-2/E": {
+      "file": "2026-08-11_2026-09-11/5-2/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-2/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "05de3157c283a27e1678fbd554b7dee36c783d20f8a9fa01b39c810c32ee5a7c",
+      "fetchedAt": "2026-09-11T10:09:23.864Z",
+      "entries": 6
+    },
+    "5-2/F": {
+      "file": "2026-08-11_2026-09-11/5-2/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-2/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "0fb131abc8a36166bb780e35e12b3622c63986eb6fde652d84273000e543519b",
+      "fetchedAt": "2026-09-11T10:09:38.942Z",
+      "entries": 6
+    },
+    "5-2/I": {
+      "file": "2026-08-11_2026-09-11/5-2/I.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-2/nodes/I/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "b4d495796166e82b4e043c5026374eb15a31473e60c752460d90a21a6332b7a0",
+      "fetchedAt": "2026-09-11T10:09:53.866Z",
+      "entries": 0
+    },
+    "5-2/K": {
+      "file": "2026-08-11_2026-09-11/5-2/K.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-2/nodes/K/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "3b6e764b0ee72dd76f4a72a729bffd24ff3a7409ba1f55429d6487c4f3afb833",
+      "fetchedAt": "2026-09-11T10:10:08.868Z",
+      "entries": 0
+    },
+    "5-2/L": {
+      "file": "2026-08-11_2026-09-11/5-2/L.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-2/nodes/L/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "92654516aacb934ffa0beb8bd2649c19d16b9ce79f7c42cc72c2bdcb284aedb5",
+      "fetchedAt": "2026-09-11T10:10:23.808Z",
+      "entries": 0
+    },
+    "5-2/O": {
+      "file": "2026-08-11_2026-09-11/5-2/O.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-2/nodes/O/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "c2d02e247db52fbaa0dcfa51b594296d675a77f3186d77cc0e9d15cb9935fd23",
+      "fetchedAt": "2026-09-11T10:10:38.965Z",
+      "entries": 6
+    },
+    "5-3/C": {
+      "file": "2026-08-11_2026-09-11/5-3/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-3/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "010262662acfd96fc2e1e4319f0c44a83ec1ce715cf11919bc3087cee6fcc999",
+      "fetchedAt": "2026-09-11T10:10:53.818Z",
+      "entries": 6
+    },
+    "5-3/I": {
+      "file": "2026-08-11_2026-09-11/5-3/I.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-3/nodes/I/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "58f1cfd261dfc4bb42d1a9496cb8882a1f870854f6203abe23401b03ce6ae3cb",
+      "fetchedAt": "2026-09-11T10:11:09.260Z",
+      "entries": 6
+    },
+    "5-3/J": {
+      "file": "2026-08-11_2026-09-11/5-3/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-3/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "d20ca892ef2fd33eea1577292cf4ac51eae7c094add40fe075030e242cdae46b",
+      "fetchedAt": "2026-09-11T10:11:23.834Z",
+      "entries": 6
+    },
+    "5-3/K": {
+      "file": "2026-08-11_2026-09-11/5-3/K.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-3/nodes/K/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "1989ca927953aef275bf531e72d47fc8f851a0716fce87532aa68fca89c804b2",
+      "fetchedAt": "2026-09-11T10:11:38.865Z",
+      "entries": 6
+    },
+    "5-3/M": {
+      "file": "2026-08-11_2026-09-11/5-3/M.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-3/nodes/M/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "5c65ab521eb4b0bb3172a1354b57d170ff8900fe3354bb4d632851adae4bbb8b",
+      "fetchedAt": "2026-09-11T10:11:53.931Z",
+      "entries": 3
+    },
+    "5-3/N": {
+      "file": "2026-08-11_2026-09-11/5-3/N.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-3/nodes/N/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "c5aa0fd44a5fc43523f48b6fbfe02e39f8a066240a70b74b86e45dd1e2fe1668",
+      "fetchedAt": "2026-09-11T10:12:08.910Z",
+      "entries": 6
+    },
+    "5-3/P": {
+      "file": "2026-08-11_2026-09-11/5-3/P.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-3/nodes/P/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "11c305364d234f491a83818b5f84961afae6bbec71698d6c9caa2d8a002c07ec",
+      "fetchedAt": "2026-09-11T10:12:24.867Z",
+      "entries": 6
+    },
+    "5-3/Q": {
+      "file": "2026-08-11_2026-09-11/5-3/Q.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-3/nodes/Q/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "84ec6ad30535f390a69967160184e15957b71cb42a3b65cee4ea39807036b4b1",
+      "fetchedAt": "2026-09-11T10:12:38.924Z",
+      "entries": 6
+    },
+    "5-4/C": {
+      "file": "2026-08-11_2026-09-11/5-4/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-4/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "fa53f928f5128a5c8eb62348413cfbe2039e32d466ff03bd6f8483a511072397",
+      "fetchedAt": "2026-09-11T10:12:53.849Z",
+      "entries": 6
+    },
+    "5-4/E": {
+      "file": "2026-08-11_2026-09-11/5-4/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-4/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "743a7fe8b8a0b79b6a4c04ffcc51577433f19b03d23534e25afae621b1b00c54",
+      "fetchedAt": "2026-09-11T10:13:08.904Z",
+      "entries": 6
+    },
+    "5-4/F": {
+      "file": "2026-08-11_2026-09-11/5-4/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-4/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "3432bfa4303aaedb7050b38f25ceedb1e987bb82c29e7ae582b2b68948ed4348",
+      "fetchedAt": "2026-09-11T10:13:24.011Z",
+      "entries": 6
+    },
+    "5-4/G": {
+      "file": "2026-08-11_2026-09-11/5-4/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-4/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "5b68d1f99016c61b1233fbdfd5d85c5f27eb6275ba987abe299ee219cb59f235",
+      "fetchedAt": "2026-09-11T10:13:38.800Z",
+      "entries": 6
+    },
+    "5-4/H": {
+      "file": "2026-08-11_2026-09-11/5-4/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-4/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "9c1ce7cf38a565677a8a0eee7b6a7fbe6a256009e2f883bd2880c487ee8b88c7",
+      "fetchedAt": "2026-09-11T10:13:53.993Z",
+      "entries": 6
+    },
+    "5-4/J": {
+      "file": "2026-08-11_2026-09-11/5-4/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-4/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "c1a1f708c9c45780f69d02135a18fde2f19081cd24e9d175bb2d7dff9a4ebf2c",
+      "fetchedAt": "2026-09-11T10:14:08.863Z",
+      "entries": 6
+    },
+    "5-4/L": {
+      "file": "2026-08-11_2026-09-11/5-4/L.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-4/nodes/L/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "e5ac6d6e96c185c0fac709594a8f6f8c064aec15ec95afe69021b9a3cd94e409",
+      "fetchedAt": "2026-09-11T10:14:23.892Z",
+      "entries": 6
+    },
+    "5-4/P": {
+      "file": "2026-08-11_2026-09-11/5-4/P.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-4/nodes/P/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "7e802e821691b413e1d78683519041f117c0d1fb05645a3371eadaa9ed152f1e",
+      "fetchedAt": "2026-09-11T10:14:38.905Z",
+      "entries": 6
+    },
+    "5-5/B": {
+      "file": "2026-08-11_2026-09-11/5-5/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-5/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "f39c65ffa5cfe4cbac99d67b9dc8ebfb0cc0d2be9c8e7d6bfe86a52f048c213f",
+      "fetchedAt": "2026-09-11T10:14:53.954Z",
+      "entries": 6
+    },
+    "5-5/C": {
+      "file": "2026-08-11_2026-09-11/5-5/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-5/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "f43c5b1320368559658195a674c7519a6d3e97ee93c79d2473e60344ce9b187b",
+      "fetchedAt": "2026-09-11T10:15:08.967Z",
+      "entries": 6
+    },
+    "5-5/G": {
+      "file": "2026-08-11_2026-09-11/5-5/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-5/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "62dfa989e8daf27a72eeee7a1f819976ea6f211ce55c144935ef79c2335d88a1",
+      "fetchedAt": "2026-09-11T10:15:24.173Z",
+      "entries": 6
+    },
+    "5-5/H": {
+      "file": "2026-08-11_2026-09-11/5-5/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-5/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "b140d0a70907c249206fe2368116cee4b6f5299fd47939cd4058c943a4e9d81a",
+      "fetchedAt": "2026-09-11T10:15:38.893Z",
+      "entries": 6
+    },
+    "5-5/J": {
+      "file": "2026-08-11_2026-09-11/5-5/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-5/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "39afbb34789e784ea3182660001f7d5138867ea8e3bfb5acd724fdc7c728ffe2",
+      "fetchedAt": "2026-09-11T10:15:54.059Z",
+      "entries": 6
+    },
+    "5-5/K": {
+      "file": "2026-08-11_2026-09-11/5-5/K.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-5/nodes/K/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "2aa7600848d94207d1a87a9e8913cc97f243bcdc2577667ec16525a6cba7af3b",
+      "fetchedAt": "2026-09-11T10:16:09.047Z",
+      "entries": 6
+    },
+    "5-5/M": {
+      "file": "2026-08-11_2026-09-11/5-5/M.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-5/nodes/M/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "9e8e2f52ebff9828dd926cca485125b5c0fb1b2b6fccd6d4652eff3737689aca",
+      "fetchedAt": "2026-09-11T10:16:23.942Z",
+      "entries": 9
+    },
+    "5-5/N": {
+      "file": "2026-08-11_2026-09-11/5-5/N.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-5/nodes/N/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "020a9c9a450c26b16971e0728ed17fd779e9fd0b42e77eeaceb1324e0d16bdb8",
+      "fetchedAt": "2026-09-11T10:16:39.147Z",
+      "entries": 6
+    },
+    "5-5/P": {
+      "file": "2026-08-11_2026-09-11/5-5/P.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-5/nodes/P/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "b4ab25d753d26837cb9f35f275cc26a5204ded1d4baa1f3f02c6911dd45bfa6a",
+      "fetchedAt": "2026-09-11T10:16:54.054Z",
+      "entries": 9
+    },
+    "5-5/S": {
+      "file": "2026-08-11_2026-09-11/5-5/S.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-5/nodes/S/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "076b5d1e951f6dfc88e7de9208933e46f5ade7067a8210846ff19352a0cf8123",
+      "fetchedAt": "2026-09-11T10:17:09.041Z",
+      "entries": 9
+    },
+    "5-6/A1": {
+      "file": "2026-08-11_2026-09-11/5-6/A1.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/A1/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "59d97a515e5ba78035bbe7ccf1c53677c8232db2d3951207c95a0decbd981fda",
+      "fetchedAt": "2026-09-11T10:17:23.857Z",
+      "entries": 6
+    },
+    "5-6/A2": {
+      "file": "2026-08-11_2026-09-11/5-6/A2.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/A2/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "bc651e08a2e680032e651960cc600bf236e173b6bbeb2cf946d34117af6e7b55",
+      "fetchedAt": "2026-09-11T10:17:38.915Z",
+      "entries": 6
+    },
+    "5-6/A": {
+      "file": "2026-08-11_2026-09-11/5-6/A.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/A/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "7a1ef947cc86a87dd96bc5eb7381af310e8c444e1838fd04a26782acd094f3b7",
+      "fetchedAt": "2026-09-11T10:17:54.121Z",
+      "entries": 9
+    },
+    "5-6/B": {
+      "file": "2026-08-11_2026-09-11/5-6/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "3966e99e1983a0438933246acff71f640f02455cb1f08a730584c439eae2fffd",
+      "fetchedAt": "2026-09-11T10:18:08.947Z",
+      "entries": 8
+    },
+    "5-6/C1": {
+      "file": "2026-08-11_2026-09-11/5-6/C1.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/C1/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "9f891797583a69b93a26d66d6b52b06fccf52d4cf7510dba09ce0701dafa79a8",
+      "fetchedAt": "2026-09-11T10:18:23.901Z",
+      "entries": 6
+    },
+    "5-6/C2": {
+      "file": "2026-08-11_2026-09-11/5-6/C2.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/C2/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "b166603b8a321f57c5e7a2a8f3e17bd7d4880b403b978464bcfdd2a7534921d8",
+      "fetchedAt": "2026-09-11T10:18:38.928Z",
+      "entries": 6
+    },
+    "5-6/C": {
+      "file": "2026-08-11_2026-09-11/5-6/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "4cb5165736a0975a0d74188ce858dd96ab00c6a385f3fda94656bd1a63409060",
+      "fetchedAt": "2026-09-11T10:18:53.898Z",
+      "entries": 6
+    },
+    "5-6/D": {
+      "file": "2026-08-11_2026-09-11/5-6/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "71b8841695bbc1b793fcf88342520c5df1e3327e8517ffd18d024fe79276f86e",
+      "fetchedAt": "2026-09-11T10:19:08.962Z",
+      "entries": 6
+    },
+    "5-6/G": {
+      "file": "2026-08-11_2026-09-11/5-6/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "457aef198069062536e3909f487c1339278748fdb2edb7f21e04bd4aff0bff8f",
+      "fetchedAt": "2026-09-11T10:19:23.905Z",
+      "entries": 9
+    },
+    "5-6/H": {
+      "file": "2026-08-11_2026-09-11/5-6/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "521957df762606aafa618944628204b270aad7b5ad6ac41f6a1aa4754777a19f",
+      "fetchedAt": "2026-09-11T10:19:38.980Z",
+      "entries": 8
+    },
+    "5-6/J": {
+      "file": "2026-08-11_2026-09-11/5-6/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "a666ce542f0b189d07c058c694fd24e428eee8f118b6c92bd2087260ffadce9c",
+      "fetchedAt": "2026-09-11T10:19:53.878Z",
+      "entries": 9
+    },
+    "5-6/K1": {
+      "file": "2026-08-11_2026-09-11/5-6/K1.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/K1/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "69226b99a366d7b9c11ed5363218d7321fa62c73e538c43c8e20c3f8a33e770b",
+      "fetchedAt": "2026-09-11T10:20:08.883Z",
+      "entries": 7
+    },
+    "5-6/K": {
+      "file": "2026-08-11_2026-09-11/5-6/K.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/K/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "33bc0b3ade5d54917d720c201b4f6923180a7362c7e9d3f4c30b5b6ecd5eb021",
+      "fetchedAt": "2026-09-11T10:20:23.901Z",
+      "entries": 8
+    },
+    "5-6/K2": {
+      "file": "2026-08-11_2026-09-11/5-6/K2.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/K2/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "98522d51745b9c04e34193c03add66129bdbe2b477665681cf779446f8b60023",
+      "fetchedAt": "2026-09-11T10:20:38.846Z",
+      "entries": 8
+    },
+    "5-6/L": {
+      "file": "2026-08-11_2026-09-11/5-6/L.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/L/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "26d38adbafca1ccfc020f24ad5539643bad2081c465cb85689d192042a39f5d1",
+      "fetchedAt": "2026-09-11T10:20:53.953Z",
+      "entries": 8
+    },
+    "5-6/N": {
+      "file": "2026-08-11_2026-09-11/5-6/N.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/N/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "040a0ff8629857b7bf6055dd5c532ef8341dffcdd4dcb94883eb0821ac647780",
+      "fetchedAt": "2026-09-11T10:21:08.876Z",
+      "entries": 8
+    },
+    "5-6/P": {
+      "file": "2026-08-11_2026-09-11/5-6/P.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/P/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "a252e0fae7d9258982eda4c6b85256415e80b7fc4f655dcf61b98edb3f7f1b4d",
+      "fetchedAt": "2026-09-11T10:21:23.840Z",
+      "entries": 0
+    },
+    "5-6/Q": {
+      "file": "2026-08-11_2026-09-11/5-6/Q.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/Q/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "5478828f3682b8c99fb49901de7cf8d3c711082e6ab06a7f0cf31bc2cd6a2395",
+      "fetchedAt": "2026-09-11T10:21:39.042Z",
+      "entries": 9
+    },
+    "5-6/Q1": {
+      "file": "2026-08-11_2026-09-11/5-6/Q1.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/Q1/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "d248bda0ef9836aeaffae09670acd47b1f0e3cb7534a5bf3724abcd66efaf690",
+      "fetchedAt": "2026-09-11T10:21:53.843Z",
+      "entries": 0
+    },
+    "5-6/Q2": {
+      "file": "2026-08-11_2026-09-11/5-6/Q2.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/Q2/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "660c3492d1774aa3d5ed1accd22e513c703ea3851b6f044906dc3899571151dd",
+      "fetchedAt": "2026-09-11T10:22:08.925Z",
+      "entries": 2
+    },
+    "5-6/T": {
+      "file": "2026-08-11_2026-09-11/5-6/T.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/T/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "8b3f5cd603fa5d7146a1f4f81204feb47387db0513cc3c2c1704b13a0d93e8ea",
+      "fetchedAt": "2026-09-11T10:22:23.906Z",
+      "entries": 0
+    },
+    "5-6/U": {
+      "file": "2026-08-11_2026-09-11/5-6/U.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/U/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "d7ed238ec18ba705ee86cde5cc12932baa9d6e28e374a33c7cce94b40fabe3c4",
+      "fetchedAt": "2026-09-11T10:22:38.950Z",
+      "entries": 9
+    },
+    "5-6/V": {
+      "file": "2026-08-11_2026-09-11/5-6/V.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/V/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "c4d550d17ba776e958e7b05ba85360f29ff147677daedf65ad90549892da7fa4",
+      "fetchedAt": "2026-09-11T10:22:53.877Z",
+      "entries": 2
+    },
+    "5-6/W": {
+      "file": "2026-08-11_2026-09-11/5-6/W.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/W/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "a67faa35d0c41925b233220c0690bdbe43153949b151a851b84087ce65c97a30",
+      "fetchedAt": "2026-09-11T10:23:08.911Z",
+      "entries": 8
+    },
+    "5-6/X": {
+      "file": "2026-08-11_2026-09-11/5-6/X.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/X/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "9fb8a1972221bf176f44860ed5253e672f2a05628a83aaf5ee519a881cf4a9a1",
+      "fetchedAt": "2026-09-11T10:23:23.891Z",
+      "entries": 9
+    },
+    "5-6/Z": {
+      "file": "2026-08-11_2026-09-11/5-6/Z.json",
+      "url": "https://tsunkit.net/api/routing/maps/5-6/nodes/Z/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "d7a3f315dcc24a1e6248dc2d15c4d4ad54c1e1bafe007c34a9ff638ae49d21ce",
+      "fetchedAt": "2026-09-11T10:23:38.894Z",
+      "entries": 9
+    },
+    "6-1/C": {
+      "file": "2026-08-11_2026-09-11/6-1/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-1/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "3d49c63be3d4e33e049715f4a8c8f94f345a98a74b70ff71487f7b2343fd82e3",
+      "fetchedAt": "2026-09-11T10:23:53.864Z",
+      "entries": 3
+    },
+    "6-1/D": {
+      "file": "2026-08-11_2026-09-11/6-1/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-1/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "e3f7dd8759e1aa3a97c92d4ba1efd42086a7114e6824d65a2aa2b557d35e93ef",
+      "fetchedAt": "2026-09-11T10:24:08.944Z",
+      "entries": 3
+    },
+    "6-1/F": {
+      "file": "2026-08-11_2026-09-11/6-1/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-1/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "64c6c8dfcffd88be97050bfc7c29d9fa22e156f8149c1c59009ec60cca9c2746",
+      "fetchedAt": "2026-09-11T10:24:23.845Z",
+      "entries": 4
+    },
+    "6-1/I": {
+      "file": "2026-08-11_2026-09-11/6-1/I.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-1/nodes/I/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "21a00565cecb8bb975e82da6161bb4a2c09648fbf7bea53bd6ca54321a649184",
+      "fetchedAt": "2026-09-11T10:24:38.826Z",
+      "entries": 3
+    },
+    "6-1/H": {
+      "file": "2026-08-11_2026-09-11/6-1/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-1/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "cf827687fbd8e0687e21edfd6256cd8fdc18cd5bb44f3c036aec10aaa34cc3e2",
+      "fetchedAt": "2026-09-11T10:24:54.029Z",
+      "entries": 3
+    },
+    "6-1/J": {
+      "file": "2026-08-11_2026-09-11/6-1/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-1/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "3c40c7ba9b6a85f19721455e93e3cc8c177557f7c458bb94d68bb6ce19996ead",
+      "fetchedAt": "2026-09-11T10:25:08.809Z",
+      "entries": 0
+    },
+    "6-1/K": {
+      "file": "2026-08-11_2026-09-11/6-1/K.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-1/nodes/K/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "99fe52dfba5fcf0df3b73ffc12f9242d37b976d94e3d635615c6e34f3a840a84",
+      "fetchedAt": "2026-09-11T10:25:23.913Z",
+      "entries": 3
+    },
+    "6-2/B": {
+      "file": "2026-08-11_2026-09-11/6-2/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-2/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "761442ffd564ffc230cbcad70483807e3c035c52216d1f532f57c706d4c57b44",
+      "fetchedAt": "2026-09-11T10:25:38.893Z",
+      "entries": 3
+    },
+    "6-2/C": {
+      "file": "2026-08-11_2026-09-11/6-2/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-2/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "15bfc694cb46c71ec156e6b5eae7a902c2b83cd4603ef65dd2049de4e9c62220",
+      "fetchedAt": "2026-09-11T10:25:53.919Z",
+      "entries": 3
+    },
+    "6-2/F": {
+      "file": "2026-08-11_2026-09-11/6-2/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-2/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "2a6aa7d55b997cf8d1802b3c77cde01ef98244075c1f6d35ce299be48f450a1c",
+      "fetchedAt": "2026-09-11T10:26:08.869Z",
+      "entries": 4
+    },
+    "6-2/H": {
+      "file": "2026-08-11_2026-09-11/6-2/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-2/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "b8e91075b39f8c5a79a6be876906bbd7453a30f02fde141333d6056f0949182a",
+      "fetchedAt": "2026-09-11T10:26:23.823Z",
+      "entries": 0
+    },
+    "6-2/I": {
+      "file": "2026-08-11_2026-09-11/6-2/I.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-2/nodes/I/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "f2480c70988775bb3fe90ec6763c298b86051264e2ffdd7ce513dcc0ca5823d2",
+      "fetchedAt": "2026-09-11T10:26:38.885Z",
+      "entries": 3
+    },
+    "6-2/J": {
+      "file": "2026-08-11_2026-09-11/6-2/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-2/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "d55359d224694e022ad493efac6766b7e40f5d4759d956e672db6f5ee2f14c14",
+      "fetchedAt": "2026-09-11T10:26:53.985Z",
+      "entries": 3
+    },
+    "6-2/K": {
+      "file": "2026-08-11_2026-09-11/6-2/K.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-2/nodes/K/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "5b1ace6b9eb2dd06faeb6e0464e6228e5286ae7e874ce2faff4f8651e62a1adc",
+      "fetchedAt": "2026-09-11T10:27:08.901Z",
+      "entries": 3
+    },
+    "6-3/B": {
+      "file": "2026-08-11_2026-09-11/6-3/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-3/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "a55e837c38afc400a7d6f197ced10c1cc66af04673a18396d89c17fb2bd881e6",
+      "fetchedAt": "2026-09-11T10:27:23.859Z",
+      "entries": 6
+    },
+    "6-3/C": {
+      "file": "2026-08-11_2026-09-11/6-3/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-3/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "8989680ac557d3f853fa85c5a281022ef44f9719ac08ba75a7db02890db9cb7c",
+      "fetchedAt": "2026-09-11T10:27:39.712Z",
+      "entries": 6
+    },
+    "6-3/D": {
+      "file": "2026-08-11_2026-09-11/6-3/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-3/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "e59b0a393bb24b376b6e7fb4b5d0085580d9eb79ccb2b0baf3f7b18bd9ff25c7",
+      "fetchedAt": "2026-09-11T10:27:53.861Z",
+      "entries": 6
+    },
+    "6-3/E": {
+      "file": "2026-08-11_2026-09-11/6-3/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-3/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "e92b8e973282107c1693766225dccb6c4852f10d3b6c51b29b0dcf8cbaed9ec4",
+      "fetchedAt": "2026-09-11T10:28:09.273Z",
+      "entries": 6
+    },
+    "6-3/F": {
+      "file": "2026-08-11_2026-09-11/6-3/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-3/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "bf5b828ea427a1be0842408d9e6965714777ef25ac531dd50e5f4b90865bac8d",
+      "fetchedAt": "2026-09-11T10:28:23.851Z",
+      "entries": 6
+    },
+    "6-3/J": {
+      "file": "2026-08-11_2026-09-11/6-3/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-3/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "aec15671ecc414338c15dc7810b780bd30f7d274f5ee65356754f38dbf4a8e94",
+      "fetchedAt": "2026-09-11T10:28:39.232Z",
+      "entries": 6
+    },
+    "6-4/A": {
+      "file": "2026-08-11_2026-09-11/6-4/A.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-4/nodes/A/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "3ad84eaf1e99ae9551ff23528b206636f89e51d119984ec3bd36bcf70edd753b",
+      "fetchedAt": "2026-09-11T10:28:53.844Z",
+      "entries": 6
+    },
+    "6-4/B": {
+      "file": "2026-08-11_2026-09-11/6-4/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-4/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "cb49730474fcb1645a34553ad9ddf85c09fcaa57ab96de7a20c24d8d78cca003",
+      "fetchedAt": "2026-09-11T10:29:08.839Z",
+      "entries": 5
+    },
+    "6-4/C": {
+      "file": "2026-08-11_2026-09-11/6-4/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-4/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "834566a3cc108212c19bf675d3174727aad432934f9089ec80ba0fcee600a125",
+      "fetchedAt": "2026-09-11T10:29:24.103Z",
+      "entries": 6
+    },
+    "6-4/D": {
+      "file": "2026-08-11_2026-09-11/6-4/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-4/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "326df18103c05f5c36cea49a06fce7c89bbf180ea8703419bf7df3bc569ad1a6",
+      "fetchedAt": "2026-09-11T10:29:38.840Z",
+      "entries": 2
+    },
+    "6-4/E": {
+      "file": "2026-08-11_2026-09-11/6-4/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-4/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "de375fffdf633d7b51be681642ef24ba8a8b7a1585ddddcb5a01877bd8ce8c36",
+      "fetchedAt": "2026-09-11T10:29:53.930Z",
+      "entries": 5
+    },
+    "6-4/F": {
+      "file": "2026-08-11_2026-09-11/6-4/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-4/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "a66dadef237d1fbfe324b7e8417f0d7d1886ca79253307178e417fd64abc801f",
+      "fetchedAt": "2026-09-11T10:30:08.924Z",
+      "entries": 2
+    },
+    "6-4/G": {
+      "file": "2026-08-11_2026-09-11/6-4/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-4/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "ee6dfd03d63fd840e363d1ba3bae4c1533d1def259f239ca226bde925107314c",
+      "fetchedAt": "2026-09-11T10:30:24.119Z",
+      "entries": 1
+    },
+    "6-4/H": {
+      "file": "2026-08-11_2026-09-11/6-4/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-4/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "50db0e84bdfbb7e3c5f9ae973edb0d390a0d121346bb95f3611f9c8a54af50bf",
+      "fetchedAt": "2026-09-11T10:30:38.903Z",
+      "entries": 1
+    },
+    "6-4/I": {
+      "file": "2026-08-11_2026-09-11/6-4/I.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-4/nodes/I/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "a0224a838949eaf3665bd76796472e6531bf4d22120aaa653e3e1aaaf67a8048",
+      "fetchedAt": "2026-09-11T10:30:53.839Z",
+      "entries": 2
+    },
+    "6-4/J": {
+      "file": "2026-08-11_2026-09-11/6-4/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-4/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "79a2b2ddef09b26119bdb0dd0203bb29d22f5430b0f9e554290a98510424c429",
+      "fetchedAt": "2026-09-11T10:31:08.897Z",
+      "entries": 6
+    },
+    "6-4/K": {
+      "file": "2026-08-11_2026-09-11/6-4/K.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-4/nodes/K/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "5a6a67be7a069654d0bf8be2350e40018efbbd33ab19634a282d0e0590ffdda0",
+      "fetchedAt": "2026-09-11T10:31:23.903Z",
+      "entries": 6
+    },
+    "6-4/L": {
+      "file": "2026-08-11_2026-09-11/6-4/L.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-4/nodes/L/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "2afa09240bdd0aae9979be8e68c5e885fdc6c77318f977e38b915b1c2d7268a5",
+      "fetchedAt": "2026-09-11T10:31:38.825Z",
+      "entries": 1
+    },
+    "6-4/M": {
+      "file": "2026-08-11_2026-09-11/6-4/M.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-4/nodes/M/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "772ce727273f0b3587e2047caef6a831109c9df97f306e97f293c86fd615f7f6",
+      "fetchedAt": "2026-09-11T10:31:54.146Z",
+      "entries": 5
+    },
+    "6-4/N": {
+      "file": "2026-08-11_2026-09-11/6-4/N.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-4/nodes/N/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "bb1fee0237f28686e63ea315f7347b2f9da28851d4016e4713535477e14ce83a",
+      "fetchedAt": "2026-09-11T10:32:08.830Z",
+      "entries": 6
+    },
+    "6-5/A": {
+      "file": "2026-08-11_2026-09-11/6-5/A.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-5/nodes/A/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "58c53cc943f24fa15d373d00f7add7cf14a5599c3e4c519ddb2364b1168e58b9",
+      "fetchedAt": "2026-09-11T10:32:23.871Z",
+      "entries": 9
+    },
+    "6-5/B": {
+      "file": "2026-08-11_2026-09-11/6-5/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-5/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "975f6570e9a9874833c3f2022d2581040700f987cb6fcd13c743d8da7f54dd26",
+      "fetchedAt": "2026-09-11T10:32:38.971Z",
+      "entries": 9
+    },
+    "6-5/C": {
+      "file": "2026-08-11_2026-09-11/6-5/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-5/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "6dde332133e02a117ffad3ebdfff53aa0954e0ec8ed2825fbc1e3760a2645c7f",
+      "fetchedAt": "2026-09-11T10:32:53.849Z",
+      "entries": 9
+    },
+    "6-5/D": {
+      "file": "2026-08-11_2026-09-11/6-5/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-5/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "69e26c99829ea8cf33386ff39b8c1209a20f575a8b199b85b69abd258726e420",
+      "fetchedAt": "2026-09-11T10:33:08.965Z",
+      "entries": 9
+    },
+    "6-5/E": {
+      "file": "2026-08-11_2026-09-11/6-5/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-5/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "2bcdf84bc2bc4e62925f5cbf1d775004ffba68535465d8ee95dd83ebe6ecd4d6",
+      "fetchedAt": "2026-09-11T10:33:23.962Z",
+      "entries": 9
+    },
+    "6-5/F": {
+      "file": "2026-08-11_2026-09-11/6-5/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-5/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "6a4cf6f604bb41b6b39451cc23366fb62634211044b6ff3b09fa18d4c6388d50",
+      "fetchedAt": "2026-09-11T10:33:38.938Z",
+      "entries": 9
+    },
+    "6-5/G": {
+      "file": "2026-08-11_2026-09-11/6-5/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-5/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "b4f5d91fc9730953d13b27bf8f41008fc30bb9c6b1b370a18b4efac12cd1fbfb",
+      "fetchedAt": "2026-09-11T10:33:54.050Z",
+      "entries": 3
+    },
+    "6-5/H": {
+      "file": "2026-08-11_2026-09-11/6-5/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-5/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "56c78d0c847211534e16b825175d5782933dfe8cbe5f4a5b15758eb787bf1f2d",
+      "fetchedAt": "2026-09-11T10:34:08.855Z",
+      "entries": 3
+    },
+    "6-5/I": {
+      "file": "2026-08-11_2026-09-11/6-5/I.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-5/nodes/I/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "d661f7ec3ab3aedeec694155a1a8dacce0a280ada5eed896e94c271b623ac013",
+      "fetchedAt": "2026-09-11T10:34:23.996Z",
+      "entries": 9
+    },
+    "6-5/J": {
+      "file": "2026-08-11_2026-09-11/6-5/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-5/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "38af0982cc6638102785d9500bf251afcd34771cf811a5ed63463f567dcd1f92",
+      "fetchedAt": "2026-09-11T10:34:39.022Z",
+      "entries": 9
+    },
+    "6-5/M": {
+      "file": "2026-08-11_2026-09-11/6-5/M.json",
+      "url": "https://tsunkit.net/api/routing/maps/6-5/nodes/M/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "fe98798eaaba0f8ac5ec32205a961b9358c2d8c6c13fe0c4178b455ca60f675e",
+      "fetchedAt": "2026-09-11T10:34:53.954Z",
+      "entries": 3
+    },
+    "7-1/B": {
+      "file": "2026-08-11_2026-09-11/7-1/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-1/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "846127cc3f045e426859df0df370683aecdbf33dc4a8c623e7f04f6405ef8820",
+      "fetchedAt": "2026-09-11T10:35:08.932Z",
+      "entries": 5
+    },
+    "7-1/C": {
+      "file": "2026-08-11_2026-09-11/7-1/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-1/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "d8ea4330930e8b07fee4cba63eb46bcb72b0cf5b3cecacdf800acf9cf9ee1a1f",
+      "fetchedAt": "2026-09-11T10:35:23.936Z",
+      "entries": 6
+    },
+    "7-1/D": {
+      "file": "2026-08-11_2026-09-11/7-1/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-1/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "0119d63f4f3a0e04e28cd1dfa24d22981edc8089642ac25bc25de20fe95b6cb7",
+      "fetchedAt": "2026-09-11T10:35:39.577Z",
+      "entries": 7
+    },
+    "7-1/F": {
+      "file": "2026-08-11_2026-09-11/7-1/F.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-1/nodes/F/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "68dae013d30292c61e43325960eb39178e6751bc0840d4734ce0bd0d556b739a",
+      "fetchedAt": "2026-09-11T10:35:53.919Z",
+      "entries": 9
+    },
+    "7-1/G": {
+      "file": "2026-08-11_2026-09-11/7-1/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-1/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "2df08853de8aed9b746ae7308dd70fd8dfb65c2abf05fbad8b51d9a53f212385",
+      "fetchedAt": "2026-09-11T10:36:09.464Z",
+      "entries": 6
+    },
+    "7-1/H": {
+      "file": "2026-08-11_2026-09-11/7-1/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-1/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "a41609db9c95dbbd3ca1fc433cddfb39abd9d4ef0697cae4e6bb0508541e13e2",
+      "fetchedAt": "2026-09-11T10:36:24.421Z",
+      "entries": 9
+    },
+    "7-1/K": {
+      "file": "2026-08-11_2026-09-11/7-1/K.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-1/nodes/K/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "2216b970e6170f7b05a03da4b40c08e35daa98f8a32ee8668dc0aacbe6a4bf04",
+      "fetchedAt": "2026-09-11T10:36:39.267Z",
+      "entries": 3
+    },
+    "7-2/B": {
+      "file": "2026-08-11_2026-09-11/7-2/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-2/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "613c12b004513379d81f094cee78bae94e11aa47d7cb991d7f1c360081dc0bb2",
+      "fetchedAt": "2026-09-11T10:36:53.908Z",
+      "entries": 9
+    },
+    "7-2/C": {
+      "file": "2026-08-11_2026-09-11/7-2/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-2/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "e4756fbdc692d9fdfaa44dd4d9489085f5726afd787565c287bcde53e5116622",
+      "fetchedAt": "2026-09-11T10:37:08.883Z",
+      "entries": 8
+    },
+    "7-2/E": {
+      "file": "2026-08-11_2026-09-11/7-2/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-2/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "59f69c4ff632e57f34a61d4a3b40a8ecefb1df6c263f7e40fe9402899de21f5c",
+      "fetchedAt": "2026-09-11T10:37:23.872Z",
+      "entries": 8
+    },
+    "7-2/G": {
+      "file": "2026-08-11_2026-09-11/7-2/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-2/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "dd49c1f1d4b41beb102a90a06b6870cdab034d624aa1160a190290f8ac1b5572",
+      "fetchedAt": "2026-09-11T10:37:38.972Z",
+      "entries": 6
+    },
+    "7-2/H": {
+      "file": "2026-08-11_2026-09-11/7-2/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-2/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "f7a3f9a0990afc997bd127400c7020c8bc2019ee6802e4b1b9a9a4dbae7a5a62",
+      "fetchedAt": "2026-09-11T10:37:53.878Z",
+      "entries": 8
+    },
+    "7-2/I": {
+      "file": "2026-08-11_2026-09-11/7-2/I.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-2/nodes/I/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "d0136c781d42ba98f5ff4afec2d8b60068e40b20a6bf7f72f0cd55d747698f31",
+      "fetchedAt": "2026-09-11T10:38:08.885Z",
+      "entries": 8
+    },
+    "7-2/J": {
+      "file": "2026-08-11_2026-09-11/7-2/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-2/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "f754cf364b4335108b0c4e84fdf2b3b992c0e6d5922303b1d018bedeb1a61e96",
+      "fetchedAt": "2026-09-11T10:38:24.160Z",
+      "entries": 0
+    },
+    "7-2/M": {
+      "file": "2026-08-11_2026-09-11/7-2/M.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-2/nodes/M/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "639d010a0dc607680c209bdd3013065ee03329ef9d507ba548bf422e9369d18a",
+      "fetchedAt": "2026-09-11T10:38:38.898Z",
+      "entries": 8
+    },
+    "7-3/B": {
+      "file": "2026-08-11_2026-09-11/7-3/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-3/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "3ca4e685dec40789e353375ababdad0dd12507fa337205b0fdea436d396aa6e3",
+      "fetchedAt": "2026-09-11T10:38:53.944Z",
+      "entries": 6
+    },
+    "7-3/C": {
+      "file": "2026-08-11_2026-09-11/7-3/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-3/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "89f773a504be91a1718aa05ff2cef377c22e4bb57409dfe1b749304f6e230e8c",
+      "fetchedAt": "2026-09-11T10:39:08.940Z",
+      "entries": 6
+    },
+    "7-3/D": {
+      "file": "2026-08-11_2026-09-11/7-3/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-3/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "d48b0372c90991282c560ebb4040308b3a4cb5f216e9564fe1ff2e09a2d252d1",
+      "fetchedAt": "2026-09-11T10:39:23.899Z",
+      "entries": 6
+    },
+    "7-3/E": {
+      "file": "2026-08-11_2026-09-11/7-3/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-3/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "6f47f54ba02669b63896a9f7beae2f432f9a150ee03d73e82b620576a95a66cd",
+      "fetchedAt": "2026-09-11T10:39:39.207Z",
+      "entries": 6
+    },
+    "7-3/J": {
+      "file": "2026-08-11_2026-09-11/7-3/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-3/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "dc628d1225ac336cdf58e723818e07b0544dce244f71047c33830de344c61c7f",
+      "fetchedAt": "2026-09-11T10:39:53.835Z",
+      "entries": 6
+    },
+    "7-3/M": {
+      "file": "2026-08-11_2026-09-11/7-3/M.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-3/nodes/M/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "f1d8fe3f66b058b7477112825073e7dbe9189c0f0a7a96bb0f96e1beaf002390",
+      "fetchedAt": "2026-09-11T10:40:08.909Z",
+      "entries": 5
+    },
+    "7-3/N": {
+      "file": "2026-08-11_2026-09-11/7-3/N.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-3/nodes/N/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "943972806bcdc71839668a2928b1e754f5068e562dc6bf95a05351cc2cdb33a3",
+      "fetchedAt": "2026-09-11T10:40:23.896Z",
+      "entries": 1
+    },
+    "7-3/P": {
+      "file": "2026-08-11_2026-09-11/7-3/P.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-3/nodes/P/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "71f14863778578a19bbc1bd8dfad634b61b6a95cc42c42d71d6a5248ac5e11dc",
+      "fetchedAt": "2026-09-11T10:40:38.955Z",
+      "entries": 6
+    },
+    "7-4/B": {
+      "file": "2026-08-11_2026-09-11/7-4/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-4/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "b3cc71676d9f9329cce31a6f60c6e280bf07677f208024805cf04e2fe734cb73",
+      "fetchedAt": "2026-09-11T10:40:53.998Z",
+      "entries": 10
+    },
+    "7-4/C": {
+      "file": "2026-08-11_2026-09-11/7-4/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-4/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "99acf64fe3bba4d547a57c5418350f603adda07ea5accfba63b34b846a538674",
+      "fetchedAt": "2026-09-11T10:41:09.341Z",
+      "entries": 10
+    },
+    "7-4/D": {
+      "file": "2026-08-11_2026-09-11/7-4/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-4/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "37c57f6b1867bdd36d6dd90b1b7d4b291db392d3cf3c5277497a9237714d727c",
+      "fetchedAt": "2026-09-11T10:41:24.116Z",
+      "entries": 6
+    },
+    "7-4/E": {
+      "file": "2026-08-11_2026-09-11/7-4/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-4/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "d2fd9afe29fdfbb9ca4ca825dc1f3381acf88fb11545b8d61fad9ebfe13292dc",
+      "fetchedAt": "2026-09-11T10:52:47.936Z",
+      "entries": 7
+    },
+    "7-4/G": {
+      "file": "2026-08-11_2026-09-11/7-4/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-4/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "e4b1ca2cde2877ab79a868b5c98c2b797d5d8fe3637ac89c8209a63b24e5aabf",
+      "fetchedAt": "2026-09-11T10:53:02.557Z",
+      "entries": 0
+    },
+    "7-4/H": {
+      "file": "2026-08-11_2026-09-11/7-4/H.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-4/nodes/H/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "96928ba62aa99c074a59739aa606e13bcfa32b5731b3c98781e36b87fb803174",
+      "fetchedAt": "2026-09-11T10:53:17.562Z",
+      "entries": 2
+    },
+    "7-4/J": {
+      "file": "2026-08-11_2026-09-11/7-4/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-4/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "1487692a4df20b2e39478797e60a7bc182c3d56e04a591bcb24e15511b6475e4",
+      "fetchedAt": "2026-09-11T10:53:33.036Z",
+      "entries": 9
+    },
+    "7-4/K": {
+      "file": "2026-08-11_2026-09-11/7-4/K.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-4/nodes/K/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "4cc76168d5d73102b66ab389ce608c3985ae5316b802910ed110324733a40737",
+      "fetchedAt": "2026-09-11T10:53:48.026Z",
+      "entries": 10
+    },
+    "7-4/L": {
+      "file": "2026-08-11_2026-09-11/7-4/L.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-4/nodes/L/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "933fd7dfdbfd46648ac1ffa7334c7ecc9575704eb82a89302582c8ec62ac24fb",
+      "fetchedAt": "2026-09-11T10:54:02.583Z",
+      "entries": 7
+    },
+    "7-4/M": {
+      "file": "2026-08-11_2026-09-11/7-4/M.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-4/nodes/M/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "fd3f3a746101504e8e6982d1ceb968ded0f87f3038548c32411d586832c16dbb",
+      "fetchedAt": "2026-09-11T10:54:17.985Z",
+      "entries": 7
+    },
+    "7-4/P": {
+      "file": "2026-08-11_2026-09-11/7-4/P.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-4/nodes/P/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "aaacfa6bb52c498c6b9f67f71425c48efc0d2847dd92c215dac90ccfa8bbd8ee",
+      "fetchedAt": "2026-09-11T10:54:32.543Z",
+      "entries": 8
+    },
+    "7-5/A": {
+      "file": "2026-08-11_2026-09-11/7-5/A.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-5/nodes/A/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "1ce5a1a4b3bfd845a61d931ac30d7125cae7306b840b8a950f2ebad058a31f43",
+      "fetchedAt": "2026-09-11T10:54:47.705Z",
+      "entries": 5
+    },
+    "7-5/B": {
+      "file": "2026-08-11_2026-09-11/7-5/B.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-5/nodes/B/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "7d4e74a841db88e3266ff7b638ba64030b2e0fe244f533fecbb3449b22b25a43",
+      "fetchedAt": "2026-09-11T10:55:02.719Z",
+      "entries": 10
+    },
+    "7-5/C": {
+      "file": "2026-08-11_2026-09-11/7-5/C.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-5/nodes/C/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "4627941364b6e2e767ba5b8efbe0d26ed3a74133ba17cf48ac653c931a0efc08",
+      "fetchedAt": "2026-09-11T10:55:17.561Z",
+      "entries": 3
+    },
+    "7-5/D": {
+      "file": "2026-08-11_2026-09-11/7-5/D.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-5/nodes/D/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "f892070189b7ce980b355404b55ef28a5aa384ef86e6305f4ddae7c5fa5a9205",
+      "fetchedAt": "2026-09-11T10:55:32.721Z",
+      "entries": 6
+    },
+    "7-5/E": {
+      "file": "2026-08-11_2026-09-11/7-5/E.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-5/nodes/E/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "4481ec4dc0e8d6fd463e95fb50514b829e08041262e6678b1bde53dc3d825bda",
+      "fetchedAt": "2026-09-11T10:55:47.550Z",
+      "entries": 3
+    },
+    "7-5/G": {
+      "file": "2026-08-11_2026-09-11/7-5/G.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-5/nodes/G/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "c07c00e7d4953b069b4c1ad9051da44ff2a3ffc8db1a2b6b8d2f243abff45b31",
+      "fetchedAt": "2026-09-11T10:56:02.596Z",
+      "entries": 6
+    },
+    "7-5/J": {
+      "file": "2026-08-11_2026-09-11/7-5/J.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-5/nodes/J/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "84a38d55dd14168465e0be211d5c08ff56b11af9213097a918e7cb77b3a910d1",
+      "fetchedAt": "2026-09-11T10:56:17.802Z",
+      "entries": 6
+    },
+    "7-5/K": {
+      "file": "2026-08-11_2026-09-11/7-5/K.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-5/nodes/K/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "f98450359bbdea1848eb9c503914d6b94ff999c3179e7aeb7a955b457a47244c",
+      "fetchedAt": "2026-09-11T10:56:32.614Z",
+      "entries": 6
+    },
+    "7-5/L": {
+      "file": "2026-08-11_2026-09-11/7-5/L.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-5/nodes/L/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "39c6364897253ed1237a62d3f80461b70a5d54634cc7233c18a928d3ad50c058",
+      "fetchedAt": "2026-09-11T10:56:47.690Z",
+      "entries": 4
+    },
+    "7-5/M": {
+      "file": "2026-08-11_2026-09-11/7-5/M.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-5/nodes/M/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "7a94436562b49388c818fb5f6298e0e2b4a6d07acde419e4c594ea6120c13dfe",
+      "fetchedAt": "2026-09-11T10:57:02.575Z",
+      "entries": 6
+    },
+    "7-5/N": {
+      "file": "2026-08-11_2026-09-11/7-5/N.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-5/nodes/N/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "e80ab777a0ba8d144889118c690b3b3c7c2ee8abb60214f559f0fd3a23bfcfec",
+      "fetchedAt": "2026-09-11T10:57:17.580Z",
+      "entries": 7
+    },
+    "7-5/Q": {
+      "file": "2026-08-11_2026-09-11/7-5/Q.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-5/nodes/Q/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "c90de1557d71eb50977769d4280062ae4507630d784dc56b1e34b0b2cc059581",
+      "fetchedAt": "2026-09-11T10:57:32.775Z",
+      "entries": 6
+    },
+    "7-5/R": {
+      "file": "2026-08-11_2026-09-11/7-5/R.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-5/nodes/R/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "895e6f653e0478c4da179e55e8ab3fb0e3556234bea55c6bf1a6665b5e487ca3",
+      "fetchedAt": "2026-09-11T10:57:47.541Z",
+      "entries": 5
+    },
+    "7-5/T": {
+      "file": "2026-08-11_2026-09-11/7-5/T.json",
+      "url": "https://tsunkit.net/api/routing/maps/7-5/nodes/T/enemycomps?start=2026-08-11&end=2026-09-11",
+      "sha256": "78730962fb4970eafcd39bbe2244e5a8fbd06ffd7d65269d527c1ba2d690be21",
+      "fetchedAt": "2026-09-11T10:58:02.658Z",
+      "entries": 5
+    }
+  },
+  "targetCount": 301,
+  "lastRequestAt": "2026-09-11T10:58:01.555Z"
+}

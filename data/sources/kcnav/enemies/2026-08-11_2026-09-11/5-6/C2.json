@@ -1,0 +1,758 @@
+{
+  "result": {
+    "entryCount": 6,
+    "entries": [
+      {
+        "map": "5-6",
+        "node": "C2",
+        "mainFleet": [
+          {
+            "id": 1640,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 18,
+            "fp": 18,
+            "torp": 118,
+            "aa": 24,
+            "armor": 39,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1640,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 18,
+            "fp": 18,
+            "torp": 118,
+            "aa": 24,
+            "armor": 39,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1639,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 15,
+            "fp": 15,
+            "torp": 98,
+            "aa": 18,
+            "armor": 29,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1638,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 98,
+            "aa": 18,
+            "armor": 29,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1637,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 88,
+            "aa": 12,
+            "armor": 19,
+            "equips": [
+              1515,
+              -1,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1637,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 88,
+            "aa": 12,
+            "armor": 19,
+            "equips": [
+              1515,
+              -1,
+              -1,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 4,
+        "count": 154,
+        "airpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "lbasAirpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 182043168
+      },
+      {
+        "map": "5-6",
+        "node": "C2",
+        "mainFleet": [
+          {
+            "id": 1640,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 18,
+            "fp": 18,
+            "torp": 118,
+            "aa": 24,
+            "armor": 39,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1640,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 18,
+            "fp": 18,
+            "torp": 118,
+            "aa": 24,
+            "armor": 39,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1639,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 15,
+            "fp": 15,
+            "torp": 98,
+            "aa": 18,
+            "armor": 29,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1638,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 98,
+            "aa": 18,
+            "armor": 29,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1637,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 88,
+            "aa": 12,
+            "armor": 19,
+            "equips": [
+              1515,
+              -1,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1637,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 88,
+            "aa": 12,
+            "armor": 19,
+            "equips": [
+              1515,
+              -1,
+              -1,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 1,
+        "count": 230,
+        "airpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "lbasAirpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 181933621
+      },
+      {
+        "map": "5-6",
+        "node": "C2",
+        "mainFleet": [
+          {
+            "id": 1640,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 18,
+            "fp": 18,
+            "torp": 118,
+            "aa": 24,
+            "armor": 39,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1639,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 15,
+            "fp": 15,
+            "torp": 98,
+            "aa": 18,
+            "armor": 29,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1638,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 98,
+            "aa": 18,
+            "armor": 29,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1637,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 88,
+            "aa": 12,
+            "armor": 19,
+            "equips": [
+              1515,
+              -1,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1637,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 88,
+            "aa": 12,
+            "armor": 19,
+            "equips": [
+              1515,
+              -1,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1637,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 88,
+            "aa": 12,
+            "armor": 19,
+            "equips": [
+              1515,
+              -1,
+              -1,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 4,
+        "count": 218,
+        "airpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "lbasAirpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 181884255
+      },
+      {
+        "map": "5-6",
+        "node": "C2",
+        "mainFleet": [
+          {
+            "id": 1640,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 18,
+            "fp": 18,
+            "torp": 118,
+            "aa": 24,
+            "armor": 39,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1639,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 15,
+            "fp": 15,
+            "torp": 98,
+            "aa": 18,
+            "armor": 29,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1638,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 98,
+            "aa": 18,
+            "armor": 29,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1637,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 88,
+            "aa": 12,
+            "armor": 19,
+            "equips": [
+              1515,
+              -1,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1637,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 88,
+            "aa": 12,
+            "armor": 19,
+            "equips": [
+              1515,
+              -1,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1637,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 88,
+            "aa": 12,
+            "armor": 19,
+            "equips": [
+              1515,
+              -1,
+              -1,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 1,
+        "count": 312,
+        "airpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "lbasAirpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 181917606
+      },
+      {
+        "map": "5-6",
+        "node": "C2",
+        "mainFleet": [
+          {
+            "id": 1640,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 18,
+            "fp": 18,
+            "torp": 118,
+            "aa": 24,
+            "armor": 39,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1639,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 15,
+            "fp": 15,
+            "torp": 98,
+            "aa": 18,
+            "armor": 29,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1638,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 98,
+            "aa": 18,
+            "armor": 29,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1637,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 88,
+            "aa": 12,
+            "armor": 19,
+            "equips": [
+              1515,
+              -1,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1637,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 88,
+            "aa": 12,
+            "armor": 19,
+            "equips": [
+              1515,
+              -1,
+              -1,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 4,
+        "count": 137,
+        "airpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "lbasAirpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 181879361
+      },
+      {
+        "map": "5-6",
+        "node": "C2",
+        "mainFleet": [
+          {
+            "id": 1640,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 18,
+            "fp": 18,
+            "torp": 118,
+            "aa": 24,
+            "armor": 39,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1639,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 15,
+            "fp": 15,
+            "torp": 98,
+            "aa": 18,
+            "armor": 29,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1638,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 98,
+            "aa": 18,
+            "armor": 29,
+            "equips": [
+              1515,
+              1515,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1637,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 88,
+            "aa": 12,
+            "armor": 19,
+            "equips": [
+              1515,
+              -1,
+              -1,
+              -1,
+              -1
+            ]
+          },
+          {
+            "id": 1637,
+            "name": "PT小鬼群",
+            "name_en": "PT Imp Pack",
+            "lvl": 1,
+            "hp": 9,
+            "fp": 9,
+            "torp": 88,
+            "aa": 12,
+            "armor": 19,
+            "equips": [
+              1515,
+              -1,
+              -1,
+              -1,
+              -1
+            ]
+          }
+        ],
+        "escortFleet": [],
+        "formation": 1,
+        "count": 168,
+        "airpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "lbasAirpower": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "uncertainAirpowerItems": [],
+        "masterId": 181881858
+      }
+    ]
+  },
+  "retrieved": "2026-09-11T19:18:39+09:00"
+}

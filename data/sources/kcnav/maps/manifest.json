@@ -1,0 +1,340 @@
+{
+  "source": "tsunkit.net",
+  "fetchedAt": "2026-09-11T08:31:47.551Z",
+  "intervalMs": 15000,
+  "maps": [
+    {
+      "mapId": "1-1",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/1-1/",
+      "contentFile": "1-1.json",
+      "sha256": "ac667b24debb21fe34addc1b975adc687f26b11c635ceeb4eba7516dfa20340e",
+      "nodeCount": 4,
+      "nodeTypeCount": 4,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "1-2",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/1-2/",
+      "contentFile": "1-2.json",
+      "sha256": "016b06f8e252469000fad9975a9219107f0bbcc67011b869f743fd0ebf043837",
+      "nodeCount": 6,
+      "nodeTypeCount": 6,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "1-3",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/1-3/",
+      "contentFile": "1-3.json",
+      "sha256": "708f2e82b6e955ffa263709a3b1c60f57a1b555b83d52665586b8fc14996c273",
+      "nodeCount": 11,
+      "nodeTypeCount": 11,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "1-4",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/1-4/",
+      "contentFile": "1-4.json",
+      "sha256": "4a37144a9ce67760c087c82a42a75fde99ecd349bea65c335c034a602c20b74e",
+      "nodeCount": 13,
+      "nodeTypeCount": 13,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "1-5",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/1-5/",
+      "contentFile": "1-5.json",
+      "sha256": "ab971194fbb5e172bfff9959af05aaeea9aed02c1c94690045b299feb68611af",
+      "nodeCount": 11,
+      "nodeTypeCount": 11,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "1-6",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/1-6/",
+      "contentFile": "1-6.json",
+      "sha256": "349c6436b682cd98d4d11b79a89634c2cd397191fdf3efc67030d52cd8c00356",
+      "nodeCount": 15,
+      "nodeTypeCount": 15,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "2-1",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/2-1/",
+      "contentFile": "2-1.json",
+      "sha256": "ed0096775d07994da00bf0a0fad7090f5c385f9d01eaff6a602091f20aa4d278",
+      "nodeCount": 9,
+      "nodeTypeCount": 9,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "2-2",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/2-2/",
+      "contentFile": "2-2.json",
+      "sha256": "22f867e39fb78c6b37bae4cc7f7d6b10b27ef813b092a195324c60758fae0001",
+      "nodeCount": 12,
+      "nodeTypeCount": 12,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "2-3",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/2-3/",
+      "contentFile": "2-3.json",
+      "sha256": "e7ef866c93c919b505876e74258b551c069e03bc94f9ee4dba19c812c56649f1",
+      "nodeCount": 15,
+      "nodeTypeCount": 15,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "2-4",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/2-4/",
+      "contentFile": "2-4.json",
+      "sha256": "0abca467e5d5e7da969cccf91e0bff4dae17583f3a990d3a1219fc1d61392258",
+      "nodeCount": 17,
+      "nodeTypeCount": 17,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "2-5",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/2-5/",
+      "contentFile": "2-5.json",
+      "sha256": "d17098b6c0a53c85b9387ded8ff2ef3ae877b137be1c4dcfb920959c13e2ba90",
+      "nodeCount": 16,
+      "nodeTypeCount": 16,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "3-1",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/3-1/",
+      "contentFile": "3-1.json",
+      "sha256": "affce178487400345067d7c3540902cec806dd809f0abf3fe0f714a38c6d57ee",
+      "nodeCount": 8,
+      "nodeTypeCount": 8,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "3-2",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/3-2/",
+      "contentFile": "3-2.json",
+      "sha256": "e4c2dd7430adb990e58314b792753dc599466001e040ee2bc26aa6d3931872d0",
+      "nodeCount": 13,
+      "nodeTypeCount": 13,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "3-3",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/3-3/",
+      "contentFile": "3-3.json",
+      "sha256": "76c75ac6664890b6fc9bc3a74381c2e6bc6d3fd8154b534217bb1f9324c3a066",
+      "nodeCount": 14,
+      "nodeTypeCount": 14,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "3-4",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/3-4/",
+      "contentFile": "3-4.json",
+      "sha256": "66cafcaca36badebdd2135efb0e0052632952cb3beda2a053077f930a9a4af21",
+      "nodeCount": 17,
+      "nodeTypeCount": 17,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "3-5",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/3-5/",
+      "contentFile": "3-5.json",
+      "sha256": "2757a6d8281b24991bb6b68f89da1748c466c793106be5499fef6d3187934448",
+      "nodeCount": 12,
+      "nodeTypeCount": 12,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "4-1",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/4-1/",
+      "contentFile": "4-1.json",
+      "sha256": "65ee1b330c3db0ec1c6004aa79d9329b1a342e00f95be2e1278df28e05cc809d",
+      "nodeCount": 11,
+      "nodeTypeCount": 11,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "4-2",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/4-2/",
+      "contentFile": "4-2.json",
+      "sha256": "f3bd8ef63bf1c5dd6e4b4e6fc9476337a8bc3a29912ba55f7e42581fc22669c6",
+      "nodeCount": 13,
+      "nodeTypeCount": 13,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "4-3",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/4-3/",
+      "contentFile": "4-3.json",
+      "sha256": "870384089071d5a3e311906b1a0bd792f4cca00e95693034a8781a90b177db84",
+      "nodeCount": 15,
+      "nodeTypeCount": 15,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "4-4",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/4-4/",
+      "contentFile": "4-4.json",
+      "sha256": "47ef6d18ea569f5a096e3cb48d3494db9c3def7d6ab225f3dc0f5a74765b5544",
+      "nodeCount": 12,
+      "nodeTypeCount": 12,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "4-5",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/4-5/",
+      "contentFile": "4-5.json",
+      "sha256": "14ac755b9f8c109582cfed8b86138fef7a1df9064ab727a4e4ece7a43b180ccc",
+      "nodeCount": 21,
+      "nodeTypeCount": 21,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "5-1",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/5-1/",
+      "contentFile": "5-1.json",
+      "sha256": "b7642d32d2d482c1e892b31e216cee1605491af1f2a2293f6dc094af612e5f6d",
+      "nodeCount": 11,
+      "nodeTypeCount": 11,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "5-2",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/5-2/",
+      "contentFile": "5-2.json",
+      "sha256": "2d4fe25a52626dc5f4e620eb441b420bae3f23ea23f4d962ff4f1af3a0bf59c7",
+      "nodeCount": 16,
+      "nodeTypeCount": 16,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "5-3",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/5-3/",
+      "contentFile": "5-3.json",
+      "sha256": "fbf7b8928efa76fa8adc96f0cabfd514d5502eb7e24861265eecf0eda69b38c7",
+      "nodeCount": 18,
+      "nodeTypeCount": 18,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "5-4",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/5-4/",
+      "contentFile": "5-4.json",
+      "sha256": "d10119341ac4cecdff02b57b581925f7a9060610faecf9a6328e49ae6b1c3012",
+      "nodeCount": 17,
+      "nodeTypeCount": 17,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "5-5",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/5-5/",
+      "contentFile": "5-5.json",
+      "sha256": "e579f1c64ed2ce5e20459e3005a9ebac9db7d4a0aa5d64f01fa1e261d255c2d1",
+      "nodeCount": 20,
+      "nodeTypeCount": 20,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "5-6",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/5-6/",
+      "contentFile": "5-6.json",
+      "sha256": "13516e15263dd1018da32b7ef2be1f02844293b0ac718ee60f296b9980d010dc",
+      "nodeCount": 36,
+      "nodeTypeCount": 36,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "6-1",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/6-1/",
+      "contentFile": "6-1.json",
+      "sha256": "48632d2ff87e13623398aaa8e605ddd406e0479c9d3d86e0788defa1bd247c80",
+      "nodeCount": 12,
+      "nodeTypeCount": 12,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "6-2",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/6-2/",
+      "contentFile": "6-2.json",
+      "sha256": "ab26b3c7eb13019e7805e2ef1a393cc9e4a9b424c7c50f2fa047c69db2484ee9",
+      "nodeCount": 12,
+      "nodeTypeCount": 12,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "6-3",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/6-3/",
+      "contentFile": "6-3.json",
+      "sha256": "80b9f5ab1ea38b111909ae63436540e95d7c072227cdc33877c27474f48e1754",
+      "nodeCount": 11,
+      "nodeTypeCount": 11,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "6-4",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/6-4/",
+      "contentFile": "6-4.json",
+      "sha256": "c5d7e6ef74b5e42e856ed10f07a48e1e380f1b65c1910ce4d430487162927c62",
+      "nodeCount": 16,
+      "nodeTypeCount": 16,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "6-5",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/6-5/",
+      "contentFile": "6-5.json",
+      "sha256": "bbda474df65e5f9d776b14e6ed2d661a2f781da4e6ee29c5688eb2029b10d71d",
+      "nodeCount": 15,
+      "nodeTypeCount": 15,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "7-1",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/7-1/",
+      "contentFile": "7-1.json",
+      "sha256": "b2ee30934a676663a132db51f0f84b934e1fb0d957f5c374417b410a62a1440e",
+      "nodeCount": 12,
+      "nodeTypeCount": 12,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "7-2",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/7-2/",
+      "contentFile": "7-2.json",
+      "sha256": "c0d68585b7722248e504993e5a13de2397e2232ce771c91d5fc60b3f1da6a96b",
+      "nodeCount": 14,
+      "nodeTypeCount": 14,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "7-3",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/7-3/",
+      "contentFile": "7-3.json",
+      "sha256": "9e6dbcdfa9ff48d0ea35eb7dca5744b8111b3de137f09d9fb6cf5462ea184bca",
+      "nodeCount": 17,
+      "nodeTypeCount": 17,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "7-4",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/7-4/",
+      "contentFile": "7-4.json",
+      "sha256": "efd6c57d637fa9047cb3b3e1d97ae48dcddb046900e75ed938b98714e7042434",
+      "nodeCount": 17,
+      "nodeTypeCount": 17,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    },
+    {
+      "mapId": "7-5",
+      "apiUrl": "https://tsunkit.net/api/routing/maps/7-5/",
+      "contentFile": "7-5.json",
+      "sha256": "e85520f7ba1a80a506c24f15f207a44294fee4ac72917af440a5b1695730fc16",
+      "nodeCount": 21,
+      "nodeTypeCount": 21,
+      "fetchedAt": "2026-09-11T08:31:47.551Z"
+    }
+  ]
+}
