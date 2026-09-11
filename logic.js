@@ -43,6 +43,7 @@ const CATEGORY_LABELS = {
 const EQUIPMENT_CATEGORY_LABELS = {
   drum: '运输桶',
   radar: '电探',
+  daihatsu: '大发系',
 }
 
 function number(value) {
@@ -119,6 +120,13 @@ function predicateLabel(predicate) {
     return `仅含 ${(predicate.categories || []).map((category) => CATEGORY_LABELS[category] || category).join('、')}`
   }
   if (predicate.kind === 'visited') return `已经过 ${predicate.node} 点`
+  if (predicate.kind === 'containsMaster') return `包含指定舰娘 (${(predicate.masterIds || []).join('/')})`
+  if (predicate.kind === 'containsName') return `包含 ${(predicate.names || []).join('/')}`
+  if (predicate.kind === 'nameCount') return `${(predicate.names || []).join('/')} ${predicate.op || '=='} ${predicate.value}`
+  if (predicate.kind === 'flag') return `状态：${predicate.name || predicate.flag}`
+  if (predicate.kind === 'equipmentShipsTotal') {
+    return `${(predicate.equipment || []).map((equipment) => EQUIPMENT_CATEGORY_LABELS[equipment] || equipment).join('+')} 舰数 ${predicate.op || '=='} ${predicate.value}`
+  }
   if (predicate.kind === 'all') return (predicate.predicates || []).map(predicateLabel).join(' 且 ')
   if (predicate.kind === 'any') return (predicate.predicates || []).map(predicateLabel).join(' 或 ')
   return predicate.kind || '未知条件'
@@ -193,6 +201,33 @@ function evaluatePredicate(predicate, context = {}) {
     case 'visited': {
       if (!Array.isArray(context.passedNodes)) return statusResult('unknown', predicate)
       return statusResult(context.passedNodes.includes(predicate.node) ? 'true' : 'false', predicate)
+    }
+    case 'containsMaster': {
+      if (context.complete === false || !Array.isArray(context.ships)) return statusResult('unknown', predicate)
+      const masterIds = (predicate.masterIds || []).map((masterId) => number(masterId))
+      const matches = context.ships.some((ship) => masterIds.includes(number(ship.masterId)))
+      return statusResult(matches ? 'true' : 'false', predicate)
+    }
+    case 'containsName': {
+      if (context.complete === false || !Array.isArray(context.ships)) return statusResult('unknown', predicate)
+      const names = (predicate.names || []).map((name) => String(name))
+      const matches = context.ships.some((ship) => names.some((name) => String(ship.name || '').includes(name)))
+      return statusResult(matches ? 'true' : 'false', predicate)
+    }
+    case 'nameCount': {
+      if (context.complete === false || !Array.isArray(context.ships)) return statusResult('unknown', predicate)
+      const names = (predicate.names || []).map((name) => String(name))
+      const actual = context.ships.filter((ship) => names.some((name) => String(ship.name || '').includes(name))).length
+      return statusResult(compare(actual, predicate.op || '==', number(predicate.value)) ? 'true' : 'false', predicate)
+    }
+    case 'flag': {
+      if (!context.flags || typeof context.flags[predicate.flag] !== 'boolean') return statusResult('unknown', predicate)
+      return statusResult(context.flags[predicate.flag] === Boolean(predicate.value) ? 'true' : 'false', predicate)
+    }
+    case 'equipmentShipsTotal': {
+      if (context.complete === false) return statusResult('unknown', predicate)
+      const actual = (predicate.equipment || []).reduce((total, equipment) => total + number(context.equipmentShips?.[equipment]), 0)
+      return statusResult(compare(actual, predicate.op || '==', number(predicate.value)) ? 'true' : 'false', predicate)
     }
     case 'all': {
       const results = (predicate.predicates || []).map((child) => evaluatePredicate(child, context))
@@ -341,6 +376,8 @@ function equipmentKind(master) {
   const name = String(master?.api_name || '')
   if (name.includes('ドラム缶') || name.includes('运输桶')) return 'drum'
   if ([12, 13].includes(number(master?.api_type?.[2])) || name.includes('電探') || name.includes('电探')) return 'radar'
+  const excludedDaihatsu = ['特大発動艇+戦車第11連隊', 'M4A1 DD', '装甲艇(AB艇)', '特大動艇+战车第11连队']
+  if (!excludedDaihatsu.some((item) => name.includes(item)) && (name.includes('大発') || name.includes('大发') || name.includes('内火艇'))) return 'daihatsu'
   return null
 }
 
@@ -406,6 +443,7 @@ function fleetContextFromState(state, deckId = 1, options = {}) {
   const equipmentShips = {
     drum: ships.filter((ship) => ship.equipmentKinds.includes('drum')).length,
     radar: ships.filter((ship) => ship.equipmentKinds.includes('radar')).length,
+    daihatsu: ships.filter((ship) => ship.equipmentKinds.includes('daihatsu')).length,
   }
   const poiLos = typeof options.losCalculator === 'function'
     ? options.losCalculator(state, deckId)
@@ -422,6 +460,7 @@ function fleetContextFromState(state, deckId = 1, options = {}) {
     speedClass,
     enhancedSpeedClass: 'unknown',
     passedNodes: Array.isArray(options.passedNodes) ? options.passedNodes : null,
+    flags: options.flags || null,
     losScore: hasPoiLos ? Number(poiLosScore) : calculateLosScore(ships, state?.info?.basic?.api_level),
     losApproximate: !hasPoiLos,
     losSource: hasPoiLos ? 'poi-33' : 'fallback',
