@@ -411,8 +411,10 @@
 }
 
 .compass-enemy-list {
-  max-height: 440px;
-  overflow: auto;
+  max-height: min(440px, calc(100vh - 260px));
+  overflow-x: auto;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
 }
 
 .compass-enemy-entry {

@@ -1,6 +1,6 @@
 {
   "name": "poi-plugin-compass",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "通常海域舰队罗盘",
   "main": "index.js",
   "repository": {
@@ -28,9 +28,10 @@
     "cache:kcwiki": "node scripts/cache-kcwiki-routes.js",
     "cache:kcnav-maps": "node scripts/cache-kcnav-maps.js",
     "cache:kcnav-enemies": "node scripts/cache-kcnav-enemies.js",
+    "cache:kcnav-enemies:long-low": "node scripts/cache-kcnav-enemies-long-low.js",
     "compress:kcnav-maps": "node scripts/compress-kcnav-maps.js --remove-png",
     "compress:kcnav-enemies": "node scripts/compact-kcnav-enemies.js",
-    "check:syntax": "node --check index.js && node --check logic.js && node --check enemies.js && node --check exporters.js && node --check scripts/cache-kcnav-enemies.js && node --check scripts/compress-kcnav-maps.js && node --check scripts/compact-kcnav-enemies.js && node --check test.js && node --check test-enemies.js && node --check test-exporters.js",
+    "check:syntax": "node --check index.js && node --check logic.js && node --check enemies.js && node --check exporters.js && node --check scripts/cache-kcnav-enemies.js && node --check scripts/cache-kcnav-enemies-long-low.js && node --check scripts/compress-kcnav-maps.js && node --check scripts/compact-kcnav-enemies.js && node --check test.js && node --check test-enemies.js && node --check test-exporters.js",
     "test": "node test.js && node test-enemies.js && node test-exporters.js && node test-ui.js && node test-overview.js"
   },
   "keywords": [
@@ -51,7 +52,7 @@
     "icon": "fa/compass",
     "priority": 20,
     "apiVer": {
-      "11.99.99": "0.1.0"
+      "11.99.99": "0.1.1"
     }
   },
   "peerDependencies": {

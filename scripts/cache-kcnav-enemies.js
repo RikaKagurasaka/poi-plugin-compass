@@ -85,7 +85,15 @@ async function main() {
     const result = validateResponse(payload)
     const file = `${window.start}_${window.end}/${mapId}/${node}.json`
     const sha256 = writeJson(path.join(root, file), payload, true)
-    manifest.nodes[key] = { file, url, sha256, fetchedAt: new Date().toISOString(), entries: result.entries.length }
+    manifest.nodes[key] = {
+      file,
+      url,
+      sha256,
+      fetchedAt: new Date().toISOString(),
+      window,
+      entries: result.entries.length,
+      samples: result.entries.reduce((sum, entry) => sum + entry.count, 0),
+    }
     writeJson(manifestPath, manifest)
   }
   manifest.complete = true

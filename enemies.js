@@ -44,7 +44,7 @@ function loadEnemies(mapId, node) {
     const source = manifest.nodes[`${mapId}/${node}`]
     if (!source) return { status: 'missing', window: manifest.window }
     const payload = readLocalJson(path.join(cacheRoot, source.file))
-    return { status: 'ready', window: manifest.window, source, ...summarizeEntries(payload.result.entries) }
+    return { status: 'ready', window: source.window || manifest.window, source, ...summarizeEntries(payload.result.entries) }
   } catch (error) {
     return { status: error.code === 'ENOENT' ? 'missing' : 'invalid' }
   }

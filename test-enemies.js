@@ -2,6 +2,7 @@
 
 const assert = require('assert')
 const { monthWindow, enemyUrl, validateResponse } = require('./scripts/cache-kcnav-enemies')
+const { oneYearWindow, sampleCount } = require('./scripts/cache-kcnav-enemies-long-low')
 const { summarizeEntries, thresholds } = require('./enemies')
 const { airStateRange } = require('./air-status')
 
@@ -22,6 +23,8 @@ assert.strictEqual(airStateRange({ min: 20, max: 20 }, variants).uncertain, true
 assert.deepStrictEqual(monthWindow(new Date('2026-09-11T09:00:00Z')), { start: '2026-08-11', end: '2026-09-11' })
 assert.deepStrictEqual(monthWindow(new Date('2026-03-31T09:00:00Z')), { start: '2026-02-28', end: '2026-03-31' })
 assert.deepStrictEqual(monthWindow(new Date('2024-03-31T09:00:00Z')), { start: '2024-02-29', end: '2024-03-31' })
+assert.deepStrictEqual(oneYearWindow(new Date('2026-09-11T09:00:00Z')), { start: '2025-09-11', end: '2026-09-11' })
+assert.strictEqual(sampleCount({ result: { entries: [{ count: 4 }, { count: 6 }] } }), 10)
 const url = new URL(enemyUrl('7-5', 'Q', { start: '2026-08-11', end: '2026-09-11' }))
 assert.deepStrictEqual([...url.searchParams], [['start', '2026-08-11'], ['end', '2026-09-11']])
 assert.strictEqual(url.pathname, '/api/routing/maps/7-5/nodes/Q/enemycomps')

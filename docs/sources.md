@@ -31,9 +31,9 @@ data/kcnav-node-types-by-map.json
 
 ### 敌编成日期筛选（2026-09-11）
 
-核对 `https://tsunkit.net/nav/scripts/routing.js`：`startDate`/`endDate` 分别使用参数 `start`/`end`，格式为 `YYYY-MM-DD`；`enemies` 面板将同一组筛选参数传给节点的 `enemycomps` 接口。本插件固定本轮起止日期，仅发送这两个参数，不发送司令部等级、血条、phase、舰队或路线限制。最近一个月采用当天 UTC 日期向前一个日历月（月末截到上月末日）。
+核对 `https://tsunkit.net/nav/scripts/routing.js`：`startDate`/`endDate` 分别使用参数 `start`/`end`，格式为 `YYYY-MM-DD`；`enemies` 面板将同一组筛选参数传给节点的 `enemycomps` 接口。本插件固定本轮起止日期，仅发送这两个参数，不发送司令部等级、血条、phase、舰队或路线限制。通常节点采用当天 UTC 日期向前一个日历月（月末截到上月末日）；月度样本总数小于 100 的战斗节点另使用前一年同日到当天的窗口，并按节点保存实际使用的日期窗口。
 
-`https://tsunkit.net/lang/en/kcnav.json` 的 `panelEnemiesAirPowerHeader` 顺序为 `termAirAD / termAirAP / termAirAS / termAirASPlus`；与前端 `airpower[0..3]` 对应，分别为劣势、均势、优势、确保。`lbasAirpower` 使用相同顺序但单独显示。原始响应按日期窗口/海图/节点保存，manifest 记录请求 URL、SHA-256、每节点抓取时间和完成状态。遇到请求失败即停止，保留进度供重跑；运行时只读取本地缓存。
+`https://tsunkit.net/lang/en/kcnav.json` 的 `panelEnemiesAirPowerHeader` 顺序为 `termAirAD / termAirAP / termAirAS / termAirASPlus`；与前端 `airpower[0..3]` 对应，分别为劣势、均势、优势、确保。`lbasAirpower` 使用相同顺序但单独显示。原始响应按日期窗口/海图/节点保存，manifest 记录请求 URL、SHA-256、每节点抓取时间和完成状态。遇到请求失败即停止，保留进度供重跑；运行时只读取本地缓存。低样本节点的一年窗口补采由 `npm run cache:kcnav-enemies:long-low` 执行，默认间隔 15 秒。
 
 每个 API entry 原样保留舰船顺序、装备、阵型及编成 masterId；舰船实体用 `mainFleet[].id` / `escortFleet[].id`。界面按 `count` 降序显示，以本节点返回记录的 count 总和计算样本占比。零样本不生成百分比；四档制空缺失时显示未知；任何编成缺制空时，节点整体范围也显示未知。混合阶段和司令部等级的占比仅描述当前抓取样本。
 
