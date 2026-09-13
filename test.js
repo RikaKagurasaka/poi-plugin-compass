@@ -16,6 +16,7 @@ const {
   fleetContextFromState,
   mapNodeLabel,
   normalizeMapId,
+  normalizeOutcomes,
   predicateLabel,
   routeDecision,
   shipCategoryIds,
@@ -33,6 +34,14 @@ function context(shipCount, counts = {}, extra = {}) {
   }
 }
 
+function assertProbabilitiesClose(actual, expected) {
+  assert.deepStrictEqual(actual.map(({ to }) => to), expected.map(({ to }) => to))
+  actual.forEach((outcome, index) => {
+    assert.ok(Math.abs(outcome.probability - expected[index].probability) < 1e-9, `${outcome.to} probability`)
+    if (expected[index].estimated) assert.strictEqual(outcome.estimated, true)
+  })
+}
+
 assert.strictEqual(normalizeMapId('2-5'), '2-5')
 assert.strictEqual(normalizeMapId('25'), '2-5')
 assert.strictEqual(normalizeMapId(11), '1-1')
@@ -44,11 +53,21 @@ assert.deepStrictEqual(kcnavCache.nodeTypesFromResult({
 }), { '1': 0, A: 4 })
 assert.deepStrictEqual(shipCategoryIds(3), ['CL', 'CL_ALL'])
 assert.deepStrictEqual(shipCategoryIds(4), ['CLT', 'CL_ALL'])
+assert.deepStrictEqual(shipCategoryIds(5), ['CA', 'CA_ALL'])
+assert.deepStrictEqual(shipCategoryIds(6), ['CAV', 'CA_ALL'])
 assert.deepStrictEqual(shipCategoryIds(7), ['CVL', 'CV_ALL'])
 assert.deepStrictEqual(shipCategoryIds(10), ['BBV', 'BB_ALL'])
+assert.deepStrictEqual(shipCategoryIds(11), ['CV', 'CV_ALL', 'CV_MAIN'])
+assert.deepStrictEqual(shipCategoryIds(18), [])
+assert.strictEqual(predicateLabel({ kind: 'count', category: 'CA_ALL', op: '>=', value: 1 }), 'CA系 >= 1')
 assert.strictEqual(predicateLabel({ kind: 'count', category: 'CV_ALL', op: '>=', value: 1 }), 'CV系 >= 1')
 assert.strictEqual(predicateLabel({ kind: 'count', category: ['BB_ALL', 'CV_ALL'], op: '>=', value: 2 }), 'BB系+CV系 >= 2')
 assert.strictEqual(predicateLabel({ kind: 'onlyCategories', categories: ['CL_ALL', 'DD'] }), '仅含 CL系、驱逐')
+
+const sevenFourMRule = normalCatalog.maps['7-4'].rules.find(rule => rule.id === '7-4-M-los-mid')
+assert.deepStrictEqual(normalizeOutcomes(sevenFourMRule.outcomes, sevenFourMRule), [
+  { to: 'N', probability: 0.5, estimated: true },
+])
 
 assert.strictEqual(evaluatePredicate({ kind: 'count', category: 'DD', op: '>=', value: 2 }, context(2, { DD: 2 })).status, 'true')
 assert.strictEqual(evaluatePredicate({ kind: 'count', category: 'DD', op: '>=', value: 2 }, context(1, { DD: 1 })).status, 'false')
@@ -340,6 +359,118 @@ assert.strictEqual(unknownMustNotFallThrough.decisions.A.status, 'unknown')
 assert.deepStrictEqual(unknownMustNotFallThrough.decisions.A.outcomes, [])
 assert.deepStrictEqual(unknownMustNotFallThrough.probability.edgeMass, {})
 
+const compositeRule = evaluateMap({
+  start: 'A',
+  rules: [
+    {
+      id: 'composite-first',
+      node: 'A',
+      predicate: { kind: 'always' },
+      outcomes: [{ to: 'B', probability: 0.7 }],
+      continueOnFailure: true,
+      confidence: 'verified',
+    },
+    {
+      id: 'composite-second',
+      node: 'A',
+      predicate: { kind: 'always' },
+      outcomes: [{ to: 'C', probability: 0.7 }],
+      continueOnFailure: true,
+      confidence: 'verified',
+    },
+    { id: 'composite-fallback', node: 'A', predicate: { kind: 'always' }, outcomes: [{ to: 'D', probability: 1 }] },
+  ],
+}, context(1), {})
+assertProbabilitiesClose(compositeRule.decisions.A.outcomes, [
+  { to: 'B', probability: 0.7 },
+  { to: 'C', probability: 0.21 },
+  { to: 'D', probability: 0.09 },
+])
+assert.deepStrictEqual(compositeRule.decisions.A.matchedRuleIds, [
+  'composite-first',
+  'composite-second',
+  'composite-fallback',
+])
+
+const fourThreeComposite = routeDecision(
+  normalCatalog.maps['4-3'],
+  'H',
+  context(6, { CV_ALL: 2, DD: 2 }),
+  {},
+)
+assertProbabilitiesClose(fourThreeComposite.outcomes, [
+  { to: 'N', probability: 0.91 },
+  { to: 'I', probability: 0.09 },
+])
+
+const twoThreeComposite = routeDecision(
+  normalCatalog.maps['2-3'],
+  'J',
+  context(6, { BB_ALL: 5, DD: 3 }, {
+    ships: Array.from({ length: 6 }, () => ({ categoryIds: ['DD'] })),
+  }),
+  {},
+)
+assertProbabilitiesClose(twoThreeComposite.outcomes, [
+  { to: 'L', probability: 0.8725 },
+  { to: 'N', probability: 0.1275 },
+])
+assert.ok(twoThreeComposite.outcomes.every(({ estimated }) => estimated !== true))
+
+const fiveTwoStartComposite = routeDecision(
+  normalCatalog.maps['5-2'],
+  '1',
+  context(6, { SS: 1 }),
+  {},
+)
+assertProbabilitiesClose(fiveTwoStartComposite.outcomes, [
+  { to: 'A', probability: 0.35 },
+  { to: 'B', probability: 0.65 },
+])
+assert.ok(fiveTwoStartComposite.outcomes.every(({ estimated }) => estimated !== true))
+
+const fourThreeHeavyComposite = routeDecision(
+  normalCatalog.maps['4-3'],
+  'F',
+  context(6, { BB_ALL: 2, CV_ALL: 1, DD: 2 }, { speedClass: 'high' }),
+  {},
+)
+assertProbabilitiesClose(fourThreeHeavyComposite.outcomes, [
+  { to: 'K', probability: 0.5 },
+  { to: 'H', probability: 0.5 },
+])
+assert.ok(fourThreeHeavyComposite.outcomes.every(({ estimated }) => estimated !== true))
+
+const fiveFiveOComposite = routeDecision(
+  normalCatalog.maps['5-5'],
+  'O',
+  context(6, { SS: 1 }, { enhancedSpeedClass: 'high', losScore: 70 }),
+  {},
+)
+assert.strictEqual(fiveFiveOComposite.outcomes.find(({ to }) => to === 'R').estimated, undefined)
+assert.ok(fiveFiveOComposite.outcomes.every(({ estimated }) => estimated !== true))
+
+const fiveFivePComposite = routeDecision(
+  normalCatalog.maps['5-5'],
+  'P',
+  context(6, { BB_ALL: 5, SS: 1 }, { enhancedSpeedClass: 'high', losScore: 90 }),
+  {},
+)
+assert.strictEqual(fiveFivePComposite.outcomes.find(({ to }) => to === 'Q').estimated, undefined)
+assert.ok(fiveFivePComposite.outcomes.every(({ estimated }) => estimated !== true))
+
+const twoFiveComposite = routeDecision(
+  catalog.maps['2-5'],
+  'J',
+  context(6, { SS: 1 }, { losScore: 45 }),
+  {},
+)
+assertProbabilitiesClose(twoFiveComposite.outcomes, [
+  { to: 'H', probability: 0.5, estimated: true },
+  { to: 'M', probability: 0.25, estimated: true },
+  { to: 'O', probability: 0.25, estimated: true },
+])
+
 const originalLoad = Module._load
 let expectedLosShips = 2
 Module._load = function load(request, parent, isMain) {
@@ -388,6 +519,19 @@ assert.strictEqual(plugin.__test.nodeVisualStyle({ simpleSize: 3, size: 2.5, fon
 assert.strictEqual(plugin.__test.nodeVisualStyle({ width: 4.5, height: 2 }).rx, 32.5)
 assert.strictEqual(plugin.__test.nodeVisualStyle({ width: 4.5, height: 2 }).ry, 32.5)
 assert.strictEqual(plugin.__test.nodeVisualStyle({}).fontSize, 16)
+assert.strictEqual(plugin.__test.visibleRuleLabel({ predicate: { kind: 'losRange', label: '33 式索敌 45～47：N 概率未知，失败后继续判定' } }), '33 式索敌 45～47')
+assert.strictEqual(plugin.__test.visibleRuleLabel({ predicate: { kind: 'los', label: '33 式索敌 ≥ 59（分歧系数 4；近似）' } }), '33 式索敌 ≥ 59')
+assert(plugin.__test.separateSourceLineRuleIds.has('7-4-M-heavy'))
+const sevenFourMRows = plugin.__test.ruleRows(normalCatalog.maps['7-4'], 'M', context(6, { BB: 1 }, { losScore: 46 }))
+const sevenFourMHeavyRows = sevenFourMRows.filter(({ rule }) => rule.sourceRuleId === '7-4-M-heavy')
+assert.strictEqual(sevenFourMHeavyRows.length, 4)
+assert(sevenFourMHeavyRows.every(({ rule }) => !plugin.__test.visibleRuleLabel(rule).includes(' 或 ')))
+const twoFiveHeavyRows = plugin.__test.ruleRows(catalog.maps['2-5'], 'C', context(6)).filter(({ rule }) => rule.sourceRuleId === '2-5-C-heavy')
+assert.strictEqual(twoFiveHeavyRows.length, 2)
+
+const sevenThreeA = normalCatalog.maps['7-3']
+assert.deepStrictEqual(routeDecision(sevenThreeA, 'A', context(6, { CV_ALL: 1 }), {}).outcomes, [{ to: 'B', probability: 1 }])
+assert.deepStrictEqual(routeDecision(sevenThreeA, 'A', context(6, { CA: 1, DD: 3 }, { flags: { phase1: false }, ships: Array.from({ length: 6 }, () => ({ name: '测试舰' })) }), {}).outcomes, [{ to: 'C', probability: 1 }])
 assert.strictEqual(require('./data/kcnav-node-types.json')['0'].fontSize, 22)
 assert.strictEqual(plugin.__test.nodeVisualStyle({ background: '#ff7979', border: '#ef1a1a' }).background, '#ff7979')
 for (const mapId of plugin.__test.mapIds) {
@@ -400,6 +544,7 @@ assert.deepStrictEqual(plugin.__test.kcnavNodeTypesFromMap({
   spots: { '1': [0, 0, 'Start'], A: [1, 1, null], B: [2, 2, null] },
   route: { 0: [null, '1', 0], 1: ['1', 'A', 4], 2: ['A', 'B', 5] },
 }), { '1': 0, A: 4, B: 5 })
+assert.deepStrictEqual(plugin.__test.routeEdges({ route: { 12: ['A', 'B'] } }), [{ cell: 12, from: 'A', to: 'B' }])
 assert.strictEqual(plugin.__test.localNodeTypesForMap('5-3', { start: '1', boss: 'Q' }).I, 11)
 assert.strictEqual(plugin.__test.localNodeTypesForMap('5-3', { start: '1', boss: 'Q', manualNodes: ['O'] }).O, 91)
 assert.strictEqual(plugin.__test.mapIds.length, 37)
@@ -437,6 +582,23 @@ assert.deepStrictEqual(plugin.__test.calculatePoiLos33({
 
 // Offline KCNav topology catches spurious fixed edges and missing continuations.
 const allMaps = { ...normalCatalog.maps, ...catalog.maps }
+const sequentialRuleIds = {
+  '2-5': ['2-5-J-los-middle'],
+  '4-2': ['4-2-G-dd1-heavy34', '4-2-G-dd1-heavy2', '4-2-G-dd1-light'],
+  '4-3': ['4-3-F-heavy3', '4-3-H-cv2', '4-3-H-dd2'],
+  '4-5': ['4-5-Q-los-mid'],
+  '5-2': ['5-2-start-ss12', '5-2-start-ss3', '5-2-start-ss4', '5-2-start-heavy5', '5-2-start-heavy6', '5-2-start-cv3', '5-2-start-bb4', '5-2-F-los-mid'],
+  '5-5': ['5-5-O-ss', '5-5-P-heavy5', '5-5-P-ss'],
+  '6-1': ['6-1-G-as-random'],
+  '7-4': ['7-4-J-los-mid', '7-4-M-los-mid'],
+  '7-5': ['7-5-P-los-mid'],
+}
+for (const [mapId, ids] of Object.entries(sequentialRuleIds)) {
+  for (const id of ids) {
+    const rule = allMaps[mapId].rules.find((candidate) => candidate.id === id)
+    assert.strictEqual(rule?.continueOnFailure, true, `${mapId} ${id}: source continuation must be explicit`)
+  }
+}
 const startTransfers = new Set(['6-4-start-right-lha', '6-4-start-right-heavy', '6-5-start-right'])
 for (const [mapId, definition] of Object.entries(allMaps)) {
   const snapshot = require(`./data/sources/kcnav/maps/${mapId}.json`).result
@@ -449,6 +611,15 @@ for (const [mapId, definition] of Object.entries(allMaps)) {
     assert.ok(definition.rules.some((rule) => rule.node === node), `${mapId} ${node} missing rules`)
   }
   for (const rule of definition.rules) {
+    const rawProbabilities = (rule.outcomes || [])
+      .map((outcome) => outcome?.probability)
+      .filter((probability) => probability != null)
+      .map(Number)
+    const hasMissingProbability = (rule.outcomes || []).some((outcome) => outcome?.probability == null)
+    const probabilityTotal = rawProbabilities.reduce((total, probability) => total + probability, 0)
+    if (rawProbabilities.length && (hasMissingProbability || probabilityTotal < 1 - 1e-9)) {
+      assert.strictEqual(rule.continueOnFailure, true, `${mapId} ${rule.id}: partial rule must continue on failure`)
+    }
     if (rule.terminal === true) {
       assert.ok(!sourceNodes.has(rule.node), `${mapId} ${rule.node} false terminal`)
       const terminal = evaluateMap({ ...definition, start: rule.node }, context(6))

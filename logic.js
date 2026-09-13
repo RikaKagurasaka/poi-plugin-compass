@@ -9,19 +9,20 @@ const SHIP_CATEGORIES = {
   CL_ALL: new Set([3, 4, 21]),
   CA: new Set([5]),
   CAV: new Set([6]),
+  CA_ALL: new Set([5, 6]),
   CVL: new Set([7]),
   BB: new Set([8, 9]),
   BBV: new Set([10]),
   BB_ALL: new Set([8, 9, 10]),
-  CV: new Set([11, 12, 18]),
-  CV_ALL: new Set([7, 11, 12, 18]),
+  CV: new Set([11, 12]),
+  CV_ALL: new Set([7, 11, 12]),
   SS: new Set([13, 14]),
   AO: new Set([15]),
   AV: new Set([16]),
   LHA: new Set([17]),
   AR: new Set([19]),
   AS: new Set([20]),
-  CV_MAIN: new Set([11, 12, 18]),
+  CV_MAIN: new Set([11, 12]),
 }
 
 const CATEGORY_LABELS = {
@@ -33,6 +34,7 @@ const CATEGORY_LABELS = {
   CL_ALL: 'CL系',
   CA: '重巡',
   CAV: '航巡',
+  CA_ALL: 'CA系',
   CVL: '轻空母',
   BB: '战舰（BB/FBB）',
   BBV: '航战',
@@ -45,7 +47,7 @@ const CATEGORY_LABELS = {
   LHA: '扬陆',
   AR: '工作舰',
   AS: '潜母',
-  CV_MAIN: '正规/装甲空母',
+  CV_MAIN: 'CV/CVB',
 }
 
 const EQUIPMENT_CATEGORY_LABELS = {
@@ -313,17 +315,152 @@ function normalizeOutcomes(outcomes, rule = null, options = {}) {
         : Number.isFinite(Number(outcome.probability)) ? Number(outcome.probability) : null,
     }))
 
+  if (!normalized.length) return []
+  const hasKnownProbability = normalized.some((outcome) => outcome.probability != null)
   const hasMissingProbability = normalized.some((outcome) => outcome.probability == null)
-  const equalize = options.equalizeUnknown !== false && (hasMissingProbability || rule?.confidence === 'unknown')
-  const estimated = equalize || rule?.confidence === 'approximate' && normalized.length > 1
-  return normalized.map((outcome) => {
+  const allUnknown = !hasKnownProbability
+  if (rule?.continueOnFailure === true) {
+    if (!hasKnownProbability) {
+      // A rule such as “within this LOS range, go to N; if the check fails,
+      // continue below” has two effective branches.  The source does not give
+      // a ratio, so expose the same temporary 50/50 estimate used by the
+      // route evaluator instead of showing an unhelpful “unknown” row.
+      const probability = 1 / (normalized.length + 1)
+      return normalized.map((outcome) => ({ to: outcome.to, probability, estimated: true }))
+    }
+    const estimated = rule.confidence === 'unknown' || rule.confidence === 'approximate'
+    return normalized
+      .filter((outcome) => outcome.probability != null)
+      .map((outcome) => ({
+        to: outcome.to,
+        probability: outcome.probability,
+        ...(estimated ? { estimated: true } : {}),
+      }))
+  }
+  if (allUnknown && options.equalizeUnknown === false) {
+    return normalized.map((outcome) => ({ to: outcome.to, probability: null }))
+  }
+  const equalize = options.equalizeUnknown !== false && (
+    allUnknown || !hasMissingProbability && rule?.confidence === 'unknown'
+  )
+  const estimated = equalize || hasMissingProbability || rule?.confidence === 'unknown'
+    || rule?.confidence === 'approximate' && normalized.length > 1
+  return normalized
+    .filter((outcome) => equalize || outcome.probability != null)
+    .map((outcome) => {
     const normalizedOutcome = {
       to: outcome.to,
       probability: equalize && normalized.length ? 1 / normalized.length : outcome.probability,
     }
     if (estimated) normalizedOutcome.estimated = true
     return normalizedOutcome
-  })
+    })
+}
+
+function ruleDistribution(rule) {
+  const raw = (Array.isArray(rule?.outcomes) ? rule.outcomes : [])
+    .filter((outcome) => outcome && typeof outcome.to === 'string')
+    .map((outcome) => ({
+      to: outcome.to,
+      probability: outcome.probability == null
+        ? null
+        : Number.isFinite(Number(outcome.probability)) ? Number(outcome.probability) : null,
+    }))
+  if (!raw.length) return { outcomes: [], residual: rule?.continueOnFailure === true ? 1 : 0 }
+
+  const known = raw.filter((outcome) => outcome.probability != null)
+  const knownTotal = known.reduce((total, outcome) => total + outcome.probability, 0)
+  const partial = rule?.continueOnFailure === true
+    || (known.length > 0 && knownTotal < 1 - 1e-9)
+    || (known.length > 0 && known.length < raw.length)
+
+  if (partial) {
+    if (known.length) {
+      return {
+        outcomes: normalizeOutcomes(raw, rule),
+        residual: Math.max(0, 1 - knownTotal),
+      }
+    }
+    const probability = 1 / (raw.length + 1)
+    return {
+      outcomes: raw.map((outcome) => ({ to: outcome.to, probability, estimated: true })),
+      residual: probability,
+    }
+  }
+
+  return { outcomes: normalizeOutcomes(raw, rule), residual: 0 }
+}
+
+function evaluateRouteRules(mapDefinition, node, context) {
+  const rules = rulesForNode(mapDefinition, node)
+  if (!rules.length) {
+    return { status: 'terminal', rule: null, predicate: null, matchedRuleIds: [], outcomes: [], unknownProbability: 0 }
+  }
+
+  const totals = new Map()
+  const matchedRuleIds = []
+  let residual = 1
+  let firstRule = null
+  let firstPredicate = null
+  let unresolvedPredicate = null
+  let terminal = false
+
+  function addOutcome(outcome, mass) {
+    if (!Number.isFinite(mass) || mass <= 0) return
+    const current = totals.get(outcome.to)
+    if (!current) {
+      totals.set(outcome.to, {
+        to: outcome.to,
+        probability: mass,
+        ...(outcome.estimated === true ? { estimated: true } : {}),
+      })
+      return
+    }
+    current.probability += mass
+    if (outcome.estimated === true) current.estimated = true
+  }
+
+  for (const rule of rules) {
+    if (residual <= 1e-9) break
+    const predicate = evaluatePredicate(rule.predicate, context)
+    if (predicate.status === 'false') continue
+    if (predicate.status === 'unknown') {
+      unresolvedPredicate = { rule, predicate }
+      break
+    }
+
+    if (!firstRule) {
+      firstRule = rule
+      firstPredicate = predicate
+    }
+    if (rule.id) matchedRuleIds.push(rule.id)
+    if (rule.terminal === true) {
+      residual = 0
+      terminal = true
+      break
+    }
+    const distribution = ruleDistribution(rule)
+    if (!distribution.outcomes.length) {
+      unresolvedPredicate = { rule, predicate }
+      break
+    }
+    distribution.outcomes.forEach((outcome) => addOutcome(outcome, residual * outcome.probability))
+    residual *= distribution.residual
+  }
+
+  const outcomes = [...totals.values()]
+  const unknownProbability = (unresolvedPredicate || residual > 1e-9) ? residual : 0
+  const status = unknownProbability > 1e-9
+    ? 'unknown'
+    : outcomes.length ? 'matched' : terminal ? 'terminal' : 'unknown'
+  return {
+    status,
+    rule: firstRule || unresolvedPredicate?.rule || null,
+    predicate: firstPredicate || unresolvedPredicate?.predicate || null,
+    matchedRuleIds,
+    outcomes,
+    unknownProbability,
+  }
 }
 
 function routeDecision(mapDefinition, node, context, overrides = {}) {
@@ -334,9 +471,17 @@ function routeDecision(mapDefinition, node, context, overrides = {}) {
   const manualOutcomes = Array.isArray(configuredManualOutcomes)
     ? normalizeOutcomes(configuredManualOutcomes, { confidence: 'unknown' }, { equalizeUnknown: false })
     : null
-  const autoOutcomes = selected.status === 'matched'
-    ? normalizeOutcomes(selected.rule?.outcomes, selected.rule)
-    : []
+  const automatic = manual
+    ? {
+      status: selected.status,
+      rule: selected.rule,
+      predicate: selected.predicate,
+      matchedRuleIds: selected.rule?.id ? [selected.rule.id] : [],
+      outcomes: selected.status === 'matched' ? normalizeOutcomes(selected.rule?.outcomes, selected.rule) : [],
+      unknownProbability: 0,
+    }
+    : evaluateRouteRules(mapDefinition, node, context)
+  const autoOutcomes = automatic.outcomes
   const phaseRuleMatched = manual && hasPhaseRules(mapDefinition, node) && selected.status === 'matched'
   const baseOutcomes = phaseRuleMatched
     ? autoOutcomes
@@ -349,9 +494,11 @@ function routeDecision(mapDefinition, node, context, overrides = {}) {
     : baseOutcomes
   return {
     node,
-    status: selected.status,
-    rule: selected.rule,
-    predicate: selected.predicate,
+    status: automatic.status,
+    rule: automatic.rule,
+    predicate: automatic.predicate,
+    matchedRuleIds: automatic.matchedRuleIds,
+    unknownProbability: automatic.unknownProbability,
     baseOutcomes,
     manualOutcomes,
     outcomes,
@@ -383,10 +530,12 @@ function propagateProbability(start, decisions) {
       return
     }
     const decision = decisions[node]
-    if (!decision || decision.status === 'unknown' || decision.status === 'terminal' && !decision.outcomes.length) {
+    if (!decision || decision.status === 'terminal' && !decision.outcomes.length
+      || decision.status === 'unknown' && !decision.outcomes.length) {
       if (decision?.status === 'unknown') unknownNodes.add(node)
       return
     }
+    if (decision.status === 'unknown' || Number(decision.unknownProbability) > 1e-9) unknownNodes.add(node)
     const nextPath = new Set(path)
     nextPath.add(node)
     decision.outcomes.forEach((outcome) => {

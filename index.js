@@ -404,6 +404,58 @@ function outcomeText(outcome) {
   return `${outcome.to} ${formatPercent(outcome.probability, outcome.estimated)}`
 }
 
+// These predicates came from separate list items in the cached KCWiki route
+// tables.  Keep the evaluator's compact OR semantics for compatibility, but
+// render each source line separately so the UI does not invent one combined
+// rule where the source did not have one.
+const SEPARATE_SOURCE_LINE_RULE_IDS = new Set([
+  '2-5-C-heavy',
+  '1-5-F-heavy',
+  '1-6-start-heavy', '1-6-M-heavy',
+  '2-3-D-special',
+  '4-2-C-light-l',
+  '6-1-start-heavy3',
+  '6-2-C-a', '6-2-D-f', '6-2-E-f',
+  '6-4-start-right-lha', '6-4-A-noakitsu-heavy', '6-4-E-special', '6-4-E-g', '6-4-J-l', '6-4-J-i', '6-4-K-h',
+  '6-5-start-left', '6-5-C-e', '6-5-E-i', '6-5-I-h',
+  '7-1-B-a', '7-1-H-k',
+  '7-2-C-d', '7-2-E-g', '7-2-I-j',
+  '7-3-C-heavy', '7-3-G-special', '7-3-I-heavy', '7-3-J-m', '7-3-J-p', '7-3-M-n', '7-3-M-o',
+  '7-4-start-c', '7-4-start-a', '7-4-C-d', '7-4-J-k', '7-4-J-l', '7-4-M-heavy',
+  '7-5-B-c', '7-5-D-e', '7-5-D-fast', '7-5-J-N', '7-5-J-O-heavy', '7-5-P-r',
+])
+
+function visibleRuleLabel(rule) {
+  const label = predicateLabel(rule?.predicate)
+  return label
+    .replace(/（[^）]*(?:近似|约|原文|比例未知|分歧系数)[^）]*）/g, '')
+    .replace(/\([^)]*(?:approx|about|original|unknown|coefficient)[^)]*\)/gi, '')
+    .replace(/，?\s*失败后继续判定/g, '')
+    .replace(/：\s*[^，；：]+概率(?:未知|随索敌变化)/g, '')
+    .replace(/；\s*(?:近似|约)/g, '')
+    .replace(/（原文(?:标记\s*\?|比例未知)[^）]*）/g, '')
+    .replace(/（约）/g, '')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/：\s*$/g, '')
+    .trim()
+}
+
+function rulePopoverNotes(rule, rawLabel, visibleLabel) {
+  const notes = []
+  if (rawLabel !== visibleLabel) notes.push(`原文补充：${rawLabel}`)
+  if (rule?.continueOnFailure === true) notes.push('本条判定失败后继续检查后续规则')
+  if (rule?.confidence === 'approximate') notes.push('该条件或概率来自近似资料')
+  if (rule?.confidence === 'unknown' || rule?.outcomes?.some((outcome) => outcome?.probability == null)) {
+    notes.push('来源没有给出明确概率；当前按均等概率暂估')
+  }
+  return notes
+}
+
+function displayPredicatesForRule(rule) {
+  if (!SEPARATE_SOURCE_LINE_RULE_IDS.has(rule?.id) || rule?.predicate?.kind !== 'any') return [rule?.predicate]
+  return rule.predicate.predicates?.length ? rule.predicate.predicates : [rule.predicate]
+}
+
 function conditionIcon(status, active) {
   if (active) return '✓'
   if (status === 'true') return '•'
@@ -423,11 +475,16 @@ function ruleRows(mapDefinition, node, context) {
   return (mapDefinition.rules || [])
     .filter((rule) => rule.node === node)
     .sort((left, right) => number(left.priority) - number(right.priority))
-    .map((rule) => ({
-      rule,
-      result: evaluatePredicate(rule.predicate, context),
-      outcomes: normalizeOutcomes(rule.outcomes, rule),
-    }))
+    .reduce((rows, rule) => {
+      displayPredicatesForRule(rule).forEach((predicate, index) => {
+        rows.push({
+          rule: { ...rule, id: `${rule.id}::${index}`, predicate, sourceRuleId: rule.id },
+          result: evaluatePredicate(predicate, context),
+          outcomes: normalizeOutcomes(rule.outcomes, rule),
+        })
+      })
+      return rows
+    }, [])
 }
 
 function fleetSummary(context) {
@@ -496,6 +553,7 @@ class Compass extends React.Component {
         : mapIds[0],
       phaseId: phaseOptionsForMap(mapIds[0])[0]?.id || null,
       selectedNode: pluginState.currentNode || null,
+      selectedEdge: null,
       overrides: {},
       exportOpen: false,
       exportRoute: null,
@@ -535,6 +593,7 @@ class Compass extends React.Component {
       mapId,
       phaseId: phaseOptionsForMap(mapId)[0]?.id || null,
       selectedNode: null,
+      selectedEdge: null,
       overrides: {},
       exportRoute: null,
       exportEnemies: {},
@@ -582,15 +641,15 @@ class Compass extends React.Component {
   }
 
   selectPhase(phaseId) {
-    this.setState({ phaseId, selectedNode: null, overrides: {}, exportRoute: null, exportEnemies: {}, exportFormations: {}, exportError: null })
+    this.setState({ phaseId, selectedNode: null, selectedEdge: null, overrides: {}, exportRoute: null, exportEnemies: {}, exportFormations: {}, exportError: null })
   }
 
   selectNode(node) {
-    this.setState({ selectedNode: node })
+    this.setState({ selectedNode: node, selectedEdge: null })
   }
 
   selectFleet(deckId) {
-    this.setState({ deckId, selectedNode: null, overrides: {}, exportRoute: null, exportEnemies: {}, exportFormations: {}, exportError: null })
+    this.setState({ deckId, selectedNode: null, selectedEdge: null, overrides: {}, exportRoute: null, exportEnemies: {}, exportFormations: {}, exportError: null })
   }
 
   renderLosIcons(scores) {
@@ -611,13 +670,18 @@ class Compass extends React.Component {
       `制空 ${air.min === air.max ? air.min : `${air.min}～${air.max}`}`)
   }
 
-  setManualOverride(node, to) {
+  setManualOverride(node, to, edgeId = null, selectedNode = node) {
     this.setState((state) => ({
       overrides: { ...state.overrides, [node]: to },
-      selectedNode: node,
+      selectedNode,
+      selectedEdge: edgeId,
       exportRoute: null,
       exportError: null,
     }))
+  }
+
+  selectEdge(edgeId) {
+    this.setState({ selectedEdge: edgeId })
   }
 
   renderMap(mapDefinition, geometry, evaluation, selectedNode, currentNode, passedNodes = [], mapId = null) {
@@ -658,6 +722,7 @@ class Compass extends React.Component {
           || []
         const manualChoice = evaluation.decisions[edge.from]?.manual
           && manualOutcomes.some((outcome) => outcome.to === edge.to)
+        const selected = this.state.selectedEdge === edge.cell
         const edgeClassNames = [
           'compass-edge',
           probability.global != null ? 'is-reachable' : '',
@@ -665,21 +730,33 @@ class Compass extends React.Component {
           probabilityTier(probability.global),
           passedEdges.has(`${edge.from}->${edge.to}`) ? 'is-passed' : '',
           manualChoice ? 'is-manual-choice' : '',
+          selected ? 'is-selected' : '',
         ].filter(Boolean).join(' ')
         const activateEdge = (event) => {
           if (event.key === 'Enter' || event.key === ' ') {
             event.preventDefault()
-            this.setManualOverride(edge.from, edge.to)
+            if (manualChoice) this.setManualOverride(edge.from, edge.to, edge.cell)
+            else this.selectEdge(edge.cell)
           }
         }
         return h('g', {
           key: `edge-${edge.cell}`,
           className: edgeClassNames,
-          role: manualChoice ? 'button' : undefined,
-          tabIndex: manualChoice ? 0 : undefined,
-          onClick: manualChoice ? () => this.setManualOverride(edge.from, edge.to) : undefined,
-          onKeyDown: manualChoice ? activateEdge : undefined,
+          role: 'button',
+          tabIndex: 0,
+          'aria-label': `边 ID ${edge.cell}：${edge.from}→${edge.to}`,
+          onClick: () => manualChoice
+            ? this.setManualOverride(edge.from, edge.to, edge.cell)
+            : this.selectEdge(edge.cell),
+          onKeyDown: activateEdge,
         },
+          h('title', null, [
+            `边 ID ${edge.cell}：${edge.from} → ${edge.to}`,
+            manualChoice ? '点击选择方向' : null,
+            probability.global != null && Number(probability.global) > 0
+              ? `局部 ${formatPercent(probability.local, probability.estimated)}`
+              : null,
+          ].filter(Boolean).join(' · ')),
           h('line', {
             x1: from.x,
             y1: from.y,
@@ -694,10 +771,12 @@ class Compass extends React.Component {
               className: 'compass-edge-label',
             }, formatPercent(probability.global, probability.estimated))
             : null,
-          probability.global != null && Number(probability.global) > 0
-            ? h('title', null, manualChoice
-              ? `能动分歧：选择 ${edge.to}`
-              : `局部 ${formatPercent(probability.local, probability.estimated)}`)
+          selected
+            ? h('text', {
+              x: (from.x + to.x) / 2,
+              y: (from.y + to.y) / 2 - 18,
+              className: 'compass-edge-id-label',
+            }, `ID ${edge.cell}`)
             : null,
         )
       }),
@@ -725,7 +804,7 @@ class Compass extends React.Component {
         const activateNode = (event) => {
           if (event.key !== 'Enter' && event.key !== ' ') return
           event.preventDefault()
-          if (manualTarget) this.setManualOverride(manualSource, node)
+          if (manualTarget) this.setManualOverride(manualSource, node, null, node)
           else this.selectNode(node)
         }
         return h('g', {
@@ -733,7 +812,7 @@ class Compass extends React.Component {
           className: classNames,
           role: 'button',
           tabIndex: 0,
-          onClick: () => manualTarget ? this.setManualOverride(manualSource, node) : this.selectNode(node),
+          onClick: () => manualTarget ? this.setManualOverride(manualSource, node, null, node) : this.selectNode(node),
           onKeyDown: activateNode,
         },
         h('title', null, nodeInfo?.label ? `${node} · ${nodeInfo.label}` : node),
@@ -938,22 +1017,31 @@ class Compass extends React.Component {
       h('h4', null, `${node} 点`),
       rows.length
         ? h('div', { className: 'compass-conditions' }, ...rows.map(({ rule, result, outcomes: ruleOutcomes }) => {
-          const active = decision?.rule?.id === rule.id
-          const displayedOutcomes = active ? decision.outcomes : ruleOutcomes
+          const sourceRuleId = rule.sourceRuleId || rule.id
+          const sourceWasMatched = decision?.matchedRuleIds?.includes(sourceRuleId) || decision?.rule?.id === sourceRuleId
+          const splitSourceRule = SEPARATE_SOURCE_LINE_RULE_IDS.has(sourceRuleId)
+          const active = splitSourceRule ? sourceWasMatched && result.status === 'true' : sourceWasMatched
+          const displayedOutcomes = active && (decision?.matchedRuleIds?.length || 0) <= 1
+            ? decision.outcomes
+            : ruleOutcomes
           const outcomes = displayedOutcomes.length ? displayedOutcomes.map(outcomeText).join(' / ') : '—'
+          const rawLabel = predicateLabel(rule.predicate)
+          const label = visibleRuleLabel(rule)
+          const notes = rulePopoverNotes(rule, rawLabel, label)
           return h('div', {
           key: rule.id,
           className: `compass-condition is-${result.status}${active ? ' is-active' : ''}`,
           tabIndex: 0,
-          'aria-label': `${conditionStatus(result.status)}：${predicateLabel(rule.predicate)}`,
+          'aria-label': `${conditionStatus(result.status)}：${label}`,
         },
           h('span', { className: 'compass-condition-icon', 'aria-hidden': 'true' }, conditionIcon(result.status, active)),
-          h('span', { className: 'compass-condition-label' }, predicateLabel(rule.predicate)),
+          h('span', { className: 'compass-condition-label' }, label),
           h('span', { className: 'compass-condition-outcomes' }, outcomes),
           h('div', { className: 'compass-condition-popover', role: 'tooltip' },
             h('div', null, `${conditionStatus(result.status)}${active ? ' · 当前出口规则' : ''}`),
+            h('div', null, `条件：${rawLabel}`),
             h('div', null, `出口：${outcomes}`),
-            rule.confidence === 'approximate' ? h('div', null, '概率为资料中的近似值') : null,
+            ...notes.map((note, index) => h('div', { key: `${rule.id}-note-${index}`, className: 'compass-condition-note' }, note)),
           ),
         )
         }))
@@ -1078,4 +1166,7 @@ exports.__test = {
   phaseOptionsForMap,
   pluginState,
   routeEdges,
+  ruleRows,
+  visibleRuleLabel,
+  separateSourceLineRuleIds: SEPARATE_SOURCE_LINE_RULE_IDS,
 }

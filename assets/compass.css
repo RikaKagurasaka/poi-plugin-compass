@@ -220,6 +220,7 @@
 
 .compass-edge {
   outline: none;
+  cursor: pointer;
 }
 
 .compass-edge line {
@@ -275,10 +276,25 @@
   cursor: pointer;
 }
 
+.compass-edge.is-selected line,
+.compass-edge:hover line,
+.compass-edge:focus line,
 .compass-edge.is-manual-choice:hover line,
 .compass-edge.is-manual-choice:focus line {
   stroke: #f4d476;
   stroke-width: 8;
+}
+
+.compass-edge-id-label {
+  fill: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: #151a22;
+  stroke-width: 4px;
+  stroke-linejoin: round;
+  pointer-events: none;
 }
 
 .compass-edge-label {
@@ -485,7 +501,10 @@
 }
 
 .compass-condition:hover,
-.compass-condition:focus {
+.compass-condition:focus,
+.compass-condition:focus-within {
+  position: relative;
+  z-index: 20;
   background: #3a4655;
 }
 
@@ -530,7 +549,9 @@
   top: calc(100% + 4px);
   right: 0;
   display: none;
-  width: 260px;
+  width: min(480px, calc(100vw - 48px));
+  max-height: min(60vh, 420px);
+  box-sizing: border-box;
   padding: 8px 9px;
   border: 1px solid #8392a5;
   border-radius: 3px;
@@ -538,11 +559,21 @@
   background: #252c36;
   box-shadow: 0 5px 18px rgba(0, 0, 0, 0.35);
   line-height: 1.5;
+  overflow: auto;
+  overscroll-behavior: contain;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  pointer-events: auto;
 }
 
 .compass-condition:hover .compass-condition-popover,
 .compass-condition:focus .compass-condition-popover {
   display: block;
+}
+
+.compass-condition-note {
+  color: #c9d8e7;
 }
 
 .compass-manual {

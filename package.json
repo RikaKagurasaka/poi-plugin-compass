@@ -1,6 +1,6 @@
 {
   "name": "poi-plugin-compass",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "通常海域舰队罗盘",
   "main": "index.js",
   "repository": {
@@ -52,7 +52,7 @@
     "icon": "fa/compass",
     "priority": 20,
     "apiVer": {
-      "11.99.99": "0.1.1"
+      "11.99.99": "0.1.3"
     }
   },
   "peerDependencies": {

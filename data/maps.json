@@ -283,7 +283,7 @@
           "id": "2-5-E-cv-ca",
           "node": "E",
           "priority": 30,
-          "predicate": { "kind": "count", "category": ["CV_MAIN", "CA", "CAV"], "op": ">=", "value": 2, "label": "空母/重巡系 ≥ 2" },
+          "predicate": { "kind": "count", "category": ["CV_MAIN", "CA_ALL"], "op": ">=", "value": 2, "label": "空母/重巡系 ≥ 2" },
           "outcomes": [{ "to": "G", "probability": 1 }],
           "confidence": "verified"
         },
@@ -481,11 +481,8 @@
           "node": "J",
           "priority": 20,
           "predicate": { "kind": "losRange", "min": 42, "max": 49, "label": "33 式索敌 42～49：H 概率随索敌升高而下降" },
-          "outcomes": [
-            { "to": "H", "probability": null },
-            { "to": "M", "probability": null },
-            { "to": "O", "probability": null }
-          ],
+          "outcomes": [{ "to": "H", "probability": null }],
+          "continueOnFailure": true,
           "confidence": "unknown"
         },
         {
@@ -494,9 +491,8 @@
           "priority": 30,
           "predicate": {
             "kind": "all",
-            "label": "33 式索敌 ≥ 49 且 潜水系 ≥ 1",
+            "label": "去 H 判定失败或 33 式索敌 ≥ 49，且潜水系 ≥ 1",
             "predicates": [
-              { "kind": "los", "op": ">=", "value": 49 },
               { "kind": "count", "category": "SS", "op": ">=", "value": 1 }
             ]
           },
@@ -512,9 +508,8 @@
           "priority": 40,
           "predicate": {
             "kind": "all",
-            "label": "33 式索敌 ≥ 49 且 海防 ≥ 3",
+            "label": "去 H 判定失败或 33 式索敌 ≥ 49，且海防 ≥ 3",
             "predicates": [
-              { "kind": "los", "op": ">=", "value": 49 },
               { "kind": "count", "category": "DE", "op": ">=", "value": 3 }
             ]
           },
@@ -527,9 +522,8 @@
           "priority": 50,
           "predicate": {
             "kind": "all",
-            "label": "33 式索敌 ≥ 49 且 战舰系 ≤ 3",
+            "label": "去 H 判定失败或 33 式索敌 ≥ 49，且战舰系 ≤ 3",
             "predicates": [
-              { "kind": "los", "op": ">=", "value": 49 },
               { "kind": "count", "category": "BB_ALL", "op": "<=", "value": 3 }
             ]
           },
@@ -540,7 +534,7 @@
           "id": "2-5-J-los-high-random",
           "node": "J",
           "priority": 999,
-          "predicate": { "kind": "always", "label": "33 式索敌 ≥ 49 的其余编成：随机 M/O" },
+          "predicate": { "kind": "always", "label": "去 H 判定失败或 33 式索敌 ≥ 49 的其余编成：随机 M/O" },
           "outcomes": [
             { "to": "M", "probability": null },
             { "to": "O", "probability": null }

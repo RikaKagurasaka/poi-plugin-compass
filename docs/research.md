@@ -131,7 +131,7 @@ const label = maps?.[mapKey]?.route?.[Number(cell)]?.[1]
 
 无法确定“约 80%”是否为长期规则、样本估计还是攻略近似时，应使用 `approximate` 或 `unknown`，并把原文保留到审阅队列。
 
-本轮已将通常海域 36 张 `/{带路条件}` 子页以及 5-6 主页面的原始 wikitext 缓存到 `data/sources/kcwiki/routes/`，并在 `manifest.json` 中记录 revision ID、修订时间和 SHA-256。规则校正以这批缓存为审阅入口：`CV系`/`CV*` 归入 `CV_ALL`，明确的 `CV+CVB` 归入 `CV_MAIN`；`CL系`、`CL+CT`、`BB系` 和单独 `BB` 也分别使用不同令牌，避免把 CVL、CT 或 BBV 静默漏掉或误计入。
+本轮已将通常海域 36 张 `/{带路条件}` 子页以及 5-6 主页面的原始 wikitext 缓存到 `data/sources/kcwiki/routes/`，并在 `manifest.json` 中记录 revision ID、修订时间和 SHA-256。规则校正以这批缓存为审阅入口：`CA系`/`CA+CAV` 归入 `CA_ALL`，`CV系`/`CV*` 归入 `CV_ALL`，明确的 `CV+CVB` 归入 `CV_MAIN`；`CL系`、`CL+CT`、`BB系` 和单独 `BB` 也分别使用不同令牌。`CV_ALL` 是 CV+CVB+CVL，`CV_MAIN` 只含 CV+CVB；`CL_ALL` 是 CL+CLT+CT；`BB_ALL` 是 BB+FBB+BBV，而单独 `BB` 只含 BB+FBB，避免把 CVL、CT、BBV 或 CAV 静默漏掉或误计入。
 
 ### 4.2 日文 Wiki
 
@@ -247,6 +247,8 @@ interface RouteRule {
     to: NodeLabel
     probability: number | 'unknown'
   }>
+  // 原文明确表示本次概率判定失败后继续检查后续规则
+  continueOnFailure?: boolean
   appliesWhen?: { difficulty?: string; gauge?: number; phase?: number }
   sourceRefs: SourceRef[]
   confidence: 'exact' | 'verified' | 'parsed' | 'approximate' | 'unknown'
@@ -287,11 +289,11 @@ interface EnemyComposition {
 
 1. 按 `priority` 排序；
 2. 依次求值规则的 predicate；
-3. 取第一个确定匹配的规则；
-4. 若匹配规则产生多个出口，使用其明确权重；
-5. 若没有规则或规则含未知状态，返回 `unknown` 并附上原因。
+3. 对命中的规则按其出口概率消费当前剩余概率质量；
+4. 若规则标记 `continueOnFailure`，或已知出口概率之和小于 1，则只消费已知命中概率，把失败的剩余质量交给同节点后续规则；
+5. 没有后续规则时，才将明确的未知随机出口均分并标记估算；predicate 本身无法判断时返回 `unknown`，不越过该条件猜测后续规则。
 
-这里的“第一个”不是实现者猜测的优先级，而必须来自页面表格顺序或人工标注的 `priority`。
+因此页面中的“第一条规则”只是在没有续判语义时消耗全部质量；`4-3 H`、`2-3 J`、`4-5 Q` 等节点会把多个命中规则组合成复合概率，而不是把前一条的失败质量强行并入另一个出口。
 
 ### 6.2 概率质量传播
 

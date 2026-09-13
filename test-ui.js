@@ -35,6 +35,13 @@ try {
   const geometry = require('../../assets/data/fcd/map.json').data['1-1']
   const evaluation = require('./logic').evaluateMap(definition, { shipCount: 1, complete: true })
   const mapElement = realMap.call(view, definition, geometry, evaluation, 'A', null, [], '1-1')
+  const edge = React.Children.toArray(mapElement.props.children).find(child => child?.props?.className?.includes('compass-edge'))
+  assert(edge)
+  assert.strictEqual(edge.props['aria-label'], '边 ID 1：1→A')
+  assert(renderToStaticMarkup(edge).includes('边 ID 1：1 → A'))
+  edge.props.onClick()
+  assert.strictEqual(view.state.selectedEdge, 1)
+  assert(renderToStaticMarkup(view.renderMap(definition, geometry, evaluation, 'A', null, [], '1-1')).includes('ID 1'))
   mapElement.props.onClick({ target: { closest: () => ({}) } })
   assert.strictEqual(view.state.selectedNode, 'A')
   mapElement.props.onClick({ target: { closest: () => null } })
